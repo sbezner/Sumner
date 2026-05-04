@@ -177,6 +177,38 @@ window.toggleNav = function () {
 /* ---------- Print helper ---------- */
 window.printPage = function () { window.print(); };
 
+/* ---------- ⌘K / Ctrl-K focus the global search ---------- */
+(function () {
+  document.addEventListener('keydown', e => {
+    const isCmdK = (e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K');
+    if (!isCmdK) return;
+    const input = document.getElementById('site-search');
+    if (!input) return;
+    e.preventDefault();
+    input.focus();
+    input.select();
+  });
+
+  /* Inject a tiny ⌘K hint inside the search box (rendered only on
+     desktop via CSS). Done once on DOMContentLoaded so we don't fight
+     the search-results positioning. */
+  function addHint() {
+    const box = document.querySelector('.global-search');
+    if (!box || box.querySelector('.kbd-hint')) return;
+    const isMac = /Mac|iPhone|iPad/.test(navigator.platform || '');
+    const hint = document.createElement('span');
+    hint.className = 'kbd-hint cmdk-pulse';
+    hint.textContent = isMac ? '⌘K' : 'Ctrl+K';
+    hint.setAttribute('aria-hidden', 'true');
+    box.appendChild(hint);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', addHint);
+  } else {
+    addHint();
+  }
+})();
+
 /* ---------- Global search index ----------
    A flat list of pages + key sections + key procedures + parts.
    The parts catalog page also injects PARTS into this index.

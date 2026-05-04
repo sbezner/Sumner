@@ -23,20 +23,22 @@
       <label for="lift-ctx" class="label">Set lift:</label>
       <select id="lift-ctx" aria-label="Select your lift model">
         <option value="">— select model —</option>
-        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
-        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
-        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
-        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
-        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
-        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
-        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2010">Series 2010 — 1,000 lb / 11&prime;7&Prime;</option>
+        <option value="2015">Series 2015 — 800 lb / 16&prime;2&Prime;</option>
+        <option value="2020">Series 2020 — 800 lb / 20&prime;9&Prime;</option>
+        <option value="2025">Series 2025 — 650 lb / 25&prime;5&Prime;</option>
+        <option value="2112">Series 2112 — 650 lb / 12&prime;11&Prime;</option>
+        <option value="2118">Series 2118 — 650 lb / 18&prime;4&Prime;</option>
+        <option value="2124">Series 2124 — 650 lb / 23&prime;9&Prime;</option>
         <option value="2300">Series 2300 — 150 lb (drywall)</option>
-        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
-        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
-        <option value="Eventer 20">Eventer 20 — 500 lb</option>
-        <option value="Eventer 25">Eventer 25 — 800 lb</option>
-        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
-        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+        <option value="2412">Series 2412 — 400 lb / 12&prime;11&Prime;</option>
+        <option value="2416">Series 2416 — 450 lb / 16&prime;11&Prime;</option>
+        <option value="Eventer 16">Eventer 16 — 500 lb / 16&prime;11&Prime;</option>
+        <option value="Eventer 20">Eventer 20 — 800 lb / 20&prime;</option>
+        <option value="Eventer 25">Eventer 25 — 650 lb / 25&prime;</option>
+        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (fits std. door)</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15&prime;</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25&prime;</option>
       </select>
     </div>
   </div>
@@ -106,13 +108,18 @@
 
     <div class="grid grid--2 mt-4">
       <div>
-        <p>A Sumner lift cable is <strong>aircraft cable</strong> &mdash; galvanized steel wire rope, typically 1×7 or 7×19 construction at 1/8&nbsp;in or 5/32&nbsp;in diameter. Three terms are essential before you can inspect it correctly:</p>
+        <p>A Sumner lift cable is <strong>aircraft cable</strong> &mdash; galvanized steel wire rope. Sumner specifies the cable by diameter:</p>
+        <ul style="font-size: 1rem; line-height: 1.8;">
+          <li><strong>1/8&Prime; (3.2 mm)</strong> &mdash; on Series 2300 drywall lifts and on lifts equipped with the legacy GH-5T winch (Sumner replacement PN 774206).</li>
+          <li><strong>7/32&Prime; (5.5 mm)</strong> &mdash; on the Series 2118 and on Series 2000 lifts equipped with the current MX winch.</li>
+        </ul>
+        <p>Industry-standard construction for this diameter range is 7×19 (seven strands of nineteen wires each), though Sumner's customer-facing copy does not specify the construction. Three inspection terms are essential:</p>
         <ul style="font-size: 1rem; line-height: 1.8;">
           <li><strong>Wire</strong> &mdash; an individual filament of steel.</li>
           <li><strong>Strand</strong> &mdash; multiple wires twisted together (a 7×19 cable has 7 strands).</li>
-          <li><strong>Lay</strong> &mdash; the axial distance over which one strand makes one complete revolution around the cable. Most B30 inspection criteria are expressed "per lay" or "per N lay-lengths."</li>
+          <li><strong>Lay</strong> &mdash; the axial distance over which one strand makes one complete revolution around the cable. Most B30 inspection criteria are expressed &ldquo;per lay&rdquo; or &ldquo;per N lay-lengths.&rdquo;</li>
         </ul>
-        <p>For a typical 1/8&nbsp;in 7×19 aircraft cable, one lay is roughly <strong>0.9 to 1.1 inches</strong>. Mark a reference length on a ruler before you inspect.</p>
+        <p>By the wire-rope industry rule of thumb (lay length &asymp; 7&times; rope diameter for 7×19), one lay on a 1/8&Prime; cable is roughly <strong>0.875 in</strong>; on a 7/32&Prime; cable, roughly <strong>1.5 in</strong>. Mark a reference length on a ruler before you inspect.</p>
       </div>
       <div class="schematic" data-fig="C-01" style="aspect-ratio: 1/.7;">
         <svg viewBox="0 0 400 280" width="100%" height="100%">
@@ -238,7 +245,7 @@
         <div class="body">
           <h4>Diameter reduction</h4>
           <p>Cable measures smaller than nominal at a localized spot. Caused by core failure, internal corrosion, or crushing. Use calipers, not your fingers &mdash; you can&apos;t feel a 5% change.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> &gt;5% reduction from nominal diameter at any point = remove. For 1/8&nbsp;in cable, that&apos;s a measurement of 0.119&nbsp;in or less.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> &gt;5% reduction from nominal diameter at any point = remove. For 1/8&Prime; cable, that's a measurement of 0.119&Prime; or less. For 7/32&Prime; cable (Sumner MX-equipped lifts), 0.208&Prime; or less.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
@@ -370,7 +377,7 @@
       </li>
       <li>
         <h4>Measure with calipers if anything looks suspicious</h4>
-        <p>Spot check three points along the cable. For 1/8&nbsp;in nominal: 0.125&nbsp;in is healthy, 0.119&nbsp;in (−5%) is the threshold for removal. For 5/32&nbsp;in nominal: 0.156&nbsp;in healthy, 0.148&nbsp;in is the threshold.</p>
+        <p>Spot check three points along the cable. <strong>For 1/8&Prime; nominal:</strong> 0.125&Prime; is healthy, 0.119&Prime; (&minus;5%) is the threshold for removal. <strong>For 7/32&Prime; nominal:</strong> 0.219&Prime; is healthy, 0.208&Prime; is the threshold (the 7/32&Prime; cable is what most current Sumner contractor lifts use).</p>
       </li>
       <li>
         <h4>Inspect the cable terminations</h4>
@@ -378,7 +385,7 @@
       </li>
       <li>
         <h4>Verify minimum drum wraps at full extension</h4>
-        <p>Sumner specifies a minimum of <strong>four wraps</strong> remain on the winch drum when the carriage is at full lift height.</p>
+        <p>Verify the minimum cable wraps remain on the winch drum at full lift height. Sumner's operator's manuals specify <strong>per-series</strong>: 4 wraps for the Series 2100, 3 wraps for the Series 2400. Confirm against the operator's manual matched to your lift's serial range.</p>
       </li>
       <li>
         <h4>Document and decide</h4>
@@ -449,7 +456,7 @@
 
     <div class="callout callout--info mt-4">
       <strong>"One lay" defined</strong>
-      A rope lay is the axial length over which one strand makes one complete revolution around the cable. For 1/8&nbsp;in 7×19 aircraft cable used on most Sumner lifts, this is approximately <strong>0.9 to 1.1&nbsp;in</strong>. Mark a 1&nbsp;in window on a ruler or index card and slide it along the cable as you count broken wires.
+      A rope lay is the axial length over which one strand makes one complete revolution around the cable. By the wire-rope industry rule of thumb (lay length &asymp; 7&times; rope diameter), one lay is roughly <strong>0.875 in</strong> on 1/8&Prime; cable (Series 2300, GH-5T-equipped lifts) or <strong>1.5 in</strong> on 7/32&Prime; cable (MX-equipped 2118 and Series 2000). Mark a window on a ruler or index card and slide it along the cable as you count broken wires.
     </div>
   </div>
 </section>

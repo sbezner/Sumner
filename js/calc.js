@@ -2,14 +2,14 @@
 (function () {
   const $ = id => document.getElementById(id);
 
-  // Series rated capacities (lb)
+  // Series rated capacities (lb) — verified against Sumner spec sheets / SKU listings
   const RATED = {
-    "2010": 650, "2015": 650, "2020": 800, "2025": 1000,
-    "2112": 650, "2118": 650, "2124": 650,
+    "2010": 1000, "2015": 800, "2020": 800, "2025": 650,
+    "2112": 650,  "2118": 650, "2124": 650,
     "2300": 150,
-    "2412": 450, "2416": 450,
-    "Eventer 20": 500, "Eventer 25": 800,
-    "R-150": 1500, "R-250": 1500
+    "2412": 400,  "2416": 450,
+    "Eventer 16": 500, "Eventer 20": 800, "Eventer 25": 650,
+    "R-100": 1500, "R-150": 1500, "R-250": 1500
   };
 
   function update() {

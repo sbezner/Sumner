@@ -30,13 +30,13 @@ const TREE = {
   winch_internal: {
     terminal: true,
     title: "Likely cause: internal winch failure",
-    body: "If the handle turns and the cable is on the drum but nothing moves, the worm gear or drive shaft inside the winch has failed. Sumner intends the MX winch to be replaced as an assembly — see Procedure 02 for diagnostic steps, then swap the unit (PN MX-WINCH-A).",
+    body: "If the handle turns and the cable is on the drum but nothing moves, the worm gear or drive shaft inside the winch has failed. The current-production MX winch (PN 783590) is intended to be replaced as a sealed assembly; legacy GH-5T units (PN 785912) may be field-rebuildable. See Procedure 06 for the swap.",
     link: { href: "repairs.html", text: "Open Procedure 02 →" }
   },
   cable_off_drum: {
     terminal: true,
     title: "Cable has come off the drum",
-    body: "Sumner specifies a minimum of four wraps on the drum at full carriage extension. If you're below this and the cable has come free, do not return the lift to service. Re-spool the cable per Procedure 01 step 7, and inspect for damage to the cable terminus on the drum.",
+    body: "Sumner specifies a per-series minimum number of cable wraps on the drum at full carriage extension — 4 for Series 2100, 3 for Series 2400; confirm against the operator's manual for your model. If you're below the spec'd minimum and the cable has come free, do not return the lift to service. Re-spool the cable per Procedure 01 step 7, and inspect for damage to the cable terminus on the drum.",
     link: { href: "repairs.html", text: "Open Procedure 01 →" }
   },
   handle_locked: {
@@ -72,13 +72,13 @@ const TREE = {
   drops_immediate: {
     terminal: true,
     title: "Likely cause: ratchet pawl failure",
-    body: "Immediate release usually means the pawl is not engaging the ratchet wheel. Listen for the characteristic 'click' as you raise — if it's faint or absent, replace the pawl spring (PN WIN-RP-001). If teeth are damaged, replace the full pawl assembly. Critical: do not return the lift to service until the brake holds rated load.",
+    body: "Immediate release usually means the pawl is not engaging the ratchet wheel. Listen for the characteristic 'click' as you raise — if it's faint or absent, replace the pawl and spring (sub-component of the OEM winch rebuild kit on legacy GH-5T units; sealed-assembly replacement on current MX winches). If ratchet teeth are damaged, replace the full pawl assembly. Critical: do not return the lift to service until the brake holds rated load.",
     link: { href: "repairs.html", text: "Open Procedure 02 →" }
   },
   drops_drift: {
     terminal: true,
     title: "Likely cause: glazed brake disc",
-    body: "Slow drift = brake disc is glazed or contaminated with oil. Light glazing can be restored by sanding both faces with fine paper. Heavy glaze, scoring, or any oil/grease contamination = replace the disc (PN WIN-BD-002). Test at 100% rated load for 5 minutes after service — verify no detectable drift.",
+    body: "Slow drift = brake disc is glazed or contaminated with oil. Per Sumner's manual, light glazing can be restored by sanding both faces of the pad to remove the shiny spots. Heavy glaze, scoring, or any oil/grease contamination = replace the disc (sub-component of the OEM winch rebuild kit on rebuildable units; sealed-assembly replacement on current MX). Test at 100% rated load for 5 minutes after service — verify no detectable drift.",
     link: { href: "repairs.html", text: "Open Procedure 02 →" }
   },
 

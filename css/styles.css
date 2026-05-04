@@ -2232,3 +2232,125 @@ html[data-theme="dark"] .btn--primary { background: var(--v3-accent); color: var
   letter-spacing: .18em;
   margin-bottom: 18px;
 }
+
+/* ============================================================
+   V3.1 — PALETTE PASS · "Petrol on Black"
+   ------------------------------------------------------------
+   The orange was reading as promotional. Replaced with a
+   deep petrol teal that signals "industrial / technical" without
+   shouting. Hazard yellow stays as the safety-signal color.
+   ============================================================ */
+
+:root {
+  /* New muted accent — used for commerce, links, outriggers in the
+     hero SVG. Pairs cleanly with deep ink black and hazard yellow. */
+  --accent-teal:       #0e7461;
+  --accent-teal-deep:  #0a5447;
+  --accent-teal-tint:  rgba(14,116,97,0.10);
+  --accent-teal-glow:  rgba(14,116,97,0.32);
+}
+html[data-theme="dark"] {
+  --accent-teal:       #2da592;
+  --accent-teal-deep:  #4cc2af;
+  --accent-teal-tint:  rgba(45,165,146,0.16);
+  --accent-teal-glow:  rgba(45,165,146,0.30);
+}
+
+/* Override the legacy "safety orange" tokens used throughout the
+   site without touching every component selector individually. */
+:root {
+  --safety-orange:     var(--accent-teal);
+  --safety-orange-dim: var(--accent-teal-deep);
+  --v3-commerce:       var(--accent-teal);
+}
+
+/* Commerce CTAs — petrol, not orange */
+.btn--buy {
+  background: var(--accent-teal);
+  color: #fff;
+}
+.btn--buy:hover {
+  background: var(--accent-teal-deep);
+  box-shadow: 0 12px 24px var(--accent-teal-glow);
+}
+.btn--accent {
+  background: var(--accent-teal);
+  color: #fff;
+}
+.btn--accent:hover { background: var(--accent-teal-deep); }
+
+/* "Order at Energized Engines" link on each part card */
+.part-card .buy-link {
+  color: var(--accent-teal);
+}
+.part-card .buy-link:hover { color: var(--accent-teal-deep); }
+.part-card .pn { color: var(--accent-teal); }
+
+/* Vendor banner inside the modal */
+.vendor-modal-row {
+  background: linear-gradient(180deg, var(--accent-teal-tint), rgba(14,116,97,0.04));
+  border-color: rgba(14,116,97,0.32);
+}
+.vendor-modal-row .copy strong { color: var(--accent-teal); }
+html[data-theme="dark"] .vendor-modal-row {
+  background: rgba(45,165,146,0.10);
+  border-color: rgba(45,165,146,0.35);
+}
+
+/* Publisher line (in case promo-strip is ever re-enabled) */
+.pub-line a { border-bottom-color: var(--accent-teal); }
+.pub-line a:hover { color: var(--accent-teal-deep); }
+
+/* Footer "© Published by …" underline */
+.footer-bottom a[href*="energizedengines"],
+.disclaimer a {
+  border-bottom-color: var(--accent-teal) !important;
+}
+
+/* Eyebrow accent (was orange) — only the accent line, the text stays the same */
+.eyebrow { color: var(--accent-teal); }
+.eyebrow::before { background: var(--accent-teal); }
+
+/* Action-tile left border: was orange, now ink for normal tiles, teal
+   for the commerce tile. (Both are now in editorial-row, but keep
+   for any other pages still using the action-grid pattern.) */
+.action-tile { border-left-color: var(--accent-teal); }
+.action-tile:hover { border-left-color: var(--v3-ink); }
+.action-tile .verb { color: var(--accent-teal); }
+.action-tile .arrow { color: var(--v3-text-faint); }
+.action-tile:hover .arrow { color: var(--v3-ink); }
+
+/* Editorial-col "more" link (home page how-it-works row) */
+.editorial-col .num { color: var(--accent-teal); }
+.editorial-col .num::before { background: var(--accent-teal); }
+.editorial-col .more:hover { color: var(--accent-teal-deep); border-color: var(--accent-teal); }
+
+/* Theater hero — replace orange outrigger fill with a quieter
+   sand-tone so the bright yellow forks remain the only safety
+   accent in the SVG. (Inline SVG fills are matched by attribute.) */
+.hero-theater svg line[stroke="#ff6b1a"] { stroke: #5b6e85; }
+
+/* Old hero-pro CTA buttons (still referenced in a couple of pages) */
+.btn--accent { background: var(--accent-teal); }
+
+/* Verdict tags on cable-inspection page */
+.verdict--service { background: var(--accent-teal-tint); color: var(--accent-teal-deep); }
+html[data-theme="dark"] .verdict--service {
+  background: rgba(45,165,146,0.18);
+  color: var(--accent-teal-deep);
+}
+
+/* Calculator gauge - the orange-ish bar fill */
+.cap-bar .fill {
+  background: linear-gradient(90deg, var(--signal-green), var(--hazard-yellow), var(--signal-red));
+}
+
+/* Selection color, focus rings — petrol */
+::selection { background: var(--accent-teal-tint); color: var(--v3-ink); }
+.global-search input:focus {
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 3px var(--accent-teal-tint);
+}
+
+/* Hero CTA stays yellow — it's editorial, not commercial. The buy
+   buttons elsewhere now read as the commercial accent in petrol. */

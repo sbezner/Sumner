@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tools &amp; Torque — Sumner Lift Field Manual</title>
+<meta name="description" content="Required and recommended tools for Sumner lift service, plus standard fastener torque values for the hardware sizes used on hand-cranked material lifts." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
+  <div class="wrap">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Tools &amp; Torque</span></div>
+    <h1>The right tool keeps the lift safe.</h1>
+    <p>Sumner lifts are simple machines &mdash; you can complete every procedure in this manual with the contents of a midsize service tool roll. But three tools (wire-rope cutter, calibrated torque wrench, swage tool) are non-negotiable, and using the wrong substitute is the most common cause of repeat failures.</p>
+  </div>
+</section>
+
+<!-- TOOL ROLL -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Tool Roll</div>
+    <h2>What you need on the bench.</h2>
+    <p class="lead" style="max-width:62ch;">If you do warranty or fleet service on Sumner lifts, build a dedicated lift-service kit. The list below covers every procedure in this manual.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <h3>Required tools</h3>
+
+        <div class="tool-row">
+          <div class="icon">01</div>
+          <div><strong>Wire-rope cutter</strong><small>Hardened jaw · 1/8&quot; – 5/32&quot; cable</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">02</div>
+          <div><strong>Hand swage tool</strong><small>For drum-end swage stop</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">03</div>
+          <div><strong>Calibrated torque wrench</strong><small>10 – 100 ft-lb range, 3/8&quot; drive</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">04</div>
+          <div><strong>Combo wrench set</strong><small>3/8&quot; – 3/4&quot; SAE; 7 – 19 mm metric</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">05</div>
+          <div><strong>Socket set</strong><small>3/8&quot; drive; 1/4&quot; – 3/4&quot; SAE shallow + deep</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">06</div>
+          <div><strong>Snap-ring pliers</strong><small>Internal + external, 1&quot; – 2&quot; range</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">07</div>
+          <div><strong>Calipers</strong><small>Digital, 0 – 6&quot;, ±0.001&quot; resolution</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">08</div>
+          <div><strong>Leather gloves</strong><small>Cut-resistant, full hand</small></div>
+          <span class="status status--need">Need</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Recommended tools</h3>
+
+        <div class="tool-row">
+          <div class="icon">09</div>
+          <div><strong>Cable inspection mirror</strong><small>Telescoping, for sheave-side cable view</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">10</div>
+          <div><strong>Magnetic parts tray</strong><small>Catches detent balls, R-clips, washers</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">11</div>
+          <div><strong>Service jack / wedge</strong><small>Carriage block during cable removal</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">12</div>
+          <div><strong>Light machine oil</strong><small>3-IN-ONE or sewing-machine oil</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">13</div>
+          <div><strong>White lithium grease</strong><small>For caster axles &amp; outrigger pivots</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">14</div>
+          <div><strong>Dry silicone spray</strong><small>For mast slide pads</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">15</div>
+          <div><strong>Fine sandpaper</strong><small>320 grit, for de-glazing brake disc</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+        <div class="tool-row">
+          <div class="icon">16</div>
+          <div><strong>Tag-out tags &amp; zip ties</strong><small>For LOTO during repair</small></div>
+          <span class="status status--nice">Nice</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TORQUE TABLE -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Torque Reference</div>
+    <h2>Standard fastener torque values.</h2>
+    <p class="lead" style="max-width:65ch;">Sumner&apos;s service literature does not publish a comprehensive torque table for every fastener on every lift. Use the values below for general assembly &mdash; always defer to a Sumner-published value where one exists for safety-critical fasteners.</p>
+
+    <div style="overflow-x:auto; margin-top: 16px;">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Size (UNC)</th>
+            <th>Grade 5 · Dry</th>
+            <th>Grade 5 · Lubricated</th>
+            <th>Grade 8 · Dry</th>
+            <th>Grade 8 · Lubricated</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1/4&quot;-20</td>  <td>8 ft-lb</td>   <td>6 ft-lb</td>   <td>12 ft-lb</td>  <td>9 ft-lb</td></tr>
+          <tr><td>5/16&quot;-18</td> <td>17 ft-lb</td>  <td>13 ft-lb</td>  <td>24 ft-lb</td>  <td>18 ft-lb</td></tr>
+          <tr><td>3/8&quot;-16</td>  <td>30 ft-lb</td>  <td>23 ft-lb</td>  <td>45 ft-lb</td>  <td>35 ft-lb</td></tr>
+          <tr><td>7/16&quot;-14</td> <td>50 ft-lb</td>  <td>35 ft-lb</td>  <td>70 ft-lb</td>  <td>50 ft-lb</td></tr>
+          <tr><td>1/2&quot;-13</td>  <td>75 ft-lb</td>  <td>55 ft-lb</td>  <td>105 ft-lb</td> <td>80 ft-lb</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid grid--2 mt-4">
+      <div class="callout callout--info">
+        <strong>Dry vs. lubricated</strong>
+        &quot;Dry&quot; = clean, plain (uncoated/unlubricated) threads. &quot;Lubricated&quot; = oil, anti-seize, or thread-locker on threads. Lubrication reduces friction, so torque must drop ~25–30% to reach the same clamp load. Using a dry value on lubricated threads will overload &mdash; and possibly snap &mdash; the fastener.
+      </div>
+      <div class="callout callout--warning">
+        <strong>Identifying grade</strong>
+        Grade 5 bolts have <strong>three radial lines</strong> on the head. Grade 8 bolts have <strong>six radial lines</strong>. Grade 2 bolts (no markings) should not be used on safety-critical assemblies on a material lift &mdash; replace any unmarked bolts you find with at least Grade 5.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMON SUMNER FASTENERS -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Common Fasteners on Sumner Lifts</div>
+    <h2>Where each size lives.</h2>
+
+    <table class="data mt-2">
+      <thead>
+        <tr><th>Location</th><th>Typical Size</th><th>Grade</th><th>Spec Torque</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cable anchor clip (Crosby-style, 1/8&quot; cable)</td>     <td>1/4&quot;-20</td>  <td>Per clip mfg.</td><td>4.5 ft-lb (per clip mfg.)</td></tr>
+        <tr><td>Winch mounting bolts</td>                                 <td>1/4&quot;-20</td>  <td>Grade 5</td><td>8 ft-lb dry</td></tr>
+        <tr><td>Carriage roller shoulder bolts</td>                       <td>3/8&quot;-16</td>  <td>Grade 5</td><td>30 ft-lb dry</td></tr>
+        <tr><td>Pulley sheave shoulder bolt</td>                          <td>5/16&quot;-18</td> <td>Grade 5</td><td>17 ft-lb dry</td></tr>
+        <tr><td>Outrigger leg pivot bolt</td>                             <td>3/8&quot;-16</td>  <td>Grade 8</td><td>45 ft-lb dry</td></tr>
+        <tr><td>Caster mounting bolts (5&quot; caster)</td>               <td>5/16&quot;-18</td> <td>Grade 5</td><td>17 ft-lb dry</td></tr>
+        <tr><td>Caster mounting bolts (8&quot; Roust-A-Bout caster)</td>  <td>1/2&quot;-13</td>  <td>Grade 8</td><td>105 ft-lb dry</td></tr>
+        <tr><td>Fork extension kit (PN 783691)</td>                       <td>3/8&quot;-16</td>  <td>Grade 5</td><td>30 ft-lb dry</td></tr>
+        <tr><td>Mast section join hardware</td>                           <td>3/8&quot;-16</td>  <td>Grade 8</td><td>45 ft-lb dry</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout callout--danger mt-4">
+      <strong>Always re-torque safety-critical hardware after first load cycle</strong>
+      Cable anchor clips in particular bed in under load &mdash; re-torque after the first 100% load test. Outrigger pivots, caster mounts, and winch-mount bolts should be checked at every PM interval.
+    </div>
+  </div>
+</section>
+
+<!-- LUBRICANTS QUICK-REF -->
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">Lubricants</div>
+    <h2>Quick reference.</h2>
+    <p class="lead">The detailed reasoning lives on the <a href="maintenance.html">Maintenance</a> page; this is the one-look version.</p>
+
+    <table class="data mt-2">
+      <thead><tr><th>Lubricant</th><th>Where</th><th>Where NOT</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Light machine oil</strong> (3-IN-ONE)</td>
+          <td>Pawl pivot, ratchet teeth</td>
+          <td>Brake disc, cable, sheave groove</td>
+        </tr>
+        <tr>
+          <td><strong>White lithium grease</strong></td>
+          <td>Caster axles, outrigger pivots, fork pins</td>
+          <td>Brake disc, cable, mast slide pads</td>
+        </tr>
+        <tr>
+          <td><strong>Dry silicone spray</strong></td>
+          <td>Mast slide pads, mast surface</td>
+          <td>Brake disc, cable, cable terminations</td>
+        </tr>
+        <tr>
+          <td><strong>Anti-seize compound</strong></td>
+          <td>Outrigger leg threaded extension shafts</td>
+          <td>Cable, brake, painted surfaces</td>
+        </tr>
+        <tr>
+          <td><strong>Thread-locker (medium, blue)</strong></td>
+          <td>Carriage roller bolts, sheave shoulder bolt</td>
+          <td>Anchor clip nuts (must be re-checked &amp; re-torqued)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="related">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="repairs.html">All repair procedures</a></li>
+        <li><a href="parts.html?pn=TOOL-CBL-CUT">PN TOOL-CBL-CUT &mdash; Wire-rope cutter</a></li>
+        <li><a href="parts.html?pn=TOOL-SWAGE">PN TOOL-SWAGE &mdash; Hand swage tool</a></li>
+        <li><a href="maintenance.html">Maintenance schedule &amp; lubrication detail</a></li>
+        <li><a href="inspection.html">Cable inspection guide</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="pipe-equipment.html">Next: Pipe Handling →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

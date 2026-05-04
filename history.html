@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Heritage — Sumner Lift Field Manual</title>
+<meta name="description" content="The history of Sumner Manufacturing Company — founded in 1965 in Houston, Texas, now part of B&B SUMNER under the SFE Group umbrella." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
+  <div class="wrap">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Heritage</span></div>
+    <h1>Sixty years from a Houston welding shop.</h1>
+    <p>Sumner Manufacturing was founded in 1965 by Joe Sumner in Houston, Texas. The first products were pipe stands and fit-up tools for the local welding and mechanical-contracting trade. The material lifts came later. The company is now part of B&amp;B SUMNER under the SFE Group umbrella, but the design DNA &mdash; rugged, technician-serviceable, made for the bench &mdash; runs through every product still in the catalog.</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="wrap" style="max-width: 880px;">
+    <div class="eyebrow">Timeline</div>
+    <h2>Sixty years on the bench.</h2>
+
+    <ul class="timeline mt-4">
+      <li>
+        <span class="year">1965</span>
+        <h4>Founded in Houston, Texas</h4>
+        <p>Joe Sumner founds Sumner Manufacturing Company in Houston. The first products are heavy-duty pipe stands and fit-up tools serving the Gulf Coast welding and mechanical-contracting trade &mdash; a market dense with refineries, chemical plants, and shipyards.</p>
+      </li>
+      <li>
+        <span class="year">1970s</span>
+        <h4>The ST-801 Hi Jack becomes the standard</h4>
+        <p>The ST-801&apos;s 2,500 lb capacity, 1-1/2&quot; Acme thread, and patented Fall Guard safety zone make it a category-defining product. Pipefitters across the U.S. learn to call any heavy-duty pipe stand a &quot;Sumner.&quot;</p>
+      </li>
+      <li>
+        <span class="year">1980s</span>
+        <h4>Material lifts join the catalog</h4>
+        <p>Sumner extends into hand-cranked material lifts &mdash; the Series 2000 family &mdash; recognising that the same trades buying pipe stands also buy lifts to set HVAC equipment and overhead piping. The lifts share Sumner&apos;s design ethos: ruggedness over weight, reparability over disposability.</p>
+      </li>
+      <li>
+        <span class="year">1990s – 2000s</span>
+        <h4>Series 2100, 2300, 2400, Eventer, Roust-A-Bout</h4>
+        <p>The line expands into the trade-specific variants documented in this manual. Each new series targets a specific use case: drywall (2300), van-friendly compact (2400), entertainment (Eventer), heavy industrial (Roust-A-Bout). Internal cable routing and tool-free assembly become defining features.</p>
+      </li>
+      <li>
+        <span class="year">2010s</span>
+        <h4>Global distribution</h4>
+        <p>Sumner products distribute in 50+ countries, with offices in Houston, Canada, China, the United Kingdom, and the Netherlands. The MX winch replaces the legacy GH-5T as the standard hand-crank winch across the lift line.</p>
+      </li>
+      <li>
+        <span class="year">2025</span>
+        <h4>Acquired by Specialized Fabrication Equipment Group</h4>
+        <p>In March 2025, Sumner Manufacturing is acquired by Specialized Fabrication Equipment (SFE Group) and subsequently merged with B&amp;B Pipe &amp; Industrial Tools to form <strong>B&amp;B SUMNER</strong>. The product line continues; serial numbers from the legacy Sumner production are still serviceable using the parts catalog in this manual.</p>
+      </li>
+      <li>
+        <span class="year">2026</span>
+        <h4>The catalog today</h4>
+        <p>B&amp;B SUMNER continues production of the Series 2000, 2100, 2300, 2400, Eventer, and Roust-A-Bout material lifts alongside the original pipe-handling and fit-up product line. This field manual is independent of B&amp;B SUMNER, intended as a vendor-neutral educational reference for the technicians who service their lifts.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- DESIGN DNA -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Design DNA</div>
+    <h2>Five threads that run through every Sumner product.</h2>
+
+    <div class="grid grid--3 mt-4">
+      <div class="card">
+        <div class="meta"><span class="dot"></span>01</div>
+        <h3>Bench-serviceable</h3>
+        <p>Sumner products are designed to be repaired by the technician, not returned to the factory. The MX winch is the rare exception &mdash; almost everything else can be serviced with hand tools.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>02</div>
+        <h3>Hand-powered first</h3>
+        <p>Almost the entire material-lift line is hand-cranked. No batteries, no motors, no electronics &mdash; the failure modes are mechanical and visible, and the lift is operable with no infrastructure beyond a flat floor.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>03</div>
+        <h3>Trade-specific variants</h3>
+        <p>Rather than one universal lift, Sumner builds variants tuned to a specific trade&apos;s loads, reach, and footprint. The 99 lb Series 2300 for solo drywall installers and the 1,500 lb Roust-A-Bout for industrial pipe both share the Sumner platform DNA.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>04</div>
+        <h3>Tool-free assembly</h3>
+        <p>The Series 2100 and 2400 contractor lifts assemble in seconds with no tools &mdash; a feature that emerged from feedback from technicians who set up and break down a lift multiple times a shift.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>05</div>
+        <h3>Long product life</h3>
+        <p>Twenty- and thirty-year-old Sumner lifts are still in routine service. Parts compatibility is broad and well-documented. This is why a manual like this one is useful: the installed base of Sumner lifts spans decades of production.</p>
+      </div>
+      <div class="card">
+        <div class="meta" style="color: var(--hazard-yellow-dim)"><span class="dot" style="background: var(--hazard-yellow-dim)"></span>06</div>
+        <h3>Houston roots</h3>
+        <p>Designed for the trades that built Houston&apos;s petrochemical industry &mdash; pipefitters, welders, mechanical contractors. The aesthetic and the engineering both reflect that origin: practical, robust, and unapologetically industrial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THIS MANUAL -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">About This Manual</div>
+    <h2>Who, why, and how to contribute.</h2>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <h3>Why this manual exists</h3>
+        <p>The Sumner Lift Field Manual is an independent educational resource for technicians who service Sumner material lifts. It was built because OEM operator&apos;s manuals are split across PDFs, distributors&apos; parts pages are scattered across vendor catalogs, and technicians on the bench needed a single integrated reference.</p>
+        <p>Everything in this manual is summarised from publicly available Sumner Manufacturing literature, distributor catalogs (B&amp;B SUMNER, Sumner Outlet, Toolup, EquipSupply, Energized Engines, Conklin Metal, Airgas), and ASME / OSHA wire-rope inspection standards.</p>
+      </div>
+      <div>
+        <h3>Who this is for</h3>
+        <p>Anyone who picks up a Sumner lift and needs to make a service decision. That includes:</p>
+        <ul style="font-size: .98rem; line-height: 1.8;">
+          <li>Equipment-rental shop technicians</li>
+          <li>HVAC and mechanical-contracting service techs</li>
+          <li>Theatrical / AV touring crews servicing Eventer lifts</li>
+          <li>Industrial maintenance teams running Roust-A-Bouts</li>
+          <li>Apprentices learning the platform from scratch</li>
+          <li>Safety officers building inspection programs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout callout--info mt-4">
+      <strong>Always verify against the OEM manual</strong>
+      Specifications, part numbers, and procedures are summarised here for educational use. For any specific lift, always verify against the operator&apos;s manual matched to the lift&apos;s serial number and use only Sumner-supplied replacement parts on safety-critical components (cable, winch, sheave, fork carriage, outrigger latches).
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="index.html">↑ Back to overview</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

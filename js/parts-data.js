@@ -1,11 +1,11 @@
 /* ============================================================
    PARTS DATABASE
-   Compiled from publicly available Sumner Mfg. literature and
-   distributor catalogs (Sumner Outlet, Toolup, EquipSupply,
-   Energized Engines, Conklin Metal). Part numbers are quoted
-   as listed by the source distributor and may vary by revision —
-   always verify against the OEM operator's manual for the
-   specific lift's serial range before ordering.
+   Compiled from publicly available Sumner Mfg. and B&B Sumner
+   literature plus distributor catalogs (Sumner Outlet, Toolup,
+   EquipSupply, Energized Engines, Conklin Metal, Airgas).
+   Part numbers are quoted as listed by the source distributor
+   and may vary by revision — always verify against the OEM
+   operator's manual for the lift's serial range before ordering.
    ============================================================ */
 
 const PARTS = [
@@ -17,9 +17,39 @@ const PARTS = [
     group: "Winch & Cable",
     series: ["2000", "2100", "2400"],
     tags: ["wear", "cable", "safety"],
-    desc: "OEM 1/8 in (3.2 mm) galvanized aircraft cable for the Sumner GH-5T worm-gear winch. Include the swaged stop and thimble. Replace at any sign of fraying, kinking, broken strands, or burn marks — never field-splice a lift cable.",
+    desc: "OEM 1/8 in (3.2 mm) galvanized aircraft cable for the Sumner GH-5T worm-gear winch. Includes the swaged stop and thimble. Replace at any sign of fraying, kinking, broken strands, or burn marks — never field-splice a lift cable.",
     fits: "Series 2000 (early), 2100 (early), 2400 with GH-5T winch",
     interval: "Inspect every shift; replace at any defect or every 5 yr."
+  },
+  {
+    pn: "774207",
+    name: "Replacement Cable, 5/32 in — Heavy-Duty",
+    group: "Winch & Cable",
+    series: ["2000", "Eventer"],
+    tags: ["wear", "cable", "safety"],
+    desc: "Heavier 5/32 in (4 mm) galvanized aircraft cable used on the 800–1,000 lb capacity Sumner lifts (2025, Eventer 25). Visually similar to the 1/8 in cable — always confirm gauge with calipers before ordering.",
+    fits: "2025, Eventer 25 (verify by serial range)",
+    interval: "Inspect every shift; replace at any defect or every 5 yr."
+  },
+  {
+    pn: "RAB-CBL-LD",
+    name: "Replacement Cable — Roust-A-Bout Load Winch",
+    group: "Winch & Cable",
+    series: ["Roust-A-Bout"],
+    tags: ["wear", "cable", "safety"],
+    desc: "Heavy-gauge cable for the Roust-A-Bout R-150 / R-250 load winch. Sized for 1,500 lb working load with appropriate factor of safety. Length differs between R-150 (15 ft) and R-250 (25 ft) — order by lift model.",
+    fits: "Roust-A-Bout R-150 / R-250",
+    interval: "Inspect every shift; replace at any defect."
+  },
+  {
+    pn: "RAB-CBL-MS",
+    name: "Replacement Cable — Roust-A-Bout Mast Winch",
+    group: "Winch & Cable",
+    series: ["Roust-A-Bout"],
+    tags: ["wear", "cable", "safety"],
+    desc: "Mast-extension cable for the Roust-A-Bout. Operates the second (mast) winch independently of the load cable. Inspect at the same interval as the load cable; both cables share the lift's safety budget.",
+    fits: "Roust-A-Bout R-150 / R-250",
+    interval: "Inspect every shift; replace at any defect."
   },
   {
     pn: "MX-WINCH-A",
@@ -27,9 +57,19 @@ const PARTS = [
     group: "Winch & Cable",
     series: ["2000", "2100"],
     tags: ["wear"],
-    desc: "Self-locking worm-gear hand-crank winch. Mounts to the lower-mast bracket via four bolts. The MX is a sealed unit — Sumner intends it to be replaced as an assembly, not field-rebuilt.",
-    fits: "Most current Series 2000 and 2100 lifts (replaces older GH-5T)",
+    desc: "Self-locking worm-gear hand-crank winch. Mounts to the lower-mast bracket via four bolts. The MX is a sealed unit — Sumner intends it to be replaced as an assembly, not field-rebuilt. Replaces the older GH-5T on most current production.",
+    fits: "Most current Series 2000 and 2100 lifts",
     interval: "Replace if brake will not hold rated load, or if gearbox grinds."
+  },
+  {
+    pn: "GH-5T-A",
+    name: "GH-5T Legacy Winch Assembly",
+    group: "Winch & Cable",
+    series: ["2000", "2100", "2400"],
+    tags: ["wear"],
+    desc: "Older-generation 1,000 lb hand-crank winch found on pre-2010 Sumner lifts. Identifiable by the cast aluminum housing and 1/8 in cable. Backward-compatible mounting on most lower-mast brackets — confirm bolt pattern before swapping.",
+    fits: "Pre-2010 Series 2000, 2100, 2400 (verify by mount pattern)",
+    interval: "Replace if brake will not hold or if cable spool wobbles."
   },
   {
     pn: "WIN-RP-001",
@@ -42,6 +82,16 @@ const PARTS = [
     interval: "Inspect annually; lubricate with light oil. Replace if click is faint or pawl shows wear."
   },
   {
+    pn: "WIN-RW-A",
+    name: "Ratchet Wheel",
+    group: "Winch & Cable",
+    series: ["2000", "2100", "2400", "Eventer"],
+    tags: ["safety"],
+    desc: "Toothed steel wheel engaged by the pawl. Directional — the engagement faces of the teeth must point in the direction shown in the operator's manual. Reversed installation will free-spool under load.",
+    fits: "MX winch internal — orderable as service part",
+    interval: "Replace if any teeth chipped, rounded, or if pawl will not click."
+  },
+  {
     pn: "WIN-BD-002",
     name: "Brake Disc / Friction Pad",
     group: "Winch & Cable",
@@ -52,14 +102,44 @@ const PARTS = [
     interval: "Inspect annually; replace if pad <50% original thickness or contaminated."
   },
   {
+    pn: "WIN-HND-A",
+    name: "Crank Handle Assembly",
+    group: "Winch & Cable",
+    series: ["2000", "2100", "2300", "2400", "Eventer"],
+    tags: [],
+    desc: "Removable hand crank with knurled grip. Stows on the lower mast bracket when not in use. Bent or broken handles are common after the lift tips during transport.",
+    fits: "All hand-crank Sumner lifts (verify shaft diameter)",
+    interval: "Replace if bent or grip is loose."
+  },
+  {
+    pn: "WIN-HND-2SP",
+    name: "Two-Speed Crank Handle — Series 2300",
+    group: "Winch & Cable",
+    series: ["2300"],
+    tags: [],
+    desc: "Two-speed shifter-equipped crank for the Series 2300 drywall lift. Low gear for lifting, high gear for fast travel without load. The shifter detent ball is the most common failure point.",
+    fits: "Series 2300 only",
+    interval: "Replace handle if shifter feels sloppy or won't hold a gear."
+  },
+  {
     pn: "RAB-4SP-LINK",
-    name: "4-Speed Selector Linkage",
+    name: "4-Speed Selector Linkage — Roust-A-Bout",
     group: "Winch & Cable",
     series: ["Roust-A-Bout"],
     tags: [],
     desc: "Shifter rod and detent ball that selects ratios on the Roust-A-Bout's 4-speed load winch. Failure mode is a sloppy or bound shifter — usually the detent spring, not the linkage itself.",
     fits: "Roust-A-Bout R-150 / R-250 load winch only",
     interval: "Lubricate quarterly with white lithium grease."
+  },
+  {
+    pn: "WIN-DRM-A",
+    name: "Cable Drum",
+    group: "Winch & Cable",
+    series: ["2000", "2100"],
+    tags: ["safety"],
+    desc: "Grooved steel drum onto which the cable winds. Replacement is rare — usually only after a drum is bent from a side-load impact, or when the cable termination point on the drum has worn open.",
+    fits: "MX winches, factory replacement",
+    interval: "Inspect at every cable change for groove damage."
   },
 
   /* --- MAST GROUP --- */
@@ -84,6 +164,16 @@ const PARTS = [
     interval: "Replace if bent; verify slide pads ride true after install."
   },
   {
+    pn: "MAST-MID-2025",
+    name: "Middle Mast Section — 3-Stage 2025/Eventer 25",
+    group: "Mast Assembly",
+    series: ["2000", "Eventer"],
+    tags: [],
+    desc: "The intermediate mast extrusion on three-stage lifts (Series 2025, Eventer 25, Roust-A-Bout R-250). Same care as upper and lower sections — never straighten cold; replace if bent.",
+    fits: "3-stage Series 2000, Eventer 25, Roust-A-Bout R-250",
+    interval: "Inspect annually."
+  },
+  {
     pn: "PUL-SHV-150",
     name: "Cable Sheave (Pulley) — 1.5 in OD",
     group: "Mast Assembly",
@@ -94,6 +184,36 @@ const PARTS = [
     interval: "Inspect every cable change; replace if groove edges sharp or bearing rough."
   },
   {
+    pn: "PUL-SHV-200",
+    name: "Cable Sheave (Pulley) — 2 in OD, Roust-A-Bout",
+    group: "Mast Assembly",
+    series: ["Roust-A-Bout"],
+    tags: ["wear", "cable"],
+    desc: "Larger-diameter sheave for the Roust-A-Bout's heavier cable. Two per mast (one per cable). Match groove diameter to cable gauge — mismatched groove will deform a new cable in days.",
+    fits: "Roust-A-Bout R-150 / R-250",
+    interval: "Inspect every cable change."
+  },
+  {
+    pn: "PUL-GRD-A",
+    name: "Pulley Guard / Cable Retainer",
+    group: "Mast Assembly",
+    series: ["2000", "2100"],
+    tags: ["safety"],
+    desc: "Sheet-steel cover that captures the cable in the sheave groove and prevents jump-out under shock load. Inexpensive — replace any time it's bent, missing, or its mounting hardware is loose.",
+    fits: "Series 2000, 2100",
+    interval: "Verify present and properly captured at every shift."
+  },
+  {
+    pn: "PUL-GRD-360",
+    name: "360° Cable Head Guard — Series 2400",
+    group: "Mast Assembly",
+    series: ["2400"],
+    tags: ["safety"],
+    desc: "Formed-steel ring at the top of the 2400's mast that protects the cable on all four sides from snagging on rafters, conduit, or duct corners. The defining feature of the Series 2400.",
+    fits: "Series 2400 only",
+    interval: "Inspect alignment quarterly; bent guards must be replaced (can't be straightened without distorting the cable path)."
+  },
+  {
     pn: "MAST-SLP-204",
     name: "Mast Slide Pad Set (4)",
     group: "Mast Assembly",
@@ -102,6 +222,26 @@ const PARTS = [
     desc: "Nylon (acetal) wear pads that ride between the inner and outer mast sections. As they wear, the inner mast develops side-play and the carriage starts to wobble at full extension.",
     fits: "Series 2000, 2100, 2400 (verify thickness for your model)",
     interval: "Inspect annually; replace if mast play exceeds 1/8 in side-to-side at full extension."
+  },
+  {
+    pn: "MAST-SLP-RAB",
+    name: "Mast Slide Pad Set — Roust-A-Bout",
+    group: "Mast Assembly",
+    series: ["Roust-A-Bout"],
+    tags: ["wear"],
+    desc: "Heavier-duty slide pads sized for the Roust-A-Bout's twin parallel masts. Eight pads per lift (four per mast). Replace as a complete set to keep both masts elevating in sync.",
+    fits: "Roust-A-Bout R-150 / R-250",
+    interval: "Replace if either mast lags the other during extension."
+  },
+  {
+    pn: "MAST-CAP",
+    name: "Mast Top Cap",
+    group: "Mast Assembly",
+    series: ["2000", "2100", "2400", "Eventer"],
+    tags: [],
+    desc: "Cast plastic cap that seals the top of the inner mast against rain ingress. Often missing on used lifts; water inside the mast accelerates slide-pad wear and pulley bearing failure.",
+    fits: "Most Sumner contractor lifts",
+    interval: "Replace if missing, cracked, or no longer seating."
   },
 
   /* --- CARRIAGE / FORK GROUP --- */
@@ -114,6 +254,16 @@ const PARTS = [
     desc: "Welded steel carriage that mounts the forks and rides the inner mast on four nylon rollers. Tool-free pin attachment to the cable terminal.",
     fits: "Series 2100 (interchangeable across 2112/2118/2124)",
     interval: "Inspect rollers and pin retainer at every cable change."
+  },
+  {
+    pn: "CAR-RAB",
+    name: "Crossbeam Carriage — Roust-A-Bout",
+    group: "Carriage & Forks",
+    series: ["Roust-A-Bout"],
+    tags: [],
+    desc: "Heavy-walled steel crossbeam that spans the Roust-A-Bout's twin masts. Eight rollers (four per side) maintain alignment between the two masts. Replacement is rare — usually a result of side-load impact or weld failure.",
+    fits: "Roust-A-Bout R-150 / R-250",
+    interval: "Inspect weldments annually; verify rollers all spin freely."
   },
   {
     pn: "CAR-RLR-04",
@@ -134,6 +284,16 @@ const PARTS = [
     desc: "Pair of formed-steel forks with pivot pin. Forks invert to lift either from the floor or from above the carriage (e.g., to set ductwork into a ceiling). Inspect tines for bending — never straighten cold.",
     fits: "Series 2000, 2100",
     interval: "Inspect for bend at every shift; rated capacity assumes straight tines."
+  },
+  {
+    pn: "FORK-REV-2400",
+    name: "Reversible Fork Set — Compact",
+    group: "Carriage & Forks",
+    series: ["2400"],
+    tags: [],
+    desc: "Shorter fork pair sized for the Series 2400's compact carriage. Visually similar to the 2100 forks but the pivot-pin spacing is different — not interchangeable.",
+    fits: "Series 2400 only",
+    interval: "Inspect for bend at every shift."
   },
   {
     pn: "783691",
@@ -175,6 +335,26 @@ const PARTS = [
     fits: "Series 2300",
     interval: "Replace as needed — usually annually with regular use."
   },
+  {
+    pn: "EVT-TRUSS-AD",
+    name: "Truss Adapter — Eventer",
+    group: "Carriage & Forks",
+    series: ["Eventer"],
+    tags: [],
+    desc: "Black-anodized adapter that mounts in place of the standard forks to grip square aluminum truss (12 in / 305 mm typical). Includes safety pin and capture hook. Required for any line-array work.",
+    fits: "Eventer 20 / Eventer 25",
+    interval: "Inspect pin and hook before every show."
+  },
+  {
+    pn: "EVT-PIN-STP",
+    name: "Pin-Stop Kit — Eventer",
+    group: "Carriage & Forks",
+    series: ["Eventer"],
+    tags: ["safety"],
+    desc: "Mechanical pin stops that drop into the mast at fixed heights, providing a positive mechanical backup to the winch brake. Not a replacement for the brake — a redundant safety system for AV use.",
+    fits: "Eventer 20 / Eventer 25",
+    interval: "Verify pins drop fully home before placing a permanent load."
+  },
 
   /* --- BASE & MOBILITY --- */
   {
@@ -208,6 +388,16 @@ const PARTS = [
     interval: "Inspect at every PM; replace as a set if any one is rough."
   },
   {
+    pn: "CAST-4LT",
+    name: "4 in Lightweight Caster — Series 2300",
+    group: "Base & Mobility",
+    series: ["2300"],
+    tags: ["wear"],
+    desc: "Smaller caster sized for the Series 2300's 99 lb body. Single-lock (wheel only). Plastic hub, shielded bearing — cheaper to replace as an assembly than rebuild.",
+    fits: "Series 2300",
+    interval: "Replace if rough or won't lock."
+  },
+  {
     pn: "WHL-10RT",
     name: "10 in Rough-Terrain Wheel",
     group: "Base & Mobility",
@@ -226,6 +416,16 @@ const PARTS = [
     desc: "Fold-out outrigger that triples the lift's footprint. The latch is the failure point — if the outrigger swings free in transport, both the latch and the spring need replacement.",
     fits: "Series 2100 (2118/2124 standard), Series 2000 (some)",
     interval: "Verify positive latch engagement before each shift."
+  },
+  {
+    pn: "OUT-LATCH-A",
+    name: "Outrigger Latch & Spring Kit",
+    group: "Base & Mobility",
+    series: ["2000", "2100", "Eventer"],
+    tags: ["wear", "safety"],
+    desc: "The cam-and-spring assembly that locks the outrigger leg in the deployed position. Single most common outrigger failure — leg goes loose, lift becomes top-heavy. Cheap kit, big consequences.",
+    fits: "Most outrigger-equipped Sumner lifts",
+    interval: "Replace at any sign of weakness or if leg moves while latched."
   },
   {
     pn: "OUT-FOOT-A",
@@ -250,6 +450,26 @@ const PARTS = [
     interval: "Re-torque after first lift cycle on a new cable, then at every PM."
   },
   {
+    pn: "HW-SWAGE",
+    name: "Swage-Stop Sleeve",
+    group: "Hardware",
+    series: ["2000", "2100", "2400"],
+    tags: ["safety", "cable"],
+    desc: "Copper or zinc-plated steel sleeve crimped onto the cable at the winch-drum end. Acts as a positive stop preventing the cable from pulling free of the drum. Single-use — do not re-form a swage.",
+    fits: "Most single-cable Sumner lifts (verify cable gauge)",
+    interval: "Replace at every cable change."
+  },
+  {
+    pn: "HW-BLT-KIT",
+    name: "Lift Hardware Kit (Bolts, Nuts, Washers)",
+    group: "Hardware",
+    series: ["2000", "2100", "2400"],
+    tags: [],
+    desc: "Bag of replacement Grade 5 hardware: 3/8-16 carriage roller bolts, 1/4-20 winch mount bolts, lock washers, nylock nuts. The full set of fasteners for one carriage + winch service.",
+    fits: "Most contractor-class Sumner lifts",
+    interval: "Stock for any bench rebuild."
+  },
+  {
     pn: "HW-LBL-WARN",
     name: "Decal Set — Warning & Capacity",
     group: "Hardware",
@@ -260,6 +480,16 @@ const PARTS = [
     interval: "Inspect annually; replace any decal that cannot be read at arm's length."
   },
   {
+    pn: "HW-LBL-MAINT",
+    name: "Maintenance Record Decal",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: ["safety"],
+    desc: "Printable / writeable vinyl decal applied to the lower mast or base, where the technician records cable changes, inspection dates, and initials. Part of the safety system — no usable record means no documented service history.",
+    fits: "All series",
+    interval: "Replace when full or unreadable."
+  },
+  {
     pn: "OP-MAN-GEN",
     name: "Operator's Manual (per series)",
     group: "Hardware",
@@ -268,11 +498,30 @@ const PARTS = [
     desc: "OEM operator's manual specific to your series and serial range. Should live with the lift at all times. Free PDFs are available from Sumner; printed copies can be requested from the manufacturer.",
     fits: "All series",
     interval: "Replace if missing, illegible, or if the lift was retrofitted with an updated assembly."
+  },
+  {
+    pn: "TOOL-CBL-CUT",
+    name: "Wire-Rope Cutter",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "Hardened-jaw cutter sized for 1/8 in to 5/32 in aircraft cable. Bolt cutters and side cutters will mash the cable strands and produce a frayed end that won't feed cleanly through internal mast routing — use the right tool.",
+    fits: "Service-bench tool",
+    interval: "Lifetime tool; sharpen or replace cutting edges as needed."
+  },
+  {
+    pn: "TOOL-SWAGE",
+    name: "Hand Swage Tool",
+    group: "Hardware",
+    series: ["2000", "2100", "2400"],
+    tags: [],
+    desc: "Manual cable swager for forming the stop sleeve at the winch-drum end. Field-formed swages are stronger than the original cable — when done correctly. Practice on scrap cable first.",
+    fits: "Service-bench tool",
+    interval: "Calibrate against a go/no-go gauge yearly."
   }
 ];
 
-/* Hotspot definitions for the exploded interactive diagram.
-   Each hotspot maps an SVG location to a part group. */
+/* Hotspot definitions for the exploded interactive diagram. */
 const HOTSPOTS = [
   { id: 1, x: 190, y: 60,  group: "Mast Assembly",     name: "Cable Sheave / Pulley", desc: "Top-of-mast pulley with sealed bearing. Routes the lift cable from the winch to the carriage." },
   { id: 2, x: 220, y: 145, group: "Carriage & Forks",  name: "Reversible Fork Set",   desc: "Pair of forks that invert for above-carriage or below-carriage loads." },
@@ -284,3 +533,7 @@ const HOTSPOTS = [
   { id: 8, x: 295, y: 395, group: "Base & Mobility",   name: "Outrigger Foot Pad",    desc: "Replaceable rubber pad — protects floors and grips concrete." },
   { id: 9, x: 175, y: 145, group: "Hardware",          name: "Cable Anchor Clip",     desc: "Drop-forged clip + thimble terminating the cable at the carriage." }
 ];
+
+/* Make available globally for site-wide search */
+window.PARTS = PARTS;
+window.HOTSPOTS = HOTSPOTS;

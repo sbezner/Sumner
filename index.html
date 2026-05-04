@@ -14,14 +14,37 @@
 <body>
 
 <!-- TOPBAR -->
-<div class="topbar">
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
   <div class="wrap">
-    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · ED. 2026.05 · STATUS: PUBLISHED</div>
-    <div>EDUCATIONAL REFERENCE · NOT AFFILIATED WITH SUMNER MFG.</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
   </div>
 </div>
 
-<!-- HEADER -->
 <header class="site-header">
   <div class="wrap">
     <a href="index.html" class="brand">
@@ -31,136 +54,141 @@
         <div class="brand-sub">Service · Parts · Repair</div>
       </div>
     </a>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
-    <nav class="nav">
-      <a href="index.html" class="active">Overview</a>
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
+      <a href="index.html">Overview</a>
       <a href="models.html">Models</a>
       <a href="parts.html">Parts</a>
       <a href="repairs.html">Repairs</a>
-      <a href="maintenance.html">Maintenance</a>
-      <a href="troubleshooting.html">Troubleshoot</a>
-      <a href="safety.html">Safety</a>
-      <a href="glossary.html">Glossary</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+
+<!-- HERO · TASK LAUNCHER -->
+<section class="hero-pro">
   <div class="wrap">
-    <div>
-      <div class="eyebrow">Field Manual · Edition 2026</div>
-      <h1>Everything a technician needs to keep a Sumner lift in service.</h1>
-      <p class="lead">A free, vendor-neutral reference covering every Sumner material lift from the 2000 series to the Roust-A-Bout — with exploded part diagrams, repair procedures, wear-item identification, and an interactive troubleshooter built for the bench and the jobsite.</p>
-      <div class="hero-cta">
-        <a class="btn btn--accent" href="parts.html">Open Parts Catalog &rarr;</a>
-        <a class="btn btn--ghost" style="background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.18);" href="troubleshooting.html">Diagnose a problem</a>
+    <div class="eyebrow">Field Manual · Edition 2026.05</div>
+    <h1>Service any Sumner lift, faster.</h1>
+    <p class="lead">A free, vendor-neutral reference for the technicians who service Sumner material lifts. Identify the model, find the part, perform the repair, verify the work &mdash; without flipping through scattered PDFs.</p>
+
+    <form class="hero-search" onsubmit="document.getElementById('site-search').focus(); return false;">
+      <div class="hero-search-wrap">
+        <input type="search" placeholder="Search parts, procedures, symptoms, models..." aria-label="Quick search"
+               oninput="document.getElementById('site-search').value=this.value; document.getElementById('site-search').dispatchEvent(new Event('input'));"
+               onfocus="document.getElementById('site-search').focus();" />
       </div>
-      <div class="hero-stats">
-        <div><strong>7</strong><span>Lift Series Covered</span></div>
-        <div><strong>60+</strong><span>Catalogued Parts</span></div>
-        <div><strong>20+</strong><span>Step-By-Step Repairs</span></div>
-      </div>
-    </div>
-    <div class="hero-art">
-      <span class="hero-art-tag">EXPLODED · FIG. 01</span>
-      <!-- Stylised lift schematic -->
-      <svg viewBox="0 0 360 400" width="100%" height="100%" aria-label="Schematic of a Sumner-style material lift">
-        <defs>
-          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M20 0 L0 0 L0 20" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          </pattern>
-          <linearGradient id="mast" x1="0" x2="1">
-            <stop offset="0" stop-color="#3a4a5d"/>
-            <stop offset=".5" stop-color="#7c8fa6"/>
-            <stop offset="1" stop-color="#3a4a5d"/>
-          </linearGradient>
-        </defs>
-        <rect width="360" height="400" fill="url(#grid)"/>
+      <button type="submit" class="btn btn--primary">Search</button>
+    </form>
 
-        <!-- forks -->
-        <rect x="100" y="118" width="160" height="6" fill="#ffc419"/>
-        <rect x="100" y="118" width="6" height="34" fill="#ffc419"/>
-        <rect x="254" y="118" width="6" height="34" fill="#ffc419"/>
-
-        <!-- carriage -->
-        <rect x="150" y="126" width="60" height="38" rx="3" fill="#ff6b1a"/>
-        <rect x="155" y="131" width="50" height="6" fill="#0b1117"/>
-        <circle cx="180" cy="148" r="6" fill="#0b1117"/>
-
-        <!-- mast (telescoping) -->
-        <rect x="170" y="40"  width="20" height="320" fill="url(#mast)"/>
-        <rect x="175" y="40"  width="10" height="320" fill="rgba(0,0,0,.35)"/>
-        <rect x="167" y="40"  width="26" height="3"   fill="#0b1117"/>
-
-        <!-- pulley at top -->
-        <circle cx="180" cy="48" r="9" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="180" cy="48" r="3" fill="#7c8fa6"/>
-
-        <!-- cable -->
-        <path d="M180 48 Q 180 96 180 126" stroke="#dde3ec" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
-
-        <!-- base -->
-        <rect x="100" y="350" width="160" height="14" rx="3" fill="#243140"/>
-        <!-- outriggers -->
-        <line x1="180" y1="358" x2="40"  y2="380" stroke="#ffc419" stroke-width="6" stroke-linecap="round"/>
-        <line x1="180" y1="358" x2="320" y2="380" stroke="#ffc419" stroke-width="6" stroke-linecap="round"/>
-        <!-- casters -->
-        <circle cx="40"  cy="384" r="10" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="320" cy="384" r="10" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="120" cy="376" r="9"  fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="240" cy="376" r="9"  fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
-
-        <!-- winch -->
-        <rect x="208" y="300" width="34" height="22" rx="2" fill="#34465a" stroke="#7c8fa6"/>
-        <circle cx="248" cy="311" r="6" fill="#ffc419"/>
-        <line x1="248" y1="311" x2="258" y2="305" stroke="#0b1117" stroke-width="2"/>
-
-        <!-- callouts -->
-        <g font-family="JetBrains Mono, monospace" font-size="9" fill="#ffc419">
-          <text x="14" y="50">A · UPPER MAST</text>
-          <text x="14" y="62" fill="#dde3ec">w/ Cable Sheave</text>
-
-          <text x="14" y="170">B · CARRIAGE</text>
-          <text x="14" y="182" fill="#dde3ec">Reversible Forks</text>
-
-          <text x="220" y="288">C · WINCH</text>
-          <text x="220" y="300" fill="#dde3ec">Brake / Ratchet</text>
-
-          <text x="220" y="404">D · OUTRIGGER</text>
-        </g>
-
-        <!-- leader lines -->
-        <g stroke="#ffc419" stroke-width=".7" fill="none" opacity=".7">
-          <line x1="80"  y1="48"  x2="170" y2="50"/>
-          <line x1="80"  y1="170" x2="150" y2="148"/>
-          <line x1="218" y1="293" x2="225" y2="305"/>
-        </g>
-      </svg>
+    <div class="hero-tips">
+      <strong>Try:</strong>
+      <a href="parts.html?pn=774206">PN 774206</a>
+      <a href="repairs.html#p02">winch slips</a>
+      <a href="inspection.html">cable inspection</a>
+      <a href="models.html">2118 specs</a>
+      <a href="calculators.html">capacity calculator</a>
     </div>
   </div>
 </section>
 
-<!-- PRINCIPLES -->
+<!-- TASK TILES -->
+<section class="section section--tight">
+  <div class="wrap">
+    <h2 style="font-size: 1.4rem; margin-bottom: .25em;">What do you need to do?</h2>
+    <p style="color: var(--steel-500); font-family: var(--mono); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 24px;">Six common entry points</p>
+
+    <div class="action-grid">
+      <a href="models.html" class="action-tile">
+        <div class="verb">Identify</div>
+        <h3>What lift is this?</h3>
+        <p>Six Sumner series, side-by-side specs, model identification by serial-plate or visual cue.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="troubleshooting.html" class="action-tile">
+        <div class="verb">Diagnose</div>
+        <h3>Walk a symptom</h3>
+        <p>Interactive decision tree that maps a customer's complaint to a probable cause and a procedure.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="parts.html" class="action-tile">
+        <div class="verb">Find a part</div>
+        <h3>Search the catalog</h3>
+        <p>50+ parts indexed by subsystem, lift series, and service category. Interactive exploded diagram.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="repairs.html" class="action-tile">
+        <div class="verb">Repair</div>
+        <h3>Perform a procedure</h3>
+        <p>Eight step-by-step procedures from cable replacement to winch swap. Tools, parts, and verification on every page.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="inspection.html" class="action-tile">
+        <div class="verb">Inspect</div>
+        <h3>Check a cable</h3>
+        <p>Visual reference to eight wire-rope damage modes, with ASME B30.30 and OSHA remove-from-service thresholds.</p>
+        <div class="arrow">→</div>
+      </a>
+      <a href="calculators.html" class="action-tile">
+        <div class="verb">Calculate</div>
+        <h3>De-rate the load</h3>
+        <p>Interactive capacity calculator that adjusts rated load for fork extension, off-center, slope, outriggers, wind.</p>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+
+    <div class="status-strip mt-4">
+      <div><strong>6</strong><span>Lift Series Covered</span></div>
+      <div><strong>50+</strong><span>Catalogued Parts</span></div>
+      <div><strong>8</strong><span>Step-By-Step Repairs</span></div>
+      <div><strong>10</strong><span>Reference Chapters</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENTLY VIEWED + ANATOMY -->
 <section class="section">
   <div class="wrap">
-    <div class="grid grid--3">
+    <div class="grid grid--2">
       <div>
-        <div class="eyebrow">For Technicians</div>
-        <h2 class="mt-0">Built around the way you actually work.</h2>
-        <p>Every page is structured the way a service tech moves through a job: identify the model, locate the part, perform the procedure, verify the work. No marketing fluff, no broken PDFs.</p>
+        <div class="eyebrow">Anatomy</div>
+        <h2 class="mt-0">Five subsystems, every lift.</h2>
+        <p>Almost every Sumner lift in the field decomposes into the same five subsystems &mdash; cable sheave, carriage &amp; forks, hand-crank winch, telescoping mast, and base &amp; outriggers. Master these and any model becomes serviceable.</p>
+        <a class="btn btn--primary" href="parts.html">Open exploded diagram &rarr;</a>
       </div>
-      <div class="card">
-        <div class="meta"><span class="dot"></span>Model Tree</div>
-        <h3>Know the lift you're holding</h3>
-        <p>Identify any lift from a serial-plate or visual cue, then jump straight to the right manual section, parts list, and rated capacity.</p>
-        <a href="models.html" class="btn btn--ghost btn--sm">Browse models &rarr;</a>
-      </div>
-      <div class="card">
-        <div class="meta"><span class="dot"></span>Wear-First Mindset</div>
-        <h3>Find failures before they find you</h3>
-        <p>Cable, sheave, ratchet pawl, brake disc — the parts catalog is tagged so the most common wear and safety items rise to the top.</p>
-        <a href="parts.html" class="btn btn--ghost btn--sm">Open catalog &rarr;</a>
+      <div class="recent-card">
+        <h4>Recently viewed</h4>
+        <div id="recent-list">
+          <div class="empty">Pages you visit will appear here.</div>
+        </div>
       </div>
     </div>
   </div>

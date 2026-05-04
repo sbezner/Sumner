@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cable Inspection Guide — Sumner Lift Field Manual</title>
+<meta name="description" content="Visual reference for inspecting wire-rope lift cables. ASME B30.30 and OSHA-aligned remove-from-service criteria with annotated SVG illustrations of damage modes." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
+  <div class="wrap">
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Cable Inspection Guide</span></div>
+    <h1>What a bad cable looks like.</h1>
+    <p>The lift cable is the single component most likely to fail catastrophically and the easiest to misjudge by eye. This chapter shows what each damage mode looks like, when industry standards (ASME B30.30, B30.9, OSHA 29 CFR 1926.1413) say to remove the cable from service, and how to inspect with confidence.</p>
+  </div>
+</section>
+
+<!-- Anatomy of cable -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Anatomy</div>
+    <h2>What you're actually looking at.</h2>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <p>A Sumner lift cable is <strong>aircraft cable</strong> &mdash; galvanized steel wire rope, typically 1×7 or 7×19 construction at 1/8&nbsp;in or 5/32&nbsp;in diameter. Three terms are essential before you can inspect it correctly:</p>
+        <ul style="font-size: 1rem; line-height: 1.8;">
+          <li><strong>Wire</strong> &mdash; an individual filament of steel.</li>
+          <li><strong>Strand</strong> &mdash; multiple wires twisted together (a 7×19 cable has 7 strands).</li>
+          <li><strong>Lay</strong> &mdash; the axial distance over which one strand makes one complete revolution around the cable. Most B30 inspection criteria are expressed "per lay" or "per N lay-lengths."</li>
+        </ul>
+        <p>For a typical 1/8&nbsp;in 7×19 aircraft cable, one lay is roughly <strong>0.9 to 1.1 inches</strong>. Mark a reference length on a ruler before you inspect.</p>
+      </div>
+      <div class="schematic" data-fig="C-01" style="aspect-ratio: 1/.7;">
+        <svg viewBox="0 0 400 280" width="100%" height="100%">
+          <!-- Cable cross-section schematic -->
+          <defs>
+            <radialGradient id="strand-grad">
+              <stop offset="0" stop-color="#dde3ec"/>
+              <stop offset="1" stop-color="#5b6e85"/>
+            </radialGradient>
+          </defs>
+          <text x="20" y="30" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#0b1117">CROSS-SECTION · 7×19</text>
+
+          <!-- Center strand -->
+          <g transform="translate(120,150)">
+            <circle r="35" fill="url(#strand-grad)" stroke="#0b1117"/>
+            <!-- 7 strands x 19 wires -->
+            <g>
+              <circle cx="0"   cy="0" r="11" fill="#5b6e85"/>
+              <circle cx="0"   cy="-22" r="11" fill="#5b6e85"/>
+              <circle cx="19"  cy="-11" r="11" fill="#5b6e85"/>
+              <circle cx="19"  cy="11"  r="11" fill="#5b6e85"/>
+              <circle cx="0"   cy="22"  r="11" fill="#5b6e85"/>
+              <circle cx="-19" cy="11"  r="11" fill="#5b6e85"/>
+              <circle cx="-19" cy="-11" r="11" fill="#5b6e85"/>
+            </g>
+            <text x="0" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#0b1117">7 STRANDS</text>
+          </g>
+
+          <!-- Side view with lay marker -->
+          <g transform="translate(220,150)">
+            <text x="0" y="-50" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#0b1117">SIDE · ONE LAY</text>
+            <!-- Helical strands -->
+            <path d="M0 -20 Q 30 -20 30 0 T 60 0 Q 60 20 90 20 T 120 20 Q 120 0 150 0" fill="none" stroke="#5b6e85" stroke-width="6"/>
+            <path d="M0 0 Q 30 0 30 -20 T 60 -20 Q 60 0 90 0 T 120 0 Q 120 -20 150 -20" fill="none" stroke="#34465a" stroke-width="6"/>
+            <path d="M0 20 Q 30 20 30 0 T 60 0 Q 60 -20 90 -20 T 120 -20 Q 120 0 150 0" fill="none" stroke="#7c8fa6" stroke-width="6"/>
+            <!-- lay measurement -->
+            <line x1="0"   y1="40" x2="60"  y2="40" stroke="#ff6b1a" stroke-width="2" marker-start="url(#aL)" marker-end="url(#aR)"/>
+            <text x="30" y="58" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ff6b1a">~1 LAY</text>
+            <defs>
+              <marker id="aL" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8 z" fill="#ff6b1a"/></marker>
+              <marker id="aR" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ff6b1a"/></marker>
+            </defs>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DAMAGE GALLERY -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Visual Reference</div>
+    <h2>Eight damage modes &mdash; with verdicts.</h2>
+    <p class="lead" style="max-width:65ch;">For each mode below: what it looks like, what causes it, and what the industry standards say. The verdict tag is the bottom line &mdash; <strong>service</strong>, <strong>monitor</strong>, or <strong>remove</strong>.</p>
+
+    <div class="damage-grid mt-4">
+
+      <!-- 1: BROKEN WIRES -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+            <!-- helical strands -->
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
+            <!-- broken wires -->
+            <line x1="80"  y1="56" x2="84"  y2="42" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="98"  y1="58" x2="103" y2="44" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="116" y1="58" x2="120" y2="44" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="160" y1="86" x2="164" y2="100" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="178" y1="86" x2="182" y2="100" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="196" y1="84" x2="200" y2="98" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">BROKEN WIRES (×6)</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Broken wires</h4>
+          <p>Individual wires fractured at random points along the cable. Caused by fatigue, side-loading over a sheave, or overload events.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold (running rope, ASME B30.30):</strong> 6 randomly distributed broken wires in one lay <em>or</em> 3 broken wires in one strand in one lay.</p>
+          <span class="verdict verdict--remove">● Remove from service</span>
+        </div>
+      </article>
+
+      <!-- 2: VALLEY BREAKS -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
+            <!-- arrows pointing into valleys -->
+            <line x1="100" y1="35" x2="100" y2="68" stroke="#d23131" stroke-width="2" marker-end="url(#dArr)"/>
+            <line x1="180" y1="35" x2="180" y2="68" stroke="#d23131" stroke-width="2" marker-end="url(#dArr)"/>
+            <defs>
+              <marker id="dArr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d23131"/></marker>
+            </defs>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">VALLEY BREAKS</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Valley breaks</h4>
+          <p>Wires fractured at the bottom of the valley between two adjacent strands &mdash; the inner crown. Hard to see from outside the cable; usually evidence of internal core failure.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> 2 or more valley breaks in one lay = immediate removal. There is no monitor zone.</p>
+          <span class="verdict verdict--remove">● Remove immediately</span>
+        </div>
+      </article>
+
+      <!-- 3: DIAMETER REDUCTION -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <!-- Original diameter cable -->
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
+            <!-- Necked-down section -->
+            <rect x="120" y="69" width="40" height="12" fill="#d23131" opacity=".25"/>
+            <!-- Caliper indicator -->
+            <line x1="120" y1="40" x2="120" y2="105" stroke="#d23131" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <line x1="160" y1="40" x2="160" y2="105" stroke="#d23131" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <text x="140" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#d23131">−5%+</text>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">DIAMETER REDUCTION</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Diameter reduction</h4>
+          <p>Cable measures smaller than nominal at a localized spot. Caused by core failure, internal corrosion, or crushing. Use calipers, not your fingers &mdash; you can&apos;t feel a 5% change.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> &gt;5% reduction from nominal diameter at any point = remove. For 1/8&nbsp;in cable, that&apos;s a measurement of 0.119&nbsp;in or less.</p>
+          <span class="verdict verdict--remove">● Remove from service</span>
+        </div>
+      </article>
+
+      <!-- 4: KINKS -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 75 L 110 75 L 130 50 L 150 100 L 170 75 L 260 75" fill="none" stroke="#5b6e85" stroke-width="14" stroke-linejoin="miter"/>
+            <circle cx="140" cy="75" r="22" fill="none" stroke="#d23131" stroke-width="2" stroke-dasharray="3 3"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">KINK / DEFORMATION</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Kinks &amp; permanent deformation</h4>
+          <p>The cable holds a permanent bend or wave that doesn&apos;t straighten under tension. Caused by improper handling during cable installation &mdash; pulling out a loop without unwinding it.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any kink = remove. The strands at the kink have already yielded; the cable cannot be straightened back to original load capacity.</p>
+          <span class="verdict verdict--remove">● Remove from service</span>
+        </div>
+      </article>
+
+      <!-- 5: BIRDCAGE -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 75 L 100 75" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M180 75 L 260 75" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <!-- birdcage: separated strands -->
+            <ellipse cx="140" cy="75" rx="40" ry="18" fill="none" stroke="#5b6e85" stroke-width="3"/>
+            <ellipse cx="140" cy="75" rx="40" ry="12" fill="none" stroke="#34465a" stroke-width="3"/>
+            <ellipse cx="140" cy="75" rx="40" ry="6"  fill="none" stroke="#7c8fa6" stroke-width="3"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">BIRDCAGE</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Birdcaging / strand separation</h4>
+          <p>Outer strands have separated from the core, ballooning out from the cable axis. Caused by sudden tension release after stretching, or torsional shock loads.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any birdcage = remove. The strands have permanently lost their helical relationship and the cable can no longer share load equally between strands.</p>
+          <span class="verdict verdict--remove">● Remove from service</span>
+        </div>
+      </article>
+
+      <!-- 6: HEAT DAMAGE -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
+            <!-- heat zone -->
+            <rect x="105" y="63" width="70" height="24" fill="#d23131" opacity=".5"/>
+            <path d="M120 50 q 5 -10 0 -20 m 15 20 q 5 -10 0 -20 m 15 20 q 5 -10 0 -20" fill="none" stroke="#ff6b1a" stroke-width="2" stroke-linecap="round"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">HEAT / ARC DAMAGE</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Heat or arc damage</h4>
+          <p>Discoloration (blue, straw, or black), localized melting, or pitting from welding-arc strike. Heat alters the wire&apos;s temper &mdash; even a brief touch from a stick electrode can ruin a cable.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any evidence of heat or electrical-arc damage = remove. There is no inspection that can verify the remaining strength of a heat-affected cable.</p>
+          <span class="verdict verdict--remove">● Remove from service</span>
+        </div>
+      </article>
+
+      <!-- 7: CORROSION -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#7c5630" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#5d3f23" stroke-width="14"/>
+            <!-- pitting marks -->
+            <circle cx="60"  cy="68" r="2" fill="#3a2615"/>
+            <circle cx="80"  cy="74" r="2" fill="#3a2615"/>
+            <circle cx="100" cy="68" r="2.5" fill="#3a2615"/>
+            <circle cx="160" cy="78" r="2" fill="#3a2615"/>
+            <circle cx="200" cy="72" r="2.5" fill="#3a2615"/>
+            <circle cx="220" cy="80" r="2" fill="#3a2615"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#7c5630">SEVERE CORROSION</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Corrosion / pitting</h4>
+          <p>Surface oxidation from moisture exposure. Light surface rust on a galvanized cable is normal as the zinc coating is consumed; severe corrosion with visible pitting of the steel underneath is not.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> light surface oxidation only = service (and improve storage). Pitting of the underlying steel, or any visible rust on broken-wire ends = remove.</p>
+          <span class="verdict verdict--monitor">● Monitor / Remove if pitting</span>
+        </div>
+      </article>
+
+      <!-- 8: WEAR -->
+      <article class="damage-card">
+        <div class="swatch">
+          <svg viewBox="0 0 280 140" width="100%" height="100%">
+            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
+            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
+            <!-- flat-spot wear -->
+            <rect x="100" y="62" width="80" height="3" fill="#dde3ec"/>
+            <rect x="100" y="85" width="80" height="3" fill="#dde3ec"/>
+            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#ff6b1a">FLATTENED CROWN WIRES</text>
+          </svg>
+        </div>
+        <div class="body">
+          <h4>Crown wire wear</h4>
+          <p>Outer wires of the cable show flat spots from repeated travel through a worn or sharp-edged sheave. Often the warning sign that the sheave needs replacement before the cable does.</p>
+          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> &lt;1/3 of the original wire diameter remaining at the wear point = remove. Replace the sheave at the same time or the new cable will wear in the same spot.</p>
+          <span class="verdict verdict--monitor">● Monitor / Replace sheave</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- INSPECTION PROCEDURE -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">How To Inspect</div>
+    <h2>The five-minute cable inspection.</h2>
+    <p class="lead" style="max-width:62ch;">Before each shift. Use a clean rag and a pair of leather gloves &mdash; broken wire ends are razor sharp and rags catch them before they catch you.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Lower the carriage fully and remove tension</h4>
+        <p>Unloaded cable is easier to inspect, and the sheave-side wear surfaces are exposed.</p>
+      </li>
+      <li>
+        <h4>Pinch a clean rag around the cable, slide it the full length</h4>
+        <p>The rag will snag on broken wires before your fingers do. A rag that comes back clean and un-frayed is a strong positive signal &mdash; but it is not a substitute for visual inspection.</p>
+      </li>
+      <li>
+        <h4>Visually inspect at points of greatest stress</h4>
+        <p>Concentrate on: the cable termination at the carriage, the sheave-contact zone (top of mast at full extension), and the first wrap at the winch drum. Most failures concentrate at one of these three.</p>
+      </li>
+      <li>
+        <h4>Measure with calipers if anything looks suspicious</h4>
+        <p>Spot check three points along the cable. For 1/8&nbsp;in nominal: 0.125&nbsp;in is healthy, 0.119&nbsp;in (−5%) is the threshold for removal. For 5/32&nbsp;in nominal: 0.156&nbsp;in healthy, 0.148&nbsp;in is the threshold.</p>
+      </li>
+      <li>
+        <h4>Inspect the cable terminations</h4>
+        <p>Check the swage stop on the drum end, and the thimble + anchor clip at the carriage. Cracks at terminations are a removal trigger by themselves &mdash; the cable might be fine but the connection has failed.</p>
+      </li>
+      <li>
+        <h4>Verify minimum drum wraps at full extension</h4>
+        <p>Sumner specifies a minimum of <strong>four wraps</strong> remain on the winch drum when the carriage is at full lift height.</p>
+      </li>
+      <li>
+        <h4>Document and decide</h4>
+        <p>If you find any of the eight damage modes above at the listed thresholds, tag the lift out of service. Note the finding on the maintenance-record decal and order the appropriate replacement cable.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- STANDARDS REFERENCE -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Standards Reference</div>
+    <h2>The thresholds, in one table.</h2>
+    <p class="lead">Sumner&apos;s operator&apos;s manuals reference industry standards rather than redefining them. Use this matrix when you need a direct citation for a removal decision.</p>
+
+    <div style="overflow-x:auto; margin-top: 16px;">
+      <table class="data">
+        <thead>
+          <tr><th>Damage Mode</th><th>Running Rope (B30.30)</th><th>Wire-Rope Sling (B30.9)</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Random broken wires</td>
+            <td>6 in one lay</td>
+            <td>10 in one lay</td>
+            <td>ASME B30.30 / B30.9</td>
+          </tr>
+          <tr>
+            <td>Broken wires in one strand</td>
+            <td>3 in one lay</td>
+            <td>5 in one lay</td>
+            <td>ASME B30.30 / B30.9</td>
+          </tr>
+          <tr>
+            <td>Valley breaks</td>
+            <td>2 in one lay = remove</td>
+            <td>2 in one lay = remove</td>
+            <td>ASME B30.30</td>
+          </tr>
+          <tr>
+            <td>Diameter reduction</td>
+            <td>&gt;5% from nominal</td>
+            <td>&gt;5% from nominal</td>
+            <td>ASME B30.30 / B30.9</td>
+          </tr>
+          <tr>
+            <td>Kinking / crushing / birdcaging</td>
+            <td>Any = remove</td>
+            <td>Any = remove</td>
+            <td>OSHA 1926.1413</td>
+          </tr>
+          <tr>
+            <td>Heat / arc damage</td>
+            <td>Any evidence = remove</td>
+            <td>Any evidence = remove</td>
+            <td>OSHA 1926.1413</td>
+          </tr>
+          <tr>
+            <td>End-attachment cracking</td>
+            <td>Any = remove</td>
+            <td>Any = remove</td>
+            <td>ASME B30.30</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout--info mt-4">
+      <strong>"One lay" defined</strong>
+      A rope lay is the axial length over which one strand makes one complete revolution around the cable. For 1/8&nbsp;in 7×19 aircraft cable used on most Sumner lifts, this is approximately <strong>0.9 to 1.1&nbsp;in</strong>. Mark a 1&nbsp;in window on a ruler or index card and slide it along the cable as you count broken wires.
+    </div>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="section">
+  <div class="wrap">
+    <div class="related">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="repairs.html#p01">Procedure 01 &mdash; Replace lift cable</a></li>
+        <li><a href="repairs.html#p03">Procedure 03 &mdash; Replace cable sheave</a></li>
+        <li><a href="parts.html?pn=774206">Part 774206 &mdash; 1/8 in replacement cable</a></li>
+        <li><a href="parts.html?pn=PUL-SHV-150">Part PUL-SHV-150 &mdash; Cable sheave</a></li>
+        <li><a href="maintenance.html">Maintenance schedule</a></li>
+        <li><a href="tools.html">Wire-rope cutter &amp; gauge</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="calculators.html">Next: Capacity Calculator →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

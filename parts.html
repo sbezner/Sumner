@@ -11,10 +11,34 @@
 </head>
 <body>
 
-<div class="topbar">
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
   <div class="wrap">
-    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 2</div>
-    <div>PARTS CATALOG · INTERACTIVE</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
   </div>
 </div>
 
@@ -27,19 +51,44 @@
         <div class="brand-sub">Service · Parts · Repair</div>
       </div>
     </a>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
-    <nav class="nav">
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
       <a href="index.html">Overview</a>
       <a href="models.html">Models</a>
-      <a href="parts.html" class="active">Parts</a>
+      <a href="parts.html">Parts</a>
       <a href="repairs.html">Repairs</a>
-      <a href="maintenance.html">Maintenance</a>
-      <a href="troubleshooting.html">Troubleshoot</a>
-      <a href="safety.html">Safety</a>
-      <a href="glossary.html">Glossary</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
+
 
 <section class="page-head">
   <div class="wrap">

@@ -11,10 +11,34 @@
 </head>
 <body>
 
-<div class="topbar">
+<!-- LIFT CONTEXT BAR -->
+<div class="context-bar">
   <div class="wrap">
-    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 3</div>
-    <div>REPAIR PROCEDURES</div>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      <span class="label">Working on:</span>
+      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection">×</button>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <label for="lift-ctx" class="label">Set lift:</label>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 650 lb / 10 ft</option>
+        <option value="2015">Series 2015 — 650 lb / 15 ft</option>
+        <option value="2020">Series 2020 — 800 lb / 20 ft</option>
+        <option value="2025">Series 2025 — 1,000 lb / 25 ft</option>
+        <option value="2112">Series 2112 — 650 lb / 12 ft</option>
+        <option value="2118">Series 2118 — 650 lb / 18 ft</option>
+        <option value="2124">Series 2124 — 650 lb / 24 ft</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 450 lb / 12 ft</option>
+        <option value="2416">Series 2416 — 450 lb / 16 ft</option>
+        <option value="Eventer 20">Eventer 20 — 500 lb</option>
+        <option value="Eventer 25">Eventer 25 — 800 lb</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15 ft</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25 ft</option>
+      </select>
+    </div>
   </div>
 </div>
 
@@ -27,19 +51,44 @@
         <div class="brand-sub">Service · Parts · Repair</div>
       </div>
     </a>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
-    <nav class="nav">
+    <div class="global-search">
+      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
+    <nav class="nav-pro" aria-label="Primary">
       <a href="index.html">Overview</a>
       <a href="models.html">Models</a>
       <a href="parts.html">Parts</a>
-      <a href="repairs.html" class="active">Repairs</a>
-      <a href="maintenance.html">Maintenance</a>
-      <a href="troubleshooting.html">Troubleshoot</a>
-      <a href="safety.html">Safety</a>
-      <a href="glossary.html">Glossary</a>
+      <a href="repairs.html">Repairs</a>
+      <div class="dropdown">
+        <button type="button">Diagnose</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Find a problem</div>
+          <a href="troubleshooting.html">Troubleshooter</a>
+          <a href="inspection.html">Cable Inspection Guide</a>
+          <a href="calculators.html">Capacity Calculator</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button type="button">Reference</button>
+        <div class="dropdown-menu">
+          <div class="group-label">Service reference</div>
+          <a href="maintenance.html">Maintenance Schedule</a>
+          <a href="tools.html">Tools &amp; Torque</a>
+          <a href="safety.html">Safety</a>
+          <hr/>
+          <div class="group-label">Background</div>
+          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
+          <a href="history.html">Heritage</a>
+          <a href="glossary.html">Glossary</a>
+        </div>
+      </div>
     </nav>
   </div>
 </header>
+
 
 <section class="page-head">
   <div class="wrap">
@@ -59,7 +108,7 @@
 </section>
 
 <!-- REPAIR 1 -->
-<section class="section">
+<section class="section" id="p01">
   <div class="wrap">
     <div class="eyebrow">Procedure 01 · Safety-Critical</div>
     <h2>Replace the lift cable.</h2>
@@ -131,7 +180,7 @@
 </section>
 
 <!-- REPAIR 2 -->
-<section class="section section--paper">
+<section class="section section--paper" id="p02">
   <div class="wrap">
     <div class="eyebrow">Procedure 02 · Safety-Critical</div>
     <h2>Service the winch ratchet pawl &amp; brake.</h2>
@@ -194,7 +243,7 @@
 </section>
 
 <!-- REPAIR 3 -->
-<section class="section">
+<section class="section" id="p03">
   <div class="wrap">
     <div class="eyebrow">Procedure 03</div>
     <h2>Replace the upper-mast cable sheave.</h2>
@@ -231,7 +280,7 @@
 </section>
 
 <!-- REPAIR 4 -->
-<section class="section section--paper">
+<section class="section section--paper" id="p04">
   <div class="wrap">
     <div class="eyebrow">Procedure 04</div>
     <h2>Replace mast slide pads.</h2>
@@ -264,7 +313,7 @@
 </section>
 
 <!-- REPAIR 5 -->
-<section class="section">
+<section class="section" id="p05">
   <div class="wrap">
     <div class="eyebrow">Procedure 05</div>
     <h2>Replace carriage rollers.</h2>
@@ -296,6 +345,157 @@
   </div>
 </section>
 
+<!-- REPAIR 6 -->
+<section class="section section--paper" id="p06">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 06</div>
+    <h2>Replace the winch assembly.</h2>
+    <p class="lead">When Procedure 02 has not restored brake or pawl function &mdash; or the worm gear inside the winch is damaged &mdash; Sumner intends the MX winch to be replaced as a complete assembly rather than rebuilt. This procedure swaps the winch as a unit.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <div class="card">
+          <h3 class="mt-0">Parts &amp; Tools</h3>
+          <ul class="spec-list">
+            <li><span class="k">Part</span><span class="v">PN MX-WINCH-A &mdash; complete assembly</span></li>
+            <li><span class="k">Part</span><span class="v">PN HW-BLT-KIT &mdash; mounting hardware (4 × 1/4-20)</span></li>
+            <li><span class="k">Part</span><span class="v">PN HW-CBL-CLP &mdash; new anchor clip + thimble</span></li>
+            <li><span class="k">Tools</span><span class="v">Torque wrench, 7/16 in socket, wire-rope cutter</span></li>
+            <li><span class="k">Time</span><span class="v">~35 min</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h4>Remove the cable</h4>
+          <p>Follow Procedure 01 steps 1&ndash;4 to disconnect the cable from both ends. Coil and label as &ldquo;reuse&rdquo; or &ldquo;scrap.&rdquo;</p>
+        </li>
+        <li>
+          <h4>Disconnect the crank handle</h4>
+          <p>Pull the spring pin and slide the handle off the input shaft. Stow it; you&apos;ll re-fit it on the new winch.</p>
+        </li>
+        <li>
+          <h4>Mark and remove the mounting bolts</h4>
+          <p>Snap a photo of the winch&apos;s orientation before you remove anything. The MX has four mounting bolts (1/4-20 typical). Loosen all four before fully removing any one.</p>
+        </li>
+        <li>
+          <h4>Lift the old winch off the mount</h4>
+          <p>Support the winch with one hand as the last bolt comes free &mdash; it weighs ~6 lb. Set aside.</p>
+        </li>
+        <li>
+          <h4>Inspect the mounting bracket</h4>
+          <p>Check the bracket bore for elongated holes (sign of a previous overload event). Clean any corrosion off the mating surface. The new winch must seat flat or it will load the mounting bolts in shear.</p>
+        </li>
+        <li>
+          <h4>Install the new winch</h4>
+          <p>Hand-thread all four bolts before tightening any. Cross-pattern torque to spec (8 ft-lb dry for 1/4-20 Grade 5).</p>
+          <div class="tools"><span class="tag tag--safety">safety-critical</span></div>
+        </li>
+        <li>
+          <h4>Re-fit the crank handle, then the cable</h4>
+          <p>Re-install the handle and verify smooth rotation through the full range with no load. Then route a new cable per Procedure 01 from step 5 onward.</p>
+        </li>
+        <li>
+          <h4>Test under progressive load</h4>
+          <p>10% &rarr; 50% &rarr; 100% of rated capacity, with a 60-second hold at each step to verify no brake drift. Re-torque the cable anchor clip after the 100% cycle.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR 7 -->
+<section class="section" id="p07">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 07 · Safety-Critical</div>
+    <h2>Service the outrigger latch.</h2>
+    <p class="lead">A loose or non-engaging outrigger latch is one of the highest-risk failures on the lift &mdash; the leg can swing free under load and the lift becomes top-heavy. The latch and spring kit is inexpensive; replace at any sign of weakness.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <div class="card">
+          <h3 class="mt-0">Parts &amp; Tools</h3>
+          <ul class="spec-list">
+            <li><span class="k">Part</span><span class="v">PN OUT-LATCH-A &mdash; latch + spring kit</span></li>
+            <li><span class="k">Part (opt.)</span><span class="v">PN OUT-FOOT-A &mdash; rubber foot pad</span></li>
+            <li><span class="k">Tools</span><span class="v">Snap-ring pliers, white lithium grease</span></li>
+            <li><span class="k">Time</span><span class="v">~20 min per leg</span></li>
+          </ul>
+        </div>
+        <div class="callout callout--warning mt-2">
+          <strong>Test before you trust it</strong>
+          After service, deploy and stow the leg ten times. The latch should snap home audibly and require deliberate force to release each time.
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h4>Deploy the leg fully and block it</h4>
+          <p>Fold the outrigger leg out to its locked position. Place a wood block under the leg so it can&apos;t swing as you remove the latch hardware.</p>
+        </li>
+        <li>
+          <h4>Disengage the existing latch</h4>
+          <p>Compress the spring with your thumb (gloved) and slide the latch cam out of engagement. Catch the spring &mdash; it likes to launch.</p>
+        </li>
+        <li>
+          <h4>Remove the latch retaining clip</h4>
+          <p>Use snap-ring pliers to remove the e-clip or c-clip securing the latch pin. Slide the pin out, capturing any thrust washers.</p>
+        </li>
+        <li>
+          <h4>Inspect the cam pocket on the leg</h4>
+          <p>Look at the cam-engagement pocket on the leg itself. Egged or peened pockets indicate the leg has been operated with a worn latch &mdash; a fresh latch in a worn pocket won&apos;t hold for long.</p>
+        </li>
+        <li>
+          <h4>Install the new latch</h4>
+          <p>Reverse the disassembly. Lubricate the pin and cam contact face with white lithium grease before assembly. Capture the spring under the cam before installing the retaining clip.</p>
+        </li>
+        <li>
+          <h4>Verify positive engagement</h4>
+          <p>Stow and re-deploy the leg ten times. Each cycle should produce an audible snap as the latch cams home, and the leg should require deliberate force on the release lever to disengage.</p>
+          <div class="tools"><span class="tag tag--safety">safety-critical</span></div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR 8 -->
+<section class="section section--paper" id="p08">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 08</div>
+    <h2>Replace the reversible-fork pivot pin.</h2>
+    <p class="lead">A worn pivot pin lets the fork shift under load, increasing tipping moment and accelerating wear at the carriage. The pin is among the cheapest parts on the lift and also among the most overlooked.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Lower carriage and remove load</h4>
+        <p>Forks empty, carriage all the way down.</p>
+      </li>
+      <li>
+        <h4>Remove the R-clip</h4>
+        <p>Pull the R-clip from the end of the pin. Capture in a magnetic tray &mdash; these get lost on jobsites.</p>
+      </li>
+      <li>
+        <h4>Drive out the pin</h4>
+        <p>Using a brass drift to protect the pin, tap the pin out from the side opposite the R-clip. Note the order of any thrust washers as you pull the fork off.</p>
+      </li>
+      <li>
+        <h4>Inspect the carriage bore</h4>
+        <p>The bore in the carriage that the pin rides in is what wears second &mdash; if it&apos;s egged, you need a carriage, not just a pin.</p>
+      </li>
+      <li>
+        <h4>Install the new pin</h4>
+        <p>Slide the new pin (PN FORK-PIN-A) through the carriage and fork. Reinstall any thrust washers in the same order. Install a new R-clip; do not reuse the old one.</p>
+      </li>
+      <li>
+        <h4>Verify fork articulation</h4>
+        <p>Reverse the fork through its full travel. The motion should be tight without binding. A fork that swings under its own weight has an undersized pin or overworn carriage bore.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
 <!-- AT-A-GLANCE TABLE -->
 <section class="section section--steel">
   <div class="wrap">
@@ -309,13 +509,27 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>01</td><td>Replace lift cable</td><td>Frayed / kinked / broken-strand cable</td><td>45 min</td><td>Intermediate</td><td>Yes</td></tr>
-          <tr><td>02</td><td>Winch ratchet &amp; brake service</td><td>Slips under load / drifts when released</td><td>30 min</td><td>Intermediate</td><td>Yes</td></tr>
-          <tr><td>03</td><td>Replace cable sheave</td><td>Grooved sheave / cable wear at top</td><td>20 min</td><td>Basic</td><td>Yes</td></tr>
-          <tr><td>04</td><td>Replace mast slide pads</td><td>Mast wobbles at full extension</td><td>40 min</td><td>Intermediate</td><td>No</td></tr>
-          <tr><td>05</td><td>Replace carriage rollers</td><td>Carriage chatters during raise/lower</td><td>25 min</td><td>Basic</td><td>No</td></tr>
+          <tr><td>01</td><td><a href="#p01">Replace lift cable</a></td><td>Frayed / kinked / broken-strand cable</td><td>45 min</td><td>Intermediate</td><td>Yes</td></tr>
+          <tr><td>02</td><td><a href="#p02">Winch ratchet &amp; brake service</a></td><td>Slips under load / drifts when released</td><td>30 min</td><td>Intermediate</td><td>Yes</td></tr>
+          <tr><td>03</td><td><a href="#p03">Replace cable sheave</a></td><td>Grooved sheave / cable wear at top</td><td>20 min</td><td>Basic</td><td>Yes</td></tr>
+          <tr><td>04</td><td><a href="#p04">Replace mast slide pads</a></td><td>Mast wobbles at full extension</td><td>40 min</td><td>Intermediate</td><td>No</td></tr>
+          <tr><td>05</td><td><a href="#p05">Replace carriage rollers</a></td><td>Carriage chatters during raise/lower</td><td>25 min</td><td>Basic</td><td>No</td></tr>
+          <tr><td>06</td><td><a href="#p06">Replace winch assembly</a></td><td>Brake won't hold after pawl service</td><td>35 min</td><td>Intermediate</td><td>Yes</td></tr>
+          <tr><td>07</td><td><a href="#p07">Service outrigger latch</a></td><td>Outrigger leg loose or won't latch</td><td>20 min</td><td>Basic</td><td>Yes</td></tr>
+          <tr><td>08</td><td><a href="#p08">Replace fork pivot pin</a></td><td>Fork shifts under load</td><td>15 min</td><td>Basic</td><td>No</td></tr>
         </tbody>
       </table>
+    </div>
+
+    <div class="related mt-4">
+      <h4>Related</h4>
+      <ul>
+        <li><a href="parts.html">Full parts catalog</a></li>
+        <li><a href="inspection.html">Cable inspection guide</a></li>
+        <li><a href="tools.html">Tools &amp; torque reference</a></li>
+        <li><a href="troubleshooting.html">Symptom-to-cause troubleshooter</a></li>
+        <li><a href="maintenance.html">Maintenance &amp; pre-shift checklist</a></li>
+      </ul>
     </div>
   </div>
 </section>

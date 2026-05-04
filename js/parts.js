@@ -143,7 +143,14 @@
     }
   });
   document.getElementById('modal').addEventListener('click', e => {
-    if (e.target.id === 'modal' || e.target.classList.contains('close-btn')) closeModal();
+    // Only the backdrop itself closes (not bubbled clicks from inside content)
+    if (e.target.id === 'modal') closeModal();
+  });
+  // Close button — wired directly so it survives the inner modal's
+  // event.stopPropagation() (which prevents content clicks from
+  // hitting the backdrop-click handler above).
+  document.querySelectorAll('#modal .close-btn').forEach(btn => {
+    btn.addEventListener('click', closeModal);
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 

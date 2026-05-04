@@ -727,7 +727,47 @@ function vendorUrl(part) {
 }
 
 /* Make available globally for site-wide search */
+/* Build a vendor URL for a complete LIFT (not a part). Used by the
+   spec matrix on the home page and the lift cards on /models so
+   each lift has its own "Shop this model" path.
+
+   Strategy:
+   1. Direct product URL if we know one (knownLiftUrls)
+   2. Series-collection page (/collections/series-2400-lifts etc.)
+   3. Site search by series + capacity as last resort
+*/
+const LIFT_COLLECTIONS = {
+  "2000":         "https://www.energizedengines.com/collections/all-parts",
+  "2100":         "https://www.energizedengines.com/collections/series-2100-parts",
+  "2300":         "https://www.energizedengines.com/collections/all-parts",
+  "2400":         "https://www.energizedengines.com/collections/series-2400-lifts",
+  "Eventer":      "https://www.energizedengines.com/collections/all-parts",
+  "Roust-A-Bout": "https://www.energizedengines.com/collections/all-parts"
+};
+const KNOWN_LIFT_URLS = {
+  "780301":  "https://www.energizedengines.com/products/sumner-r-150-roust-a-bouta-15-top-ht-sku-780301",
+  "783652":  "https://www.energizedengines.com/products/sumner-sku-783652-contractor-lift-model-2124"
+};
+
+/* Accepts either a series name ("2400", "Eventer") or a specific
+   SKU/model ("783703", "Eventer 25"). */
+function vendorLiftUrl(key) {
+  if (!key) return VENDOR.allParts;
+  // Direct product URL?
+  if (KNOWN_LIFT_URLS[key]) return KNOWN_LIFT_URLS[key];
+  // Series collection?
+  if (LIFT_COLLECTIONS[key]) return LIFT_COLLECTIONS[key];
+  // 6-digit SKU? Search the store.
+  if (/^\d{6}$/.test(key)) {
+    return "https://www.energizedengines.com/search?q=" + encodeURIComponent(key) + "&type=product";
+  }
+  // Fall back to a free-text search ("Sumner 2118 contractor lift" etc.)
+  return "https://www.energizedengines.com/search?q=" +
+    encodeURIComponent("Sumner " + key) + "&type=product";
+}
+
 window.PARTS = PARTS;
 window.HOTSPOTS = HOTSPOTS;
 window.VENDOR = VENDOR;
 window.vendorUrl = vendorUrl;
+window.vendorLiftUrl = vendorLiftUrl;

@@ -3378,6 +3378,41 @@ html[data-theme="dark"] .app-nav-group a.active { background: var(--paper); colo
   letter-spacing: .04em;
   color: var(--accent-teal-deep);
 }
+.app-spec-matrix .row-link,
+.app-spec-matrix .row-buy {
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: background .12s ease, color .12s ease;
+  display: inline-block;
+}
+.app-spec-matrix .row-link {
+  color: var(--v3-text-soft);
+  border: 1px solid var(--v3-rule);
+  background: var(--paper);
+}
+.app-spec-matrix .row-link:hover {
+  color: var(--v3-text);
+  border-color: var(--v3-text);
+  text-decoration: none;
+}
+.app-spec-matrix .row-buy {
+  color: #fff;
+  background: var(--accent-teal);
+  border: 1px solid var(--accent-teal);
+}
+.app-spec-matrix .row-buy:hover {
+  background: var(--accent-teal-deep);
+  border-color: var(--accent-teal-deep);
+  color: #fff;
+  text-decoration: none;
+}
+.app-spec-matrix tbody tr:hover { background: transparent; cursor: default; }
 
 /* Compact workflow inside dashboard */
 .app-flow {

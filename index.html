@@ -3,472 +3,290 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sumner Lift Field Manual — Educational Reference for Repair Personnel</title>
-<meta name="description" content="An educational technical reference for personnel servicing Sumner material lifts. Models, parts, repair procedures, maintenance, and troubleshooting." />
+<title>Sumner Lift Field Manual — Service Reference for Repair Personnel</title>
+<meta name="description" content="A complete service reference for Sumner material lifts. Identify any lift, find any part, walk any procedure, and order from Energized Engines." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/styles.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0e13'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%230e7461' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
 </head>
-<body>
+<body class="app-page">
 
-<!-- ENERGIZED ENGINES PROMO STRIP -->
-<div class="promo-strip">
-  <div class="wrap">
-    <strong>Published by Energized Engines</strong>
-    <span>Stocks the full Sumner parts line &mdash; cable, winches, casters, mast sections.</span>
-    <a href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">Shop all Sumner parts &rarr;</a>
-  </div>
-</div>
-
-<!-- LIFT CONTEXT BAR -->
-<div class="context-bar">
-  <div class="wrap">
-    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-      <span class="label">Working on:</span>
-      <span id="lift-ctx-display"><em style="color:var(--steel-400);font-style:normal;">No lift selected</em></span>
-      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection" aria-label="Clear lift selection">×</button>
-    </div>
-    <div style="display:flex;gap:10px;align-items:center;">
-      <label for="lift-ctx" class="label">Set lift:</label>
-      <select id="lift-ctx" aria-label="Select your lift model">
-        <option value="">— select model —</option>
-        <option value="2010">Series 2010 — 1,000 lb / 11&prime;7&Prime;</option>
-        <option value="2015">Series 2015 — 800 lb / 16&prime;2&Prime;</option>
-        <option value="2020">Series 2020 — 800 lb / 20&prime;9&Prime;</option>
-        <option value="2025">Series 2025 — 650 lb / 25&prime;5&Prime;</option>
-        <option value="2112">Series 2112 — 650 lb / 12&prime;11&Prime;</option>
-        <option value="2118">Series 2118 — 650 lb / 18&prime;4&Prime;</option>
-        <option value="2124">Series 2124 — 650 lb / 23&prime;9&Prime;</option>
-        <option value="2300">Series 2300 — 150 lb (drywall)</option>
-        <option value="2412">Series 2412 — 400 lb / 12&prime;11&Prime;</option>
-        <option value="2416">Series 2416 — 450 lb / 16&prime;11&Prime;</option>
-        <option value="Eventer 16">Eventer 16 — 500 lb / 16&prime;11&Prime;</option>
-        <option value="Eventer 20">Eventer 20 — 800 lb / 20&prime;</option>
-        <option value="Eventer 25">Eventer 25 — 650 lb / 25&prime;</option>
-        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (fits std. door)</option>
-        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15&prime;</option>
-        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25&prime;</option>
-      </select>
-    </div>
-  </div>
-</div>
-
-<header class="site-header">
-  <div class="wrap">
-    <a href="index.html" class="brand">
-      <div class="brand-mark">SL</div>
-      <div>
-        <div class="brand-name">Sumner Lift Field Manual</div>
-        <div class="brand-sub">Service · Parts · Repair</div>
-      </div>
+<!-- TOP BAR -->
+<header class="app-topbar">
+  <div class="app-topbar-inner">
+    <a href="index.html" class="app-brand">
+      <div class="app-brand-mark">SL</div>
+      <div class="app-brand-name">Sumner Lift Manual<small>Service · Parts · Repair</small></div>
     </a>
-    <div class="global-search">
-      <input type="search" id="site-search" placeholder="Search the manual..." aria-label="Search the field manual" autocomplete="off" />
+
+    <div class="app-search">
+      <input type="search" id="site-search" placeholder="Search parts, procedures, models, symptoms…" aria-label="Search the manual" autocomplete="off" />
+      <span class="app-search-kbd"><kbd id="kbd-mod">⌘</kbd><kbd>K</kbd></span>
       <div class="search-results" id="search-results"></div>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="toggleNav()">MENU</button>
-    <nav class="nav-pro" aria-label="Primary">
-      <a href="index.html">Overview</a>
-      <a href="models.html">Models</a>
-      <a href="parts.html">Parts</a>
-      <a href="repairs.html">Repairs</a>
-      <div class="dropdown">
-        <button type="button">Diagnose</button>
-        <div class="dropdown-menu">
-          <div class="group-label">Find a problem</div>
-          <a href="troubleshooting.html">Troubleshooter</a>
-          <a href="inspection.html">Cable Inspection Guide</a>
-          <a href="calculators.html">Capacity Calculator</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button type="button">Reference</button>
-        <div class="dropdown-menu">
-          <div class="group-label">Service reference</div>
-          <a href="maintenance.html">Maintenance Schedule</a>
-          <a href="tools.html">Tools &amp; Torque</a>
-          <a href="safety.html">Safety</a>
-          <hr/>
-          <div class="group-label">Background</div>
-          <a href="pipe-equipment.html">Pipe Handling Equipment</a>
-          <a href="history.html">Heritage</a>
-          <a href="glossary.html">Glossary</a>
-        </div>
-      </div>
-    </nav>
+
+    <div class="app-topbar-actions">
+      <button class="app-mobile-toggle app-icon-btn" aria-label="Open menu" onclick="document.querySelector('.app-sidebar').classList.add('open'); document.querySelector('.app-mobile-backdrop').classList.add('open');">≡</button>
+      <button class="app-icon-btn theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme"></button>
+      <a class="app-shop-btn" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener"><span>Shop parts</span></a>
+    </div>
   </div>
 </header>
 
+<div class="app-mobile-backdrop" onclick="document.querySelector('.app-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
 
-<!-- HERO · ANATOMY THEATER -->
-<section class="hero-theater">
-  <div class="wrap">
-    <div class="theater-stage">
-      <svg viewBox="0 0 360 440" aria-label="Sumner material lift, schematic with interactive subsystem markers">
-        <defs>
-          <linearGradient id="t-mast" x1="0" x2="1">
-            <stop offset="0"  stop-color="#2a3441"/>
-            <stop offset=".5" stop-color="#5b6e85"/>
-            <stop offset="1"  stop-color="#2a3441"/>
-          </linearGradient>
-          <linearGradient id="t-cable" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0"  stop-color="#dde3ec"/>
-            <stop offset="1"  stop-color="#7c8fa6"/>
-          </linearGradient>
-        </defs>
+<div class="app-shell">
 
-        <!-- Outer mast -->
-        <rect x="170" y="40" width="22" height="320" rx="2" fill="url(#t-mast)" stroke="#0a0e13"/>
-        <rect x="176" y="40" width="10" height="320" fill="rgba(0,0,0,.45)"/>
-
-        <!-- Pulley at top -->
-        <circle cx="181" cy="50" r="11" fill="#0a0e13" stroke="#7c8fa6" stroke-width="1.5"/>
-        <circle cx="181" cy="50" r="3.5" fill="#7c8fa6"/>
-
-        <!-- Cable -->
-        <path d="M181 60 L 181 145" stroke="url(#t-cable)" stroke-width="1.4" fill="none"/>
-
-        <!-- Forks -->
-        <rect x="100" y="138" width="160" height="6" rx="1" fill="#ffc419"/>
-        <rect x="100" y="138" width="6"   height="34" fill="#ffc419"/>
-        <rect x="254" y="138" width="6"   height="34" fill="#ffc419"/>
-
-        <!-- Carriage -->
-        <rect x="150" y="146" width="60" height="38" rx="3" fill="#0f1419" stroke="#34465a"/>
-        <rect x="156" y="151" width="48" height="6"  fill="#34465a"/>
-        <circle cx="180" cy="167" r="4" fill="#7c8fa6"/>
-
-        <!-- Mast slide pad markers -->
-        <rect x="166" y="290" width="6" height="14" fill="#ffc419" opacity=".35"/>
-        <rect x="190" y="290" width="6" height="14" fill="#ffc419" opacity=".35"/>
-
-        <!-- Winch -->
-        <rect x="208" y="295" width="34" height="22" rx="2" fill="#34465a" stroke="#0a0e13"/>
-        <circle cx="248" cy="306" r="6" fill="#ffc419"/>
-        <line x1="248" y1="306" x2="259" y2="299" stroke="#0a0e13" stroke-width="2.4" stroke-linecap="round"/>
-
-        <!-- Base -->
-        <rect x="100" y="360" width="160" height="14" rx="3" fill="#1f2731"/>
-
-        <!-- Outriggers -->
-        <line x1="180" y1="368" x2="40"  y2="392" stroke="#ff6b1a" stroke-width="6" stroke-linecap="round"/>
-        <line x1="180" y1="368" x2="320" y2="392" stroke="#ff6b1a" stroke-width="6" stroke-linecap="round"/>
-
-        <!-- Casters -->
-        <circle cx="40"  cy="396" r="11" fill="#0a0e13" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="320" cy="396" r="11" fill="#0a0e13" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="120" cy="384" r="9"  fill="#0a0e13" stroke="#7c8fa6" stroke-width="2"/>
-        <circle cx="240" cy="384" r="9"  fill="#0a0e13" stroke="#7c8fa6" stroke-width="2"/>
-      </svg>
-
-      <!-- Interactive numbered markers, positioned absolute over the SVG.
-           Coordinates are percentages of the 4:5 aspect-ratio stage. -->
-      <a class="theater-marker"      href="inspection.html"     style="left: 50%; top: 11%;"   aria-label="Inspect: cable and sheave">
-        <span>1</span><span class="tip">Inspect cable &amp; sheave</span>
-      </a>
-      <a class="theater-marker left" href="models.html"         style="left: 28%; top: 38%;"   aria-label="Models: identify your lift">
-        <span>2</span><span class="tip">Identify your model</span>
-      </a>
-      <a class="theater-marker"      href="parts.html"          style="left: 73%; top: 70%;"   aria-label="Parts catalog">
-        <span>3</span><span class="tip">Find a part</span>
-      </a>
-      <a class="theater-marker left" href="repairs.html"        style="left: 22%; top: 70%;"   aria-label="Repair procedures">
-        <span>4</span><span class="tip">Walk a repair</span>
-      </a>
-      <a class="theater-marker"      href="safety.html"         style="left: 60%; top: 92%;"   aria-label="Safety and stability">
-        <span>5</span><span class="tip">Stability &amp; safety</span>
-      </a>
+  <!-- SIDEBAR -->
+  <aside class="app-sidebar">
+    <div class="app-nav-group">
+      <h6>Get started</h6>
+      <ul>
+        <li><a href="index.html" class="active">Overview <span class="badge">Home</span></a></li>
+        <li><a href="troubleshooting.html">Diagnose a problem</a></li>
+        <li><a href="parts.html">Open parts catalog</a></li>
+      </ul>
     </div>
 
-    <div class="theater-copy">
-      <div class="kicker">Field Manual · Edition 2026.05</div>
-      <h1>Service any Sumner&nbsp;lift, <em>faster.</em></h1>
-      <p class="lead">Complete service reference for the technicians who keep these lifts in the field. Tap any number on the lift &mdash; or walk a symptom through the troubleshooter.</p>
-
-      <div class="theater-actions">
-        <a class="theater-cta" href="troubleshooting.html">Diagnose a problem &rarr;</a>
-        <a class="theater-cta-secondary" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">Shop Sumner parts &nearr;</a>
-      </div>
-
-      <div class="theater-quickjumps">
-        <a href="models.html"><strong>Models</strong><small>15 sub-models</small></a>
-        <a href="parts.html"><strong>Parts</strong><small>50+ catalogued</small></a>
-        <a href="repairs.html"><strong>Repairs</strong><small>8 procedures</small></a>
-        <a href="inspection.html"><strong>Inspect</strong><small>ASME B30.30</small></a>
-      </div>
-
-      <div class="theater-meta">
-        <div><strong>15</strong>Sub-models</div>
-        <div><strong>50+</strong>Parts</div>
-        <div><strong>8</strong>Procedures</div>
-      </div>
+    <div class="app-nav-group">
+      <h6>Lift models</h6>
+      <ul>
+        <li><a href="models.html">All models <span class="badge">15</span></a></li>
+        <li><a href="models.html#series-2000">Series 2000</a></li>
+        <li><a href="models.html#series-2100">Series 2100</a></li>
+        <li><a href="models.html#series-2300">Series 2300</a></li>
+        <li><a href="models.html#series-2400">Series 2400</a></li>
+        <li><a href="models.html#eventer">Eventer</a></li>
+        <li><a href="models.html#roust-a-bout">Roust-A-Bout</a></li>
+      </ul>
     </div>
-  </div>
-</section>
 
-<!-- RECENTLY VIEWED — pill rail right under hero -->
-<section style="padding: 16px 0 0;">
-  <div class="wrap">
-    <div id="recent-list-wrap">
-      <div style="font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--v3-text-faint);">Recently viewed</div>
+    <div class="app-nav-group">
+      <h6>Service</h6>
+      <ul>
+        <li><a href="parts.html">Parts catalog</a></li>
+        <li><a href="repairs.html">Repair procedures <span class="badge">8</span></a></li>
+        <li><a href="maintenance.html">Maintenance schedule</a></li>
+        <li><a href="inspection.html">Cable inspection</a></li>
+      </ul>
+    </div>
+
+    <div class="app-nav-group">
+      <h6>Reference</h6>
+      <ul>
+        <li><a href="tools.html">Tools &amp; torque</a></li>
+        <li><a href="calculators.html">Capacity calculator</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li><a href="pipe-equipment.html">Pipe handling</a></li>
+        <li><a href="history.html">Heritage</a></li>
+      </ul>
+    </div>
+
+    <div class="app-nav-group">
+      <h6>Order parts</h6>
+      <ul>
+        <li><a class="app-nav-shop" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">Shop Sumner parts ↗</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="app-main">
+
+    <!-- DASHBOARD HERO -->
+    <h1 class="app-h1">Sumner Lift Field Manual</h1>
+    <p class="app-subtitle">A complete service reference for technicians who keep Sumner material lifts in the field. Identify any lift, find any part, walk any procedure — then order from <a href="https://www.energizedengines.com/" target="_blank" rel="sponsored noopener" style="color: var(--accent-teal); border-bottom: 1px solid var(--accent-teal-tint);">Energized Engines</a>.</p>
+
+    <div class="app-hero-search">
+      <input type="search" placeholder="What are you working on? — try “2118 winch slips”, “PN 774206”, or “cable inspection”"
+             oninput="document.getElementById('site-search').value=this.value; document.getElementById('site-search').dispatchEvent(new Event('input'));" />
+    </div>
+
+    <!-- LIFT CONTEXT -->
+    <div class="app-ctx">
+      <strong>Working on</strong>
+      <span class="app-ctx-active" id="lift-ctx-display"><em style="color: var(--v3-text-faint); font-style: normal;">No lift selected</em></span>
+      <button id="lift-ctx-clear" class="clear-ctx" title="Clear lift selection" aria-label="Clear lift selection" style="background: transparent; border: 0; color: var(--v3-text-faint); font-family: var(--mono); cursor: pointer; padding: 0 4px; display: none;">×</button>
+      <span style="margin-left: auto; color: var(--v3-text-faint); font-size: .82rem;">Set your lift:</span>
+      <select id="lift-ctx" aria-label="Select your lift model">
+        <option value="">— select model —</option>
+        <option value="2010">Series 2010 — 1,000 lb / 11′7″</option>
+        <option value="2015">Series 2015 — 800 lb / 16′2″</option>
+        <option value="2020">Series 2020 — 800 lb / 20′9″</option>
+        <option value="2025">Series 2025 — 650 lb / 25′5″</option>
+        <option value="2112">Series 2112 — 650 lb / 12′11″</option>
+        <option value="2118">Series 2118 — 650 lb / 18′4″</option>
+        <option value="2124">Series 2124 — 650 lb / 23′9″</option>
+        <option value="2300">Series 2300 — 150 lb (drywall)</option>
+        <option value="2412">Series 2412 — 400 lb / 12′11″</option>
+        <option value="2416">Series 2416 — 450 lb / 16′11″</option>
+        <option value="Eventer 16">Eventer 16 — 500 lb / 16′11″</option>
+        <option value="Eventer 20">Eventer 20 — 800 lb / 20′</option>
+        <option value="Eventer 25">Eventer 25 — 650 lb / 25′</option>
+        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10′ (fits std. door)</option>
+        <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15′</option>
+        <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25′</option>
+      </select>
+    </div>
+
+    <!-- RECENTLY VIEWED -->
+    <div class="app-recent">
+      <span class="app-recent-label">Recently viewed</span>
       <div id="recent-list">
-        <div class="empty" style="color: var(--v3-text-faint); font-size: .82rem;">Pages you visit will appear here.</div>
+        <div class="empty">Pages you visit will appear here.</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- HOW THE MANUAL WORKS · dense functional grid -->
-<section style="padding: 32px 0 24px;">
-  <div class="wrap">
-    <div style="display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:12px; margin-bottom: 16px;">
-      <div>
-        <div style="font-family: var(--mono); font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; color: var(--v3-text-faint); margin-bottom: 4px;">How this manual works</div>
-        <h2 style="font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin: 0;">Built for the bench.</h2>
-      </div>
-      <div style="font-size: .82rem; color: var(--v3-text-soft); max-width: 36ch;">Identify the lift &middot; locate the part &middot; perform the procedure &middot; verify the work.</div>
+    <!-- QUICK REFERENCE -->
+    <div class="app-section-h">
+      <h2>Quick reference</h2>
     </div>
-    <div class="editorial-row">
-      <div class="editorial-col">
-        <div class="num">01 · Identify</div>
-        <h3>Know the lift in front of you.</h3>
-        <p>Fifteen sub-models across six Sumner series, side-by-side. Find your unit from the serial plate or visual cue, then jump straight to the matching parts list and rated capacity.</p>
-        <a class="more" href="models.html">Browse models</a>
-      </div>
-      <div class="editorial-col">
-        <div class="num">02 · Diagnose &amp; Repair</div>
-        <h3>Walk a symptom to a fix.</h3>
-        <p>The troubleshooter maps a customer&apos;s complaint to a probable cause and a step-by-step procedure. Eight repairs cover the 80% of jobs you&apos;ll see in a service career.</p>
-        <a class="more" href="troubleshooting.html">Open troubleshooter</a>
-      </div>
-      <div class="editorial-col">
-        <div class="num">03 · Order</div>
-        <h3>Get the part on the truck.</h3>
-        <p>Every part in the catalog routes to <strong>Energized Engines</strong>, who stocks the full Sumner line. Cable, winches, casters, mast sections, decals &mdash; same-day shipping on most.</p>
-        <a class="more" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener" style="border-color: var(--accent-teal); color: var(--accent-teal);">Shop Sumner parts &nearr;</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERIES RIBBON -->
-<section class="series-ribbon">
-  <div class="wrap">
-    <div class="header">
-      <div>
-        <div style="font-family: var(--mono); font-size: .68rem; letter-spacing: .18em; color: var(--v3-text-faint); text-transform: uppercase; margin-bottom: 6px;">The family</div>
-        <h2>Six series, fifteen sub-models.</h2>
-      </div>
-      <a href="models.html">Full breakdown &rarr;</a>
-    </div>
-    <div class="series-grid">
-      <a class="series-tile" href="models.html#series-2000">
-        <div class="name">Series 2000</div>
-        <div class="desc">Workhorse material lift</div>
-        <div class="stat"><strong>650 – 1,000 lb</strong> · 10 – 25 ft</div>
+    <div class="app-quickref">
+      <a class="app-card" href="models.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Identify the lift</h3>
+        <p>Fifteen sub-models with full specs, side-by-side. Identify by serial plate or visual cue.</p>
+        <div class="meta-bottom">15 MODELS · 6 SERIES</div>
       </a>
-      <a class="series-tile" href="models.html#series-2100">
-        <div class="name">Series 2100</div>
-        <div class="desc">Contractor &middot; internal cable</div>
-        <div class="stat"><strong>650 lb</strong> · 12 – 24 ft</div>
+      <a class="app-card" href="troubleshooting.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+        <h3>Diagnose a symptom</h3>
+        <p>Walk a customer&apos;s complaint through a decision tree to a probable cause and procedure.</p>
+        <div class="meta-bottom">DIAGNOSTIC FLOW</div>
       </a>
-      <a class="series-tile" href="models.html#series-2300">
-        <div class="name">Series 2300</div>
-        <div class="desc">Solo drywall · 65° tilt</div>
-        <div class="stat"><strong>150 lb</strong> · 11 – 15 ft</div>
+      <a class="app-card" href="repairs.html">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 7h7l-2.5 2.5L21 12l-3 3-2.5-2.5L13 15l-2-2 7-7z"/><path d="M9 14l-5 5 2 2 5-5"/></svg></div>
+        <h3>Walk a repair</h3>
+        <p>Eight step-by-step procedures from cable replacement to winch swap. Tools, parts, torque.</p>
+        <div class="meta-bottom">8 PROCEDURES</div>
       </a>
-      <a class="series-tile" href="models.html#series-2400">
-        <div class="name">Series 2400</div>
-        <div class="desc">Compact · 360° guard</div>
-        <div class="stat"><strong>400 – 450 lb</strong> · 12 – 16 ft</div>
-      </a>
-      <a class="series-tile" href="models.html#eventer">
-        <div class="name">Eventer</div>
-        <div class="desc">Stage &middot; black mast</div>
-        <div class="stat"><strong>500 – 800 lb</strong> · 16 – 25 ft</div>
-      </a>
-      <a class="series-tile" href="models.html#roust-a-bout">
-        <div class="name">Roust-A-Bout</div>
-        <div class="desc">Industrial · dual winch</div>
-        <div class="stat"><strong>1,500 lb</strong> · 10 – 25 ft</div>
+      <a class="app-card app-card--shop" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h8.5a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div>
+        <h3>Order parts</h3>
+        <p>Energized Engines stocks the full Sumner line — same-day shipping on most parts.</p>
+        <div class="meta-bottom">SHOP NOW ↗</div>
       </a>
     </div>
-  </div>
-</section>
 
-<!-- ANATOMY -->
-<section class="section">
-  <div class="wrap">
-    <div class="eyebrow">Anatomy</div>
-    <h2>Five subsystems, one lift.</h2>
-    <p class="lead" style="max-width:65ch;">Almost every Sumner lift in the field decomposes into the same five subsystems. Master these and you can service any model the moment it rolls into your shop.</p>
-
-    <div class="grid grid--2 mt-4">
-      <div>
-        <div class="schematic" data-fig="02" style="aspect-ratio: 4/5;">
-          <svg viewBox="0 0 320 400" width="100%" height="100%">
-            <!-- mast -->
-            <rect x="148" y="40"  width="24" height="300" fill="#243140" stroke="#0b1117"/>
-            <rect x="155" y="40"  width="10" height="300" fill="#34465a"/>
-            <!-- forks (safety yellow, matches the hero) -->
-            <rect x="80"  y="120" width="160" height="6" fill="#ffc419"/>
-            <rect x="80"  y="120" width="6" height="32" fill="#ffc419"/>
-            <rect x="234" y="120" width="6" height="32" fill="#ffc419"/>
-            <!-- carriage -->
-            <rect x="130" y="128" width="60" height="32" rx="3" fill="#1a232e"/>
-            <!-- pulley -->
-            <circle cx="160" cy="48" r="8" fill="none" stroke="#0b1117" stroke-width="2"/>
-            <!-- cable -->
-            <line x1="160" y1="48" x2="160" y2="128" stroke="#0b1117" stroke-dasharray="2 2"/>
-            <!-- winch -->
-            <rect x="186" y="290" width="30" height="20" fill="#243140"/>
-            <!-- base -->
-            <rect x="80" y="340" width="160" height="12" fill="#243140"/>
-            <line x1="160" y1="346" x2="40"  y2="370" stroke="#5b6e85" stroke-width="5" stroke-linecap="round"/>
-            <line x1="160" y1="346" x2="280" y2="370" stroke="#5b6e85" stroke-width="5" stroke-linecap="round"/>
-            <circle cx="40"  cy="374" r="8" fill="#0b1117"/>
-            <circle cx="280" cy="374" r="8" fill="#0b1117"/>
-
-            <!-- callout numbers -->
-            <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">
-              <circle cx="200" cy="48"  r="11" fill="#0b1117"/><text x="200" y="52" text-anchor="middle" fill="#ffc419">1</text>
-              <circle cx="232" cy="120" r="11" fill="#0b1117"/><text x="232" y="124" text-anchor="middle" fill="#ffc419">2</text>
-              <circle cx="225" cy="300" r="11" fill="#0b1117"/><text x="225" y="304" text-anchor="middle" fill="#ffc419">3</text>
-              <circle cx="148" cy="220" r="11" fill="#0b1117"/><text x="148" y="224" text-anchor="middle" fill="#ffc419">4</text>
-              <circle cx="40"  cy="346" r="11" fill="#0b1117"/><text x="40"  y="350" text-anchor="middle" fill="#ffc419">5</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-      <div>
-        <ol class="steps">
-          <li>
-            <h4>Cable Sheave / Pulley</h4>
-            <p>Top-of-mast pulley(s) that route the lift cable. Cracked sheaves, worn flanges, or seized bearings will fray cable in hours.</p>
-          </li>
-          <li>
-            <h4>Carriage &amp; Reversible Forks</h4>
-            <p>Travels on the inner mast. Forks invert to lift loads from the floor or from above the carriage; check for bent tines and worn rollers.</p>
-          </li>
-          <li>
-            <h4>Hand-Crank Winch</h4>
-            <p>Self-locking Sumner-built worm-gear winch — older units use the GH-5T (PN 785912, 1/8" cable); current production uses the MX (PN 783590, 7/32" cable). Single point of failure for raise / hold / lower.</p>
-          </li>
-          <li>
-            <h4>Telescoping Mast</h4>
-            <p>Two- to four-stage extruded aluminum mast with internal cable routing. Inspect for sidewall dents and verify both stages slide freely.</p>
-          </li>
-          <li>
-            <h4>Base &amp; Outriggers</h4>
-            <p>Wheeled base (typically 5" locking casters), fold-out stabilizer legs, and ground-engagement feet. The lift is only stable when these are deployed correctly.</p>
-          </li>
-        </ol>
-        <a class="btn btn--primary" href="parts.html">Open exploded parts catalog &rarr;</a>
-      </div>
+    <!-- THE FAMILY · SPEC MATRIX -->
+    <div class="app-section-h">
+      <h2>The family — at a glance</h2>
+      <a class="more" href="models.html">Full breakdown ↗</a>
     </div>
-  </div>
-</section>
-
-<!-- WORKFLOW · editorial flow -->
-<section style="background: var(--v3-ink); color: #fff; padding: 48px 0; border-top: 1px solid #000;">
-  <div class="wrap">
-    <div style="display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:12px; margin-bottom: 28px;">
-      <div>
-        <div style="font-family: var(--mono); font-size: .66rem; letter-spacing: .22em; color: var(--v3-accent); text-transform: uppercase; margin-bottom: 6px;">Service workflow</div>
-        <h2 style="color:#fff; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin: 0;">From symptom to test-loaded.</h2>
-      </div>
-      <div style="font-size: .78rem; color: rgba(255,255,255,.5); max-width: 30ch;">Diagnose &rarr; Locate &rarr; Repair &rarr; Verify. Each step links to the matching chapter.</div>
+    <div class="app-spec-matrix">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Capacity</th>
+            <th>Lift height</th>
+            <th>Cable</th>
+            <th>Trade</th>
+            <th>Parts</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr onclick="window.location.href='models.html#series-2000'">
+            <td class="model">Series 2000</td>
+            <td class="cap">650 – 1,000 lb</td>
+            <td>10 – 25 ft</td>
+            <td>7/32″</td>
+            <td class="desc">General &amp; HVAC</td>
+            <td class="stock">In stock</td>
+          </tr>
+          <tr onclick="window.location.href='models.html#series-2100'">
+            <td class="model">Series 2100</td>
+            <td class="cap">650 lb</td>
+            <td>12 – 24 ft</td>
+            <td>7/32″</td>
+            <td class="desc">Contractor &amp; HVAC</td>
+            <td class="stock">In stock</td>
+          </tr>
+          <tr onclick="window.location.href='models.html#series-2300'">
+            <td class="model">Series 2300</td>
+            <td class="cap">150 lb</td>
+            <td>11 – 15 ft</td>
+            <td>1/8″</td>
+            <td class="desc">Drywall (solo)</td>
+            <td class="stock">In stock</td>
+          </tr>
+          <tr onclick="window.location.href='models.html#series-2400'">
+            <td class="model">Series 2400</td>
+            <td class="cap">400 – 450 lb</td>
+            <td>12 – 16 ft</td>
+            <td>—</td>
+            <td class="desc">Compact &amp; indoor</td>
+            <td class="stock">In stock</td>
+          </tr>
+          <tr onclick="window.location.href='models.html#eventer'">
+            <td class="model">Eventer</td>
+            <td class="cap">500 – 800 lb</td>
+            <td>16 – 25 ft</td>
+            <td>7/32″</td>
+            <td class="desc">Stage &amp; AV</td>
+            <td class="stock">In stock</td>
+          </tr>
+          <tr onclick="window.location.href='models.html#roust-a-bout'">
+            <td class="model">Roust-A-Bout</td>
+            <td class="cap">1,500 lb</td>
+            <td>10 – 25 ft</td>
+            <td>—</td>
+            <td class="desc">Pipe &amp; industrial</td>
+            <td class="stock">In stock</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; border: 1px solid rgba(255,255,255,.10); border-radius: 10px; overflow: hidden;">
-      <div style="padding: 18px 18px; border-right: 1px solid rgba(255,255,255,.10);">
-        <div style="display:flex; align-items:center; gap: 10px; margin-bottom: 8px;">
-          <span style="font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--v3-accent); letter-spacing: .04em;">01</span>
-          <h3 style="color:#fff; font-size: .98rem; font-weight: 700; margin: 0;">Diagnose</h3>
-        </div>
-        <p style="color: rgba(255,255,255,.6); font-size: .84rem; line-height: 1.45; margin: 0;">Walk the symptom through the <a href="troubleshooting.html" style="color: var(--v3-accent); border-bottom: 1px solid rgba(255,196,25,.4);">troubleshooter</a> to a probable cause.</p>
+    <!-- SERVICE WORKFLOW -->
+    <div class="app-section-h">
+      <h2>Service workflow</h2>
+      <span class="more">Diagnose → Locate → Repair → Verify</span>
+    </div>
+    <div class="app-flow">
+      <div class="app-flow-step">
+        <div class="num">01</div>
+        <h4>Diagnose</h4>
+        <p>Walk the symptom through the <a href="troubleshooting.html">troubleshooter</a> to a cause.</p>
       </div>
-      <div style="padding: 18px 18px; border-right: 1px solid rgba(255,255,255,.10);">
-        <div style="display:flex; align-items:center; gap: 10px; margin-bottom: 8px;">
-          <span style="font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--v3-accent); letter-spacing: .04em;">02</span>
-          <h3 style="color:#fff; font-size: .98rem; font-weight: 700; margin: 0;">Locate</h3>
-        </div>
-        <p style="color: rgba(255,255,255,.6); font-size: .84rem; line-height: 1.45; margin: 0;">Find the part on the <a href="parts.html" style="color: var(--v3-accent); border-bottom: 1px solid rgba(255,196,25,.4);">exploded diagram</a>; confirm fitment by serial.</p>
+      <div class="app-flow-step">
+        <div class="num">02</div>
+        <h4>Locate</h4>
+        <p>Find the part on the <a href="parts.html">exploded diagram</a>; confirm fitment.</p>
       </div>
-      <div style="padding: 18px 18px; border-right: 1px solid rgba(255,255,255,.10);">
-        <div style="display:flex; align-items:center; gap: 10px; margin-bottom: 8px;">
-          <span style="font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--v3-accent); letter-spacing: .04em;">03</span>
-          <h3 style="color:#fff; font-size: .98rem; font-weight: 700; margin: 0;">Repair</h3>
-        </div>
-        <p style="color: rgba(255,255,255,.6); font-size: .84rem; line-height: 1.45; margin: 0;">Follow the matching <a href="repairs.html" style="color: var(--v3-accent); border-bottom: 1px solid rgba(255,196,25,.4);">procedure</a> with torque and lube callouts.</p>
+      <div class="app-flow-step">
+        <div class="num">03</div>
+        <h4>Repair</h4>
+        <p>Follow the matching <a href="repairs.html">procedure</a> with torque &amp; lube callouts.</p>
       </div>
-      <div style="padding: 18px 18px; background: rgba(255,196,25,.06);">
-        <div style="display:flex; align-items:center; gap: 10px; margin-bottom: 8px;">
-          <span style="font-family: var(--mono); font-size: .72rem; font-weight: 700; color: var(--v3-accent); letter-spacing: .04em;">04</span>
-          <h3 style="color:#fff; font-size: .98rem; font-weight: 700; margin: 0;">Verify &amp; log</h3>
-        </div>
-        <p style="color: rgba(255,255,255,.6); font-size: .84rem; line-height: 1.45; margin: 0;">Run the <a href="maintenance.html" style="color: var(--v3-accent); border-bottom: 1px solid rgba(255,196,25,.4);">test-load</a>, sign the record, return to service.</p>
+      <div class="app-flow-step">
+        <div class="num">04</div>
+        <h4>Verify &amp; log</h4>
+        <p>Run the <a href="maintenance.html">test-load</a>, sign the record, return to service.</p>
       </div>
     </div>
 
-    <div style="margin-top: 24px; font-size: .76rem; color: rgba(255,255,255,.5); max-width: 80ch; line-height: 1.55;">
-      <strong style="color: rgba(255,255,255,.78); font-weight: 600;">Educational use.</strong>
-      Specs, part numbers, and procedures are summarised from Sumner Manufacturing literature and supplier catalogs. Always verify against the operator&apos;s manual matched to the lift&apos;s serial number; use OEM replacement parts on safety-critical components.
+    <!-- FOOTER -->
+    <div class="app-footer">
+      <span>© 2026 · Published by <a href="https://www.energizedengines.com/" target="_blank" rel="sponsored noopener">Energized Engines</a> · Free educational reference</span>
+      <span>Edition 2026.05 · <a href="history.html">About</a> · <a href="glossary.html">Glossary</a></span>
     </div>
-  </div>
-</section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <a class="brand" href="index.html" style="color:#fff;">
-          <div class="brand-mark">SL</div>
-          <div>
-            <div class="brand-name" style="color:#fff;">Sumner Lift Field Manual</div>
-            <div class="brand-sub">Service · Parts · Repair</div>
-          </div>
-        </a>
-        <p class="disclaimer mt-2">Published by Energized Engines as a free educational reference. Independent of Sumner Manufacturing / B&amp;B SUMNER. Sumner&reg; and Roust-A-Bout&trade; are trademarks of Sumner Manufacturing Co., Inc., used here for identification only. No endorsement by the manufacturer is implied.</p>
-      </div>
-      <div>
-        <h4>Reference</h4>
-        <ul>
-          <li><a href="models.html">Lift Models</a></li>
-          <li><a href="parts.html">Parts Catalog</a></li>
-          <li><a href="repairs.html">Repair Procedures</a></li>
-          <li><a href="maintenance.html">Maintenance Schedule</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Tools</h4>
-        <ul>
-          <li><a href="troubleshooting.html">Interactive Troubleshooter</a></li>
-          <li><a href="safety.html">Safety Procedures</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Source Material</h4>
-        <ul>
-          <li><a href="https://sumner.com/products/lifts/" rel="nofollow noopener" target="_blank">Sumner Mfg. lift catalog</a></li>
-          <li><a href="https://sumner.com/wp-content/uploads/sites/14/2025/07/Operators-Manual-Series-2400-Material-Lift.pdf" rel="nofollow noopener" target="_blank">Series 2400 Op Manual</a></li>
-          <li><a href="https://www.conklinmetal.com/wp-content/uploads/2023/11/Sumner-2000-Operators-Manual.pdf" rel="nofollow noopener" target="_blank">Series 2000 Op Manual</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 · Published by <a href="https://www.energizedengines.com/" target="_blank" rel="sponsored noopener" style="color:inherit;border-bottom:1px solid var(--hazard-yellow);">Energized Engines</a> · Free educational reference</span>
-      <span>EDITION 2026.05 · BUILT FOR THE BENCH</span>
-    </div>
-  </div>
-</footer>
+  </main>
+
+</div>
 
 <script src="js/main.js"></script>
+<script>
+  // Show ⌘ on Mac, Ctrl on Windows/Linux
+  (function () {
+    var kbd = document.getElementById('kbd-mod');
+    if (kbd && !/Mac|iPhone|iPad/.test(navigator.platform || '')) kbd.textContent = 'Ctrl';
+  })();
+</script>
+
 </body>
 </html>

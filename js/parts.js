@@ -216,15 +216,29 @@
         li.classList.add('active');
         li.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
-      // jump catalog to matching group
       const h = HOTSPOTS.find(x => x.id === id);
-      if (h) {
-        document.querySelectorAll('.chip[data-group]').forEach(c => {
-          c.setAttribute('aria-pressed', c.dataset.group === h.group ? 'true' : 'false');
-        });
-        activeGroup = h.group;
-        render();
+      if (!h) return;
+
+      // Pre-filter the catalog by the hotspot's group so when the
+      // user closes the modal, the matching parts are already showing.
+      document.querySelectorAll('.chip[data-group]').forEach(c => {
+        c.setAttribute('aria-pressed', c.dataset.group === h.group ? 'true' : 'false');
+      });
+      activeGroup = h.group;
+      render();
+
+      // If the hotspot is mapped to a specific part, open its modal.
+      // Otherwise scroll the page down to the now-filtered catalog.
+      if (h.pn) {
+        const idx = PARTS.findIndex(p => p.pn === h.pn);
+        if (idx >= 0) {
+          openModal(idx);
+          return;
+        }
       }
+      // Fallback: scroll the catalog into view so the filter result is visible
+      const target = document.getElementById('parts-grid');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 

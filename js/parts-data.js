@@ -651,17 +651,20 @@ const PARTS = [
   }
 ];
 
-/* Hotspot definitions for the exploded interactive diagram. */
+/* Hotspot definitions for the exploded interactive diagram.
+   Each hotspot has a primary `pn` so clicking opens the matching part's
+   modal directly. The `group` is used as a fallback and to pre-filter
+   the catalog when the user dismisses the modal. */
 const HOTSPOTS = [
-  { id: 1, x: 190, y: 60,  group: "Mast Assembly",     name: "Cable Sheave / Pulley", desc: "Top-of-mast pulley with sealed bearing. Routes the lift cable from the winch to the carriage." },
-  { id: 2, x: 220, y: 145, group: "Carriage & Forks",  name: "Reversible Fork Set",   desc: "Pair of forks that invert for above-carriage or below-carriage loads." },
-  { id: 3, x: 130, y: 180, group: "Carriage & Forks",  name: "Carriage Assembly",     desc: "Rides the inner mast on rollers; pinned to the cable terminal." },
-  { id: 4, x: 240, y: 305, group: "Winch & Cable",     name: "MX Winch (PN 783590)",  desc: "Sumner-built self-locking worm-gear winch — raises, holds, and lowers the load." },
-  { id: 5, x: 110, y: 295, group: "Mast Assembly",     name: "Mast Slide Pads",       desc: "Nylon pads between mast sections — wear here causes carriage wobble." },
-  { id: 6, x: 60,  y: 370, group: "Base & Mobility",   name: "Outrigger Leg",         desc: "Folds out to triple the footprint. Inspect latch every shift." },
-  { id: 7, x: 30,  y: 395, group: "Base & Mobility",   name: "5 in Locking Caster",   desc: "Polyurethane tread, dual-locking. Order matched pairs to keep the mast plumb." },
-  { id: 8, x: 295, y: 395, group: "Base & Mobility",   name: "Outrigger Foot Pad",    desc: "Replaceable rubber pad — protects floors and grips concrete." },
-  { id: 9, x: 175, y: 145, group: "Hardware",          name: "Cable Anchor Clip",     desc: "Drop-forged clip + thimble terminating the cable at the carriage." }
+  { id: 1, x: 190, y: 60,  pn: "ref:PUL-SHV",       group: "Mast Assembly",     name: "Cable Sheave / Pulley", desc: "Top-of-mast pulley with sealed bearing. Routes the lift cable from the winch to the carriage." },
+  { id: 2, x: 220, y: 145, pn: "ref:FORK-REV-2100", group: "Carriage & Forks",  name: "Reversible Fork Set",   desc: "Pair of forks that invert for above-carriage or below-carriage loads." },
+  { id: 3, x: 130, y: 180, pn: "ref:CAR-2118",      group: "Carriage & Forks",  name: "Carriage Assembly",     desc: "Rides the inner mast on rollers; pinned to the cable terminal." },
+  { id: 4, x: 240, y: 305, pn: "783590",            group: "Winch & Cable",     name: "MX Winch (PN 783590)",  desc: "Sumner-built self-locking worm-gear winch — raises, holds, and lowers the load." },
+  { id: 5, x: 110, y: 295, pn: "ref:MAST-SLP",      group: "Mast Assembly",     name: "Mast Slide Pads",       desc: "Nylon pads between mast sections — wear here causes carriage wobble." },
+  { id: 6, x: 60,  y: 370, pn: "ref:OUT-LEG-2118",  group: "Base & Mobility",   name: "Outrigger Leg",         desc: "Folds out to triple the footprint. Inspect latch every shift." },
+  { id: 7, x: 30,  y: 395, pn: "ref:CAST-5LK",      group: "Base & Mobility",   name: "5 in Locking Caster",   desc: "Polyurethane tread, dual-locking. Order matched pairs to keep the mast plumb." },
+  { id: 8, x: 295, y: 395, pn: "ref:OUT-FOOT",      group: "Base & Mobility",   name: "Outrigger Foot Pad",    desc: "Replaceable rubber pad — protects floors and grips concrete." },
+  { id: 9, x: 175, y: 145, pn: "ref:HW-CBL-CLP",    group: "Hardware",          name: "Cable Anchor Clip",     desc: "Drop-forged clip + thimble terminating the cable at the carriage." }
 ];
 
 /* ============================================================

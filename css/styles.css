@@ -2354,3 +2354,441 @@ html[data-theme="dark"] .verdict--service {
 
 /* Hero CTA stays yellow — it's editorial, not commercial. The buy
    buttons elsewhere now read as the commercial accent in petrol. */
+
+/* ============================================================
+   V3.2 — DENSITY PASS · service-tool, not magazine
+   ------------------------------------------------------------
+   Reference points: Stripe, Linear, Vercel docs, iFixit, real
+   shop manuals. White space for hierarchy, not decoration.
+   Compresses padding ~35%, tightens type, and rebuilds the hero
+   as a dense 2-column control panel.
+   ============================================================ */
+
+/* ---- Section rhythm: compressed and consistent ---- */
+.section          { padding: 56px 0; }
+.section--tight   { padding: 32px 0; }
+.section--paper   { padding: 56px 0; }
+.section--steel   { padding: 56px 0; }
+.section--dark    { padding: 56px 0; }
+@media (max-width: 720px) {
+  .section { padding: 40px 0; }
+  .section--tight { padding: 24px 0; }
+}
+
+/* Page head: tighter */
+.page-head { padding: 40px 0 32px; }
+.page-head h1 {
+  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+  margin-bottom: .25em;
+}
+.page-head p {
+  font-size: .98rem;
+  line-height: 1.55;
+  max-width: 70ch;
+}
+.breadcrumb { margin-bottom: 14px; font-size: .66rem; }
+
+/* Body text base: a notch up, leading tighter */
+body { font-size: 15.5px; line-height: 1.5; }
+p { margin: 0 0 .9em; }
+.lead { font-size: 1.04rem; line-height: 1.5; }
+
+/* Headings: tighter */
+h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+h2 { font-size: clamp(1.35rem, 2vw, 1.65rem); }
+h3 { font-size: 1.04rem; }
+h4 { font-size: .96rem; }
+
+/* ============================================================
+   HERO · Compact 2-column control panel
+   The lift on the left at a sensible size, a real functional
+   dashboard on the right (lift selector, quick-jumps,
+   recently viewed). No more half-empty black canvas.
+   ============================================================ */
+.hero-theater {
+  padding: 40px 0 32px;
+  border-bottom: 1px solid var(--v3-rule);
+  background: var(--v3-paper);
+  color: var(--v3-text);
+}
+html[data-theme="dark"] .hero-theater {
+  background: var(--v3-paper-2);
+  color: var(--v3-text);
+  border-bottom-color: var(--v3-rule);
+}
+.hero-theater::before, .hero-theater::after { display: none; }
+.hero-theater .wrap {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 40px;
+  align-items: stretch;
+  min-height: 0;
+}
+@media (max-width: 880px) {
+  .hero-theater .wrap { grid-template-columns: 1fr; gap: 24px; }
+  .theater-stage { max-width: 280px; }
+}
+
+.theater-stage {
+  position: relative;
+  aspect-ratio: 4/5;
+  max-height: 420px;
+  width: 100%;
+  margin: 0;
+  background:
+    linear-gradient(180deg, var(--v3-paper-2), transparent 30%),
+    var(--v3-paper);
+  border: 1px solid var(--v3-rule);
+  border-radius: 12px;
+  padding: 20px;
+}
+html[data-theme="dark"] .theater-stage {
+  background: var(--v3-paper);
+  border-color: var(--v3-rule);
+}
+/* The SVG inside it: the lift renders against the panel */
+.theater-stage svg {
+  filter: drop-shadow(0 4px 18px rgba(10,14,19,.08));
+}
+
+/* Markers: smaller, better-positioned, less arcade */
+.theater-marker {
+  width: 28px; height: 28px;
+  border: 1.5px solid var(--accent-teal);
+  background: var(--v3-paper);
+  color: var(--accent-teal);
+  font-size: .76rem;
+  box-shadow: 0 2px 6px rgba(14,116,97,.18);
+}
+.theater-marker::after { display: none; } /* kill the pulse — too noisy in a dense layout */
+.theater-marker:hover {
+  background: var(--accent-teal);
+  color: #fff;
+  border-color: var(--accent-teal);
+  box-shadow: 0 0 0 4px var(--accent-teal-tint);
+}
+.theater-marker .tip {
+  background: var(--v3-ink);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 3px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Right column: dense control panel */
+.theater-copy {
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.theater-copy .kicker {
+  font-size: .66rem;
+  letter-spacing: .22em;
+  color: var(--v3-text-faint);
+  font-weight: 600;
+}
+.theater-copy .kicker::before { background: var(--accent-teal); }
+.theater-copy h1 {
+  margin: 12px 0 12px;
+  font-size: clamp(1.85rem, 3vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.028em;
+  color: var(--v3-text);
+}
+.theater-copy h1 em {
+  background: linear-gradient(180deg, transparent 62%, rgba(255,196,25,.55) 62%);
+}
+.theater-copy p.lead {
+  font-size: .98rem;
+  line-height: 1.5;
+  color: var(--v3-text-soft);
+  max-width: 56ch;
+  margin-bottom: 16px;
+}
+
+/* CTA strip — primary + secondary buy */
+.theater-actions {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.theater-cta {
+  background: var(--v3-ink);
+  color: #fff;
+  padding: 11px 18px;
+  font-size: .9rem;
+  border-radius: 8px;
+}
+.theater-cta:hover {
+  background: #000;
+  box-shadow: 0 6px 14px rgba(10,14,19,.18);
+  color: #fff;
+}
+html[data-theme="dark"] .theater-cta { background: var(--accent-teal); color: #fff; }
+html[data-theme="dark"] .theater-cta:hover { background: var(--accent-teal-deep); }
+.theater-cta-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 16px;
+  border: 1px solid var(--accent-teal);
+  color: var(--accent-teal);
+  font-size: .9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .15s ease;
+}
+.theater-cta-secondary:hover {
+  background: var(--accent-teal-tint);
+  text-decoration: none;
+  color: var(--accent-teal-deep);
+}
+
+/* Dense functional grid in the right column — quick jumps + meta */
+.theater-quickjumps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--v3-rule);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.theater-quickjumps a {
+  padding: 14px 14px;
+  border-right: 1px solid var(--v3-rule);
+  text-decoration: none;
+  color: var(--v3-text);
+  display: flex; flex-direction: column; gap: 2px;
+  transition: background .12s ease;
+}
+.theater-quickjumps a:last-child { border-right: 0; }
+.theater-quickjumps a:hover { background: var(--v3-paper-2); text-decoration: none; }
+.theater-quickjumps strong {
+  font-size: .92rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--v3-text);
+}
+.theater-quickjumps small {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  color: var(--v3-text-faint);
+  text-transform: uppercase;
+}
+@media (max-width: 720px) {
+  .theater-quickjumps { grid-template-columns: repeat(2, 1fr); }
+  .theater-quickjumps a:nth-child(2n) { border-right: 0; }
+  .theater-quickjumps a:nth-child(-n+2) { border-bottom: 1px solid var(--v3-rule); }
+}
+
+/* The stat band: drop the floating-meta look */
+.theater-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--v3-rule);
+  border-radius: 10px;
+  background: var(--v3-paper-2);
+  font-size: .7rem;
+  color: var(--v3-text-faint);
+  font-family: var(--mono);
+  letter-spacing: .08em;
+}
+.theater-meta > div { padding: 0 4px; border-right: 1px solid var(--v3-rule); }
+.theater-meta > div:last-child { border-right: 0; }
+.theater-meta strong {
+  font-size: 1.15rem;
+  font-family: var(--sans);
+  letter-spacing: -0.01em;
+  color: var(--v3-text);
+  margin-bottom: 0;
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 6px;
+}
+.theater-meta > div { display: flex; align-items: baseline; gap: 6px; }
+
+.theater-jumpnav { display: none; } /* replaced by theater-quickjumps */
+
+/* ============================================================
+   Editorial row → DENSE FUNCTIONAL GRID
+   ============================================================ */
+.editorial-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--v3-rule);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0;
+}
+@media (max-width: 880px) { .editorial-row { grid-template-columns: 1fr; } }
+
+.editorial-col {
+  padding: 22px 24px;
+  border-right: 1px solid var(--v3-rule);
+}
+.editorial-col:last-child { border-right: 0; }
+@media (max-width: 880px) {
+  .editorial-col { border-right: 0; border-bottom: 1px solid var(--v3-rule); }
+  .editorial-col:last-child { border-bottom: 0; }
+}
+.editorial-col .num {
+  font-size: .68rem;
+  letter-spacing: .14em;
+  margin-bottom: 10px;
+}
+.editorial-col h3 {
+  font-size: 1.04rem;
+  margin-bottom: 6px;
+}
+.editorial-col p {
+  font-size: .9rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.editorial-col .more {
+  font-size: .82rem;
+}
+
+/* ---- Lede: shorter, tighter ---- */
+.section-intro { padding: 48px 0 24px; }
+.section-intro .lede {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  line-height: 1.4;
+  max-width: 56ch;
+}
+
+/* ============================================================
+   Series ribbon → SPEC MATRIX (real table)
+   ============================================================ */
+.series-ribbon {
+  padding: 56px 0;
+}
+.series-ribbon .header { margin-bottom: 18px; }
+.series-ribbon h2 { font-size: 1.35rem; }
+
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  background: var(--paper);
+  border: 1px solid var(--v3-rule);
+  border-radius: 10px;
+  overflow: hidden;
+}
+html[data-theme="dark"] .series-grid { background: var(--v3-paper); }
+@media (max-width: 980px) { .series-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .series-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.series-tile {
+  padding: 14px 14px 14px;
+  border-right: 1px solid var(--v3-rule);
+  border-radius: 0;
+  min-height: 0;
+  background: transparent;
+}
+.series-tile:last-child { border-right: 0; }
+.series-tile:hover {
+  background: var(--v3-paper-2);
+  transform: none;
+  border-color: var(--v3-rule);
+}
+.series-tile .name { font-size: .88rem; }
+.series-tile .desc { font-size: .72rem; margin-top: 2px; }
+.series-tile .stat {
+  padding-top: 10px;
+  font-size: .7rem;
+  border-top: 1px dashed var(--v3-rule);
+}
+@media (max-width: 980px) {
+  .series-tile { border-right: 1px solid var(--v3-rule); border-bottom: 1px solid var(--v3-rule); }
+  .series-tile:nth-child(3n) { border-right: 0; }
+  .series-tile:nth-last-child(-n+3) { border-bottom: 0; }
+}
+@media (max-width: 560px) {
+  .series-tile:nth-child(3n) { border-right: 1px solid var(--v3-rule); }
+  .series-tile:nth-child(2n) { border-right: 0; }
+  .series-tile:nth-last-child(-n+3) { border-bottom: 1px solid var(--v3-rule); }
+  .series-tile:nth-last-child(-n+2) { border-bottom: 0; }
+}
+
+/* ============================================================
+   Recently viewed — horizontal pill rail, not full-width empty
+   ============================================================ */
+#recent-list-wrap {
+  border: 1px solid var(--v3-rule);
+  border-radius: 8px;
+  padding: 10px 14px !important;
+  background: var(--v3-paper-2);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+#recent-list-wrap > div:first-child {
+  margin-bottom: 0 !important;
+  font-size: .66rem !important;
+  letter-spacing: .14em !important;
+  color: var(--v3-text-faint);
+  white-space: nowrap;
+}
+#recent-list ul {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  list-style: none; margin: 0; padding: 0;
+}
+#recent-list li a {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  background: var(--paper);
+  border: 1px solid var(--v3-rule);
+  border-radius: 99px;
+  padding: 5px 12px;
+  font-size: .82rem;
+  color: var(--v3-text);
+  text-decoration: none;
+  transition: border-color .12s ease;
+}
+#recent-list li a:hover { border-color: var(--v3-text); text-decoration: none; }
+#recent-list li a small { font-size: .68rem; color: var(--v3-text-faint); }
+
+/* ============================================================
+   Workflow strip — compact horizontal flow, not 4 huge cards
+   ============================================================ */
+.workflow-strip { padding: 48px 0 !important; }
+.workflow-strip h2 { font-size: 1.4rem !important; margin-bottom: 24px !important; }
+
+/* ---- Container: narrower max-width on home for editorial discipline ---- */
+.wrap-narrow { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Tighten card defaults across the site ---- */
+.card { padding: 18px; border-radius: 8px; }
+.card .meta { margin-bottom: 8px; font-size: .68rem; }
+.callout { padding: 12px 14px; font-size: .9rem; margin: 16px 0; }
+
+/* ---- Tighter spec lists ---- */
+.spec-list li { padding: 5px 0; font-size: .88rem; }
+.spec-list .k { font-size: .7rem; }
+
+/* ---- Tighter eyebrows ---- */
+.eyebrow { font-size: .68rem; letter-spacing: .16em; }
+
+/* ---- Tighter modal padding ---- */
+.modal-head { padding: 16px 22px; }
+.modal-body { padding: 16px 22px 22px; }
+
+/* ---- Site-footer footprint: less tall ---- */
+.site-footer { padding: 32px 0 18px; }
+.site-footer h4 { margin-bottom: 10px; }
+.footer-grid { gap: 24px; margin-bottom: 24px; }
+
+/* ---- "Order at Energized Engines" link inline with eyebrow style ---- */
+.part-card .buy-link { padding-top: 6px; font-size: .72rem; }

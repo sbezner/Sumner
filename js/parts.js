@@ -196,4 +196,22 @@
   }
 
   render();
+
+  /* ----- Honor ?pn=… URL parameter: pre-fill search and auto-open the
+     matching part's modal. Lets external links deep-link to a part. */
+  (function () {
+    const params = new URLSearchParams(location.search);
+    const pn = params.get('pn');
+    if (!pn) return;
+    const idx = PARTS.findIndex(p => p.pn === pn);
+    if (idx >= 0) {
+      // Open modal directly
+      openModal(idx);
+    } else {
+      // No exact match — pre-fill the search box so user sees fuzzy matches
+      search.value = pn;
+      render();
+      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  })();
 })();

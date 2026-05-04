@@ -547,12 +547,22 @@ const PARTS = [
   },
   {
     pn: "784750",
-    name: "Sumner 2412 Contractor Lift (12 ft / 450 lb) — OEM SKU",
+    name: "Sumner 2412 Contractor Lift (12 ft / 400 lb) — OEM SKU",
     group: "Hardware",
     series: ["2400"],
     tags: [],
-    desc: "Reference SKU for the complete 2412 lift assembly. Some early 2412 production was rated 400 lb; current spec is 450 lb. Verify rating decal before ordering.",
+    desc: "Reference SKU for the complete 2412 lift assembly. Sumner-published spec is 400 lb at 12'11\" max height. Some distributor pages also list 450 lb on 2412 SKUs — Sumner's own catalog lists the 2412 at 400 lb and the 2416 at 450 lb. Verify the rating decal on the unit before ordering.",
     fits: "Identifies a complete Series 2412 lift",
+    interval: "—"
+  },
+  {
+    pn: "ref:2416-LIFT",
+    name: "Sumner 2416 Contractor Lift (16 ft / 450 lb)",
+    group: "Hardware",
+    series: ["2400"],
+    tags: [],
+    desc: "Reference SKU for the complete 2416 lift assembly. 450 lb capacity at 16'11\" max height. Verify OEM SKU with B&B SUMNER for current production.",
+    fits: "Identifies a complete Series 2416 lift",
     interval: "—"
   },
   {

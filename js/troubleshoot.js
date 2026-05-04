@@ -100,7 +100,7 @@ const TREE = {
   mast_pads: {
     terminal: true,
     title: "Likely cause: worn slide pads",
-    body: "Bind that's localized to the joint between mast sections is almost always a worn or damaged nylon slide pad. Procedure 04 covers full replacement (PN MAST-SLP-204). Always replace as a complete set — uneven pad wear causes mast plumb to drift.",
+    body: "Bind that's localized to the joint between mast sections is almost always a worn or damaged nylon slide pad. Procedure 04 covers full replacement. Always replace as a complete set — uneven pad wear causes mast plumb to drift. Verify OEM part number for your specific model with B&B SUMNER customer service.",
     link: { href: "repairs.html", text: "Open Procedure 04 →" }
   },
 
@@ -122,7 +122,7 @@ const TREE = {
   sheave: {
     terminal: true,
     title: "Likely cause: sheave bearing or groove",
-    body: "Spin the sheave by hand. Roughness, wobble, or detectable play = replace the sheave (PN PUL-SHV-150). A grooved or sharp-edged sheave will fray a brand-new cable in days, so always inspect the cable when replacing the sheave.",
+    body: "Spin the sheave by hand. Roughness, wobble, or detectable play = replace the sheave. Match the new sheave's groove diameter to your cable gauge. A grooved or sharp-edged sheave will fray a brand-new cable in days, so always inspect the cable when replacing the sheave.",
     link: { href: "repairs.html", text: "Open Procedure 03 →" }
   },
 
@@ -161,7 +161,7 @@ const TREE = {
   caster_seized: {
     terminal: true,
     title: "Likely cause: corroded caster swivel bearing",
-    body: "Replace the caster (PN CAST-5LK for 5-inch contractor lifts; CAST-8RB for the Roust-A-Bout's 8-inch). Order in matched pairs — uneven caster heights tilt the mast off plumb, which the operator will feel as a heavy crank.",
+    body: "Replace the caster — 5 in lockable polyurethane on the contractor lifts (Series 2000/2100/2400/Eventer); 8 in heavy-duty on the Roust-A-Bout. Order in matched pairs — uneven caster heights tilt the mast off plumb, which the operator will feel as a heavy crank.",
     link: { href: "parts.html", text: "Find casters in the catalog →" }
   },
   caster_bearing: {

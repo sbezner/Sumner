@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Repair Procedures — Sumner Lift Field Manual</title>
+<meta name="description" content="Step-by-step repair procedures for Sumner material lifts: cable replacement, winch service, sheave replacement, mast pads, and carriage rollers." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 3</div>
+    <div>REPAIR PROCEDURES</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
+    <nav class="nav">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html" class="active">Repairs</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="troubleshooting.html">Troubleshoot</a>
+      <a href="safety.html">Safety</a>
+      <a href="glossary.html">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Repair Procedures</span></div>
+    <h1>Five repairs that cover 80% of the work.</h1>
+    <p>These are the procedures you'll perform most often. Each one is structured around a single failure mode, calls out the parts you'll need before you start, and includes the verification step Sumner specifies before returning the lift to service.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="callout callout--danger">
+      <strong>Before any repair — Lockout / Tagout</strong>
+      Lower the carriage to its full down position. Remove all load. If the lift is electric-assist (rare on Sumner, but check), disconnect and lock out power. Tag the lift "OUT OF SERVICE — REPAIR IN PROGRESS" so no one tries to operate it while you have the winch or mast disassembled.
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR 1 -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 01 · Safety-Critical</div>
+    <h2>Replace the lift cable.</h2>
+    <p class="lead">Any visible damage to the cable — fraying, kinking, broken strands, or burn marks from arc strike — requires immediate replacement. Never field-splice a lift cable.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <div class="card">
+          <h3 class="mt-0">Parts &amp; Tools</h3>
+          <ul class="spec-list">
+            <li><span class="k">Part</span><span class="v">PN 774206 — 1/8" cable (or model-specific)</span></li>
+            <li><span class="k">Part</span><span class="v">PN HW-CBL-CLP — anchor clip + thimble</span></li>
+            <li><span class="k">Tools</span><span class="v">Wire-rope cutter, torque wrench, gloves</span></li>
+            <li><span class="k">Time</span><span class="v">~45 min</span></li>
+          </ul>
+        </div>
+        <div class="callout callout--warning mt-2">
+          <strong>Cable handling</strong>
+          Never let a cable kink during installation — a kinked strand cannot be straightened and the cable must be discarded. Always wear leather gloves; broken strand ends are razor-sharp.
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h4>Lower carriage and remove load</h4>
+          <p>Crank the carriage all the way down to the base. Remove all material from the forks. Tag the lift out of service.</p>
+        </li>
+        <li>
+          <h4>Release tension at the carriage</h4>
+          <p>Continue cranking down past the carriage's resting point until the cable goes slack. Do not back-drive the winch — let the brake hold while you work the slack out by hand.</p>
+        </li>
+        <li>
+          <h4>Disconnect cable at the carriage</h4>
+          <p>Remove the cable anchor clip from the carriage attachment point. Withdraw the thimble and free end.</p>
+        </li>
+        <li>
+          <h4>Unspool from the winch drum</h4>
+          <p>Crank the handle in the direction that pays cable off the drum until the cable terminus on the drum is exposed. Sumner specifies a minimum of <strong>four wraps</strong> remain on the drum at full carriage extension — note your starting point.</p>
+        </li>
+        <li>
+          <h4>Inspect the sheave while access is open</h4>
+          <p>With the cable removed, this is the moment to spin the upper sheave by hand. Replace it now if it's grooved, sharp, or rough — installing a new cable on a worn sheave will destroy the cable in days.</p>
+          <div class="tools"><span class="tag">PN PUL-SHV-150</span><span class="tag tag--cable">cable-related</span></div>
+        </li>
+        <li>
+          <h4>Route the new cable</h4>
+          <p>Feed the new cable up through the internal mast routing (or external guides on older 2000-series lifts), over the sheave, and down to the carriage. Keep tension on the cable while routing — a single twist becomes a permanent kink under load.</p>
+        </li>
+        <li>
+          <h4>Terminate at the carriage</h4>
+          <p>Pass the cable through the thimble, double back, and install the anchor clip with the saddle on the live side ("never saddle a dead horse"). Torque to spec.</p>
+        </li>
+        <li>
+          <h4>Wind onto the winch drum</h4>
+          <p>Crank up while guiding the cable so the wraps lay tightly side by side. Verify the minimum four wraps remain at full extension.</p>
+        </li>
+        <li>
+          <h4>Test under load</h4>
+          <p>Cycle the carriage full up and full down with no load. Then test at <strong>10% of rated capacity</strong>, then 50%, then 100%. Re-torque the anchor clip after the first 100% cycle — cables seat into clips under load.</p>
+          <div class="tools"><span class="tag tag--safety">safety-critical</span></div>
+        </li>
+        <li>
+          <h4>Sign the maintenance record</h4>
+          <p>Log the cable replacement, date, and your initials on the lift's maintenance record decal.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR 2 -->
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 02 · Safety-Critical</div>
+    <h2>Service the winch ratchet pawl &amp; brake.</h2>
+    <p class="lead">If the winch slips when the operator stops cranking, or the brake doesn't fully hold rated load, the ratchet pawl, brake disc, or both need attention. This is the single most common winch issue Sumner techs see.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <div class="card">
+          <h3 class="mt-0">Parts &amp; Tools</h3>
+          <ul class="spec-list">
+            <li><span class="k">Part</span><span class="v">PN WIN-RP-001 — ratchet pawl + spring</span></li>
+            <li><span class="k">Part</span><span class="v">PN WIN-BD-002 — brake friction disc</span></li>
+            <li><span class="k">Tools</span><span class="v">Snap-ring pliers, light machine oil, fine sandpaper</span></li>
+            <li><span class="k">Time</span><span class="v">~30 min</span></li>
+          </ul>
+        </div>
+        <div class="callout callout--info mt-2">
+          <strong>Diagnose before disassembling</strong>
+          A faint or absent "click" on raise = pawl. Brake holds for a second then drifts = brake disc glaze. Brake doesn't hold at all after service = pawl re-installed backwards.
+        </div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h4>Remove the cable from the drum</h4>
+          <p>Follow Procedure 01 steps 1–4 to free the cable. Don't fully remove it; just unspool enough to access the drum and reel.</p>
+        </li>
+        <li>
+          <h4>Remove the reel from the drive shaft</h4>
+          <p>Pop off the retaining ring on the drive shaft, slide the drive shaft out the side, and lift the reel free.</p>
+        </li>
+        <li>
+          <h4>Inspect the brake disc</h4>
+          <p>Remove the brake pad. Light wear with shiny spots ("glazing") can be restored by lightly sanding both faces with fine paper. Heavy scoring, cracking, or oil contamination = replace.</p>
+        </li>
+        <li>
+          <h4>Inspect the ratchet wheel and pawl</h4>
+          <p>Look for chipped or rounded ratchet teeth, and a pawl with a worn engagement tip or weak spring. If teeth are chipped, replace the entire pawl assembly — sharp pawl on rounded teeth will wear through quickly.</p>
+        </li>
+        <li>
+          <h4>Re-install the ratchet wheel correctly</h4>
+          <p><strong>Critical:</strong> the ratchet wheel is directional. Confirm the engagement faces of the teeth point in the direction shown in the operator's manual diagram. Reversed = winch will free-spool under load.</p>
+          <div class="tools"><span class="tag tag--safety">safety-critical</span></div>
+        </li>
+        <li>
+          <h4>Engage the pawl into the wheel</h4>
+          <p>Press the pawl down out of the way with your finger and slide the drive shaft back into the bushing. Release the pawl — it should snap into the ratchet teeth. You should hear a sharp click on every tooth as you turn the drive shaft by hand.</p>
+        </li>
+        <li>
+          <h4>Lubricate</h4>
+          <p>Light machine oil on the pawl pivot and brake-ratchet contact. Avoid getting oil on the brake disc face.</p>
+        </li>
+        <li>
+          <h4>Reassemble and test</h4>
+          <p>Wind cable back onto the drum. Test at 10%, 50%, 100% of rated capacity. Stop cranking at each level and verify the brake holds without drift for at least 60 seconds.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR 3 -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 03</div>
+    <h2>Replace the upper-mast cable sheave.</h2>
+    <p class="lead">A grooved or seized sheave will fray a brand-new cable in days. If you find one during a cable change, swap it before installing the new cable.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Lower carriage, remove cable</h4>
+        <p>Follow the cable-removal portion of Procedure 01.</p>
+      </li>
+      <li>
+        <h4>Access the sheave bracket at the top of the inner mast</h4>
+        <p>On Series 2100/2400 with internal cable routing, the sheave bracket is integrated into the mast head. Remove the pulley guard (one or two screws on most models).</p>
+      </li>
+      <li>
+        <h4>Remove the sheave axle</h4>
+        <p>Some lifts use a clevis pin and cotter; others a shoulder bolt with locknut. Note the order of any spacers or washers as you remove them.</p>
+      </li>
+      <li>
+        <h4>Inspect the bracket</h4>
+        <p>Look at the bracket bore. If it's worn oval (cable side-loaded the sheave), the bracket itself needs replacement, not just the sheave.</p>
+      </li>
+      <li>
+        <h4>Install the new sheave</h4>
+        <p>Spin the new sheave by hand before installing — verify smooth rotation and no measurable play. Reassemble in reverse order, including any spacers.</p>
+      </li>
+      <li>
+        <h4>Reinstall pulley guard, then cable</h4>
+        <p>Confirm the guard fully captures the cable in the sheave groove — a cable that jumps the sheave under load can sever instantly.</p>
+        <div class="tools"><span class="tag tag--safety">safety-critical</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- REPAIR 4 -->
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 04</div>
+    <h2>Replace mast slide pads.</h2>
+    <p class="lead">Symptom: the inner mast wobbles side to side at full extension, or the carriage chatters as you crank up. Both point at worn nylon slide pads between the mast sections.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Fully retract the mast</h4>
+        <p>Crank the carriage all the way down. Remove the cable per Procedure 01 steps 1–4 to take tension off the inner mast.</p>
+      </li>
+      <li>
+        <h4>Remove the carriage</h4>
+        <p>Disconnect the cable terminal at the carriage. Lift the carriage off the inner mast.</p>
+      </li>
+      <li>
+        <h4>Slide the inner mast out</h4>
+        <p>Pull the inner mast straight up out of the outer mast. Be ready for the inner mast's weight — get a second tech for the longer-mast lifts.</p>
+      </li>
+      <li>
+        <h4>Replace the pads</h4>
+        <p>Pads are typically held by Phillips screws or pop in/out of slots. Remove old pads, clean the seat, and press new pads in. Verify thickness matches your model — the pads are not interchangeable between series.</p>
+      </li>
+      <li>
+        <h4>Reassemble</h4>
+        <p>Slide the inner mast back into the outer mast. Reinstall carriage, route cable, terminate, and test as in Procedure 01.</p>
+        <div class="tools"><span class="tag">PN MAST-SLP-204</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- REPAIR 5 -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Procedure 05</div>
+    <h2>Replace carriage rollers.</h2>
+    <p class="lead">A flat-spotted or seized carriage roller chatters as the carriage moves and accelerates cable wear at the carriage attachment. Always replace as a set of four.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Remove carriage from mast</h4>
+        <p>Per Procedure 04 steps 1–3.</p>
+      </li>
+      <li>
+        <h4>Remove rollers</h4>
+        <p>Each roller is held by a shoulder bolt + locknut, or a clevis pin + cotter, depending on production year. Note the order of any thrust washers.</p>
+      </li>
+      <li>
+        <h4>Inspect carriage frame</h4>
+        <p>While the rollers are off, inspect the roller seats. Egged or peened seats indicate a previous roller failure under load — replace the carriage if the seat is no longer round.</p>
+      </li>
+      <li>
+        <h4>Install the new rollers</h4>
+        <p>Spin each new roller by hand before installing. Torque mounting hardware to spec.</p>
+      </li>
+      <li>
+        <h4>Reinstall the carriage</h4>
+        <p>Slide the carriage onto the inner mast. Verify smooth travel by hand, with no rocking. Reattach cable and test.</p>
+        <div class="tools"><span class="tag">PN CAR-RLR-04</span></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- AT-A-GLANCE TABLE -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Quick Reference</div>
+    <h2>Repair index.</h2>
+    <div style="overflow-x:auto; margin-top: 16px;">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>#</th><th>Procedure</th><th>Symptom</th><th>Time</th><th>Skill</th><th>Safety-Critical?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>01</td><td>Replace lift cable</td><td>Frayed / kinked / broken-strand cable</td><td>45 min</td><td>Intermediate</td><td>Yes</td></tr>
+          <tr><td>02</td><td>Winch ratchet &amp; brake service</td><td>Slips under load / drifts when released</td><td>30 min</td><td>Intermediate</td><td>Yes</td></tr>
+          <tr><td>03</td><td>Replace cable sheave</td><td>Grooved sheave / cable wear at top</td><td>20 min</td><td>Basic</td><td>Yes</td></tr>
+          <tr><td>04</td><td>Replace mast slide pads</td><td>Mast wobbles at full extension</td><td>40 min</td><td>Intermediate</td><td>No</td></tr>
+          <tr><td>05</td><td>Replace carriage rollers</td><td>Carriage chatters during raise/lower</td><td>25 min</td><td>Basic</td><td>No</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="maintenance.html">Next: Maintenance Schedule →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

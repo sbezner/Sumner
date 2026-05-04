@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Safety — Sumner Lift Field Manual</title>
+<meta name="description" content="Operator and service-tech safety practices for Sumner material lifts: load limits, stability, cable handling, lockout/tagout, and OSHA-aligned inspection." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 6</div>
+    <div>SAFETY</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
+    <nav class="nav">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="troubleshooting.html">Troubleshoot</a>
+      <a href="safety.html" class="active">Safety</a>
+      <a href="glossary.html">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Safety</span></div>
+    <h1>Operate the lift, then service it, with eyes wide open.</h1>
+    <p>A Sumner lift is a hand-powered tool with no power assist, no soft-stop, and no automated brake — your fingers, posture, and surroundings are the safety system. This chapter consolidates the warnings printed across Sumner's operator's manuals into a single read.</p>
+  </div>
+</section>
+
+<!-- TOP-LEVEL RULES -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Cardinal Rules</div>
+    <h2>Five rules that prevent the bad days.</h2>
+
+    <div class="grid grid--2 mt-4">
+      <div class="callout callout--danger">
+        <strong>Rule 01 · Never exceed rated capacity</strong>
+        Capacity is printed on the data plate and on the side of the mast. Capacity assumes a centered, balanced load on un-extended forks. Reverse the forks or extend with the fork-extension kit and capacity drops dramatically — re-read the decal each time.
+      </div>
+      <div class="callout callout--danger">
+        <strong>Rule 02 · Never lift a person</strong>
+        These are material lifts. The forks have no fall-arrest, no platform, no anti-tip, and no engineered means to support a human. Lifting a person is prohibited by every Sumner operator's manual and by OSHA.
+      </div>
+      <div class="callout callout--danger">
+        <strong>Rule 03 · Always deploy outriggers / stabilizer legs</strong>
+        Where the lift has them, the rated capacity assumes outriggers are extended and latched. Operating without stabilizers can tip a lift sideways at less than half rated load — especially when the load is high.
+      </div>
+      <div class="callout callout--danger">
+        <strong>Rule 04 · Never roll a loaded lift over its rated capacity</strong>
+        Most Sumner lifts are not rated to roll loaded. The Roust-A-Bout is the exception, and even it requires the load to be at minimum height during transport. Lower the load fully before rolling any other model.
+      </div>
+      <div class="callout callout--danger" style="grid-column: 1 / -1;">
+        <strong>Rule 05 · Inspect the cable every shift, replace at any defect</strong>
+        Sumner's published guidance is unambiguous: a cable with frays, kinks, broken wires, or burns must not be used. Never field-splice a lift cable. Cable is cheap; the consequence of a broken cable under load is not.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STABILITY -->
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">Stability</div>
+    <h2>What makes a lift fall over.</h2>
+    <p class="lead" style="max-width:65ch;">A material lift is a tall, narrow, top-heavy machine when fully extended. Stability comes from three things: the footprint at the base, the load's position relative to that footprint, and the surface the lift is rolling on.</p>
+
+    <div class="grid grid--3 mt-4">
+      <div class="card">
+        <h3 class="mt-0">Footprint</h3>
+        <p>Outriggers must be deployed and latched. A 2118 with stabilizer legs has a 74-inch footprint; without them, ~31 inches. The stability margin scales with the square of the footprint — outriggers don't double stability, they triple or quadruple it.</p>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Load position</h3>
+        <p>The load's center of gravity must stay over the base. Off-center loads multiply tipping moment with height — a 100 lb load 6 inches off-center becomes a 600 in-lb tipping moment that grows as the lift extends.</p>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Surface</h3>
+        <p>Sumner lifts are rated for level, hard surfaces. Even a 3° slope reduces effective capacity by 25% or more. Soft ground, gravel, and decking can shift under load — set plywood pads under casters in those conditions.</p>
+      </div>
+    </div>
+
+    <div class="callout callout--warning mt-4">
+      <strong>Wind</strong>
+      Outdoor use in wind is hazardous. A 25 ft mast with a 4 ft × 8 ft sheet of plywood as a load presents 32 sq ft of sail. Even a 15 mph gust can apply enough lateral force to tip an unsupported lift. Sumner's published guidance is to not operate the lift in wind, and to lower any load fully before strong gusts.
+    </div>
+  </div>
+</section>
+
+<!-- TECH SAFETY -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Service-Tech Safety</div>
+    <h2>What gets technicians hurt.</h2>
+    <p class="lead" style="max-width:65ch;">Most operator-side injuries are crushing or struck-by. Most service-side injuries are different — pinched fingers, cable-strand cuts, and back injuries from lifting mast sections.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div class="card">
+        <h3 class="mt-0">Pinch points</h3>
+        <p>The space between the carriage and the mast head is a guillotine when the cable is removed and the carriage drops. Always block the carriage with a wedge or strap before removing the cable, and keep fingers out of the carriage-to-mast interface.</p>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Cable cuts</h3>
+        <p>Broken aircraft-cable strands are razor sharp. Always wear leather gloves when handling. Cap a fresh-cut cable end with electrical tape before installing — the tape stops you from puncturing yourself, and helps the cable feed cleanly through internal mast routing.</p>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Mast section weight</h3>
+        <p>An inner mast section for a 25 ft Series 2000 lift weighs ~80 lb and is awkwardly long. Get a second tech for any mast disassembly on the larger models. Lift with your legs; the mast is balanced poorly when handled solo.</p>
+      </div>
+      <div class="card">
+        <h3 class="mt-0">Spring-loaded components</h3>
+        <p>Ratchet pawls, outrigger latches, and tilt-head detents are all spring-loaded. Keep your face out of the line-of-action when removing the keeper, and capture small parts in a tray — a lost detent ball renders the lift inoperable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCKOUT TAGOUT -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">LOTO</div>
+    <h2>Lockout / Tagout for hand-cranked lifts.</h2>
+    <p class="lead" style="max-width:65ch;">Sumner lifts have no electrical disconnect to lock out — but they still require a service procedure that prevents accidental operation while you have the winch or mast disassembled.</p>
+
+    <ol class="steps mt-4">
+      <li>
+        <h4>Lower the carriage fully</h4>
+        <p>Get the carriage all the way down. Eliminate stored energy in the cable.</p>
+      </li>
+      <li>
+        <h4>Remove the load</h4>
+        <p>Forks must be empty.</p>
+      </li>
+      <li>
+        <h4>Block the carriage</h4>
+        <p>Even with the carriage down, slide a wood block or service jack between the carriage and the base to prevent any movement during cable removal.</p>
+      </li>
+      <li>
+        <h4>Tag the lift</h4>
+        <p>"OUT OF SERVICE — DO NOT OPERATE — REPAIR IN PROGRESS — [Your name, date]." Wire-tie the tag through the winch handle so the lift physically can't be cranked without removing your tag.</p>
+      </li>
+      <li>
+        <h4>Inform the crew</h4>
+        <p>On a busy jobsite, walk over and tell the foreman the lift is down. A tag stops nine of ten incidents; a verbal heads-up catches the tenth.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- INSPECTION & RECORD -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Records</div>
+    <h2>The paper trail that protects everyone.</h2>
+    <p class="lead" style="max-width:65ch;">A lift with a clean, documented maintenance record is a lift that's safe to operate, easy to insure, and defensible in an investigation. The maintenance-record decal printed on the side of every Sumner lift is part of the safety system.</p>
+
+    <table class="data mt-4">
+      <thead>
+        <tr><th>Event</th><th>What to record</th><th>Retention</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cable replacement</td><td>Date, technician, cable PN, sheave inspection result</td><td>Life of lift</td></tr>
+        <tr><td>Brake or pawl service</td><td>Date, parts replaced, post-service load test result</td><td>3 yr minimum</td></tr>
+        <tr><td>Annual inspection</td><td>Date, inspector, all checklist items, photos of decals</td><td>3 yr minimum</td></tr>
+        <tr><td>Damage / incident</td><td>Date, description, photos, repair plan, return-to-service test</td><td>Life of lift</td></tr>
+        <tr><td>Decal replacement</td><td>Date, which decals, source (OEM)</td><td>Life of lift</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="glossary.html">Next: Glossary →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Troubleshooter — Sumner Lift Field Manual</title>
+<meta name="description" content="Interactive symptom-to-cause troubleshooter for Sumner material lifts. Walk a question tree to a probable cause and the matching repair procedure." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 5</div>
+    <div>INTERACTIVE TROUBLESHOOTER</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
+    <nav class="nav">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="troubleshooting.html" class="active">Troubleshoot</a>
+      <a href="safety.html">Safety</a>
+      <a href="glossary.html">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Troubleshooter</span></div>
+    <h1>Walk a symptom to a probable cause.</h1>
+    <p>Answer the questions below as you observe them. The decision tree was built from the failure modes documented in the Sumner Series 2000, 2400, and Eventer operator's manuals — every leaf links back to the parts and procedures elsewhere in this manual.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width: 880px;">
+    <div class="flow-trail" id="trail"></div>
+    <div id="flow" class="flow"></div>
+
+    <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+      <button class="reset-btn" id="reset">↺ Start over</button>
+      <a href="repairs.html" class="reset-btn">Skip to all repair procedures →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">When to escalate</div>
+    <h2>If the troubleshooter doesn't resolve it.</h2>
+    <p class="lead" style="max-width:65ch;">Most field issues are covered by the five repair procedures and the parts catalog in this manual. A few categories of problem warrant a call to Sumner's customer service department or a return to the manufacturer:</p>
+    <ul style="font-size:1.02rem; line-height: 1.8;">
+      <li><strong>Bent or dented mast.</strong> Aluminum mast extrusions cannot be field-straightened; the metallurgy is permanently affected. Replace the mast section, or replace the lift if a section isn't available for your serial range.</li>
+      <li><strong>Cracked weldments.</strong> Any crack in the carriage, base, or outrigger weld points is a safety-critical defect. Take the lift permanently out of service.</li>
+      <li><strong>Recurring brake failure.</strong> If you've replaced the brake disc twice in a year and it's failing again, the failure mode is upstream — usually heat from over-cycling, oil contamination from over-lubrication, or a misassembled ratchet causing brake chatter. Consult Sumner support before replacing the disc a third time.</li>
+      <li><strong>Cable failures more than once a year.</strong> Look for the cause: misaligned sheave, corroded environment, side-loading from improper rigging. Replace the cable, but also fix the cause — otherwise you're treating the symptom.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="safety.html">Next: Safety →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/troubleshoot.js"></script>
+</body>
+</html>

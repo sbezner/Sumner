@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Parts Catalog — Sumner Lift Field Manual</title>
+<meta name="description" content="Searchable, filterable catalog of Sumner lift parts: winch, mast, carriage, base, and hardware. Includes interactive exploded diagram." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · CHAPTER 2</div>
+    <div>PARTS CATALOG · INTERACTIVE</div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
+    <nav class="nav">
+      <a href="index.html">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html" class="active">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="troubleshooting.html">Troubleshoot</a>
+      <a href="safety.html">Safety</a>
+      <a href="glossary.html">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Parts Catalog</span></div>
+    <h1>Find the part. Confirm the fit. Replace with confidence.</h1>
+    <p>Click any callout on the exploded diagram below to jump to the matching parts in the catalog. Filter by subsystem, by lift series, or by service category (wear items, safety-critical, cable-related), and use the search box to drill in by part number or description.</p>
+  </div>
+</section>
+
+<!-- INTERACTIVE EXPLODED DIAGRAM -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Figure 03 · Exploded</div>
+    <h2>Interactive part locator.</h2>
+    <p class="lead" style="max-width:60ch;">Hover or tap any numbered callout to highlight the part in the right-hand panel and filter the catalog below to its subsystem.</p>
+
+    <div class="diagram-wrap mt-4">
+      <div class="schematic" data-fig="03" style="aspect-ratio: 4/5;">
+        <svg id="exploded-svg" viewBox="0 0 360 440" width="100%" height="100%">
+          <!-- Top mast -->
+          <rect x="170" y="40"  width="24" height="320" fill="#243140" stroke="#0b1117"/>
+          <rect x="177" y="40"  width="10" height="320" fill="#34465a"/>
+
+          <!-- Pulley at top -->
+          <circle cx="182" cy="50" r="10" fill="none" stroke="#0b1117" stroke-width="2"/>
+          <circle cx="182" cy="50" r="3" fill="#7c8fa6"/>
+
+          <!-- Cable -->
+          <line x1="182" y1="60" x2="182" y2="160" stroke="#0b1117" stroke-dasharray="2 2" stroke-width="1"/>
+
+          <!-- Forks -->
+          <rect x="100" y="138" width="160" height="6" fill="#ff6b1a"/>
+          <rect x="100" y="138" width="6" height="34" fill="#ff6b1a"/>
+          <rect x="254" y="138" width="6" height="34" fill="#ff6b1a"/>
+
+          <!-- Carriage -->
+          <rect x="150" y="146" width="60" height="38" rx="3" fill="#1a232e"/>
+          <rect x="155" y="151" width="50" height="6" fill="#34465a"/>
+
+          <!-- Slide pads (small marks on outer mast) -->
+          <rect x="166" y="290" width="6" height="14" fill="#ffc419"/>
+          <rect x="194" y="290" width="6" height="14" fill="#ffc419"/>
+
+          <!-- Winch -->
+          <rect x="208" y="295" width="34" height="22" rx="2" fill="#243140" stroke="#0b1117"/>
+          <circle cx="248" cy="306" r="6" fill="#ffc419"/>
+          <line x1="248" y1="306" x2="258" y2="300" stroke="#0b1117" stroke-width="2"/>
+
+          <!-- Base frame -->
+          <rect x="100" y="360" width="160" height="14" rx="3" fill="#243140"/>
+
+          <!-- Outriggers -->
+          <line x1="182" y1="368" x2="40"  y2="392" stroke="#ff6b1a" stroke-width="6" stroke-linecap="round"/>
+          <line x1="182" y1="368" x2="320" y2="392" stroke="#ff6b1a" stroke-width="6" stroke-linecap="round"/>
+
+          <!-- Casters -->
+          <circle cx="40"  cy="396" r="10" fill="#0b1117" stroke="#5b6e85" stroke-width="2"/>
+          <circle cx="320" cy="396" r="10" fill="#0b1117" stroke="#5b6e85" stroke-width="2"/>
+          <circle cx="120" cy="384" r="9"  fill="#0b1117" stroke="#5b6e85" stroke-width="2"/>
+          <circle cx="240" cy="384" r="9"  fill="#0b1117" stroke="#5b6e85" stroke-width="2"/>
+
+          <!-- Foot pads -->
+          <rect x="32"  y="406" width="16" height="4" fill="#5b6e85"/>
+          <rect x="312" y="406" width="16" height="4" fill="#5b6e85"/>
+          <!-- (Hotspots injected by JS) -->
+        </svg>
+      </div>
+
+      <ul class="hotspot-list" id="hotspot-list"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">Catalog</div>
+    <h2>All parts.</h2>
+
+    <div class="parts-toolbar mt-2">
+      <input type="search" id="parts-search" placeholder="Search by name, part number, or description..." aria-label="Search parts" />
+      <span id="parts-count" style="font-family:var(--mono);font-size:.85rem;color:var(--steel-500);"></span>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-500);margin-bottom:8px;">Subsystem</div>
+      <div class="chip-row">
+        <button class="chip" data-group="Winch & Cable">Winch &amp; Cable</button>
+        <button class="chip" data-group="Mast Assembly">Mast Assembly</button>
+        <button class="chip" data-group="Carriage & Forks">Carriage &amp; Forks</button>
+        <button class="chip" data-group="Base & Mobility">Base &amp; Mobility</button>
+        <button class="chip" data-group="Hardware">Hardware</button>
+      </div>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <div style="font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-500);margin-bottom:8px;">Lift Series</div>
+      <div class="chip-row">
+        <button class="chip" data-series="2000">2000</button>
+        <button class="chip" data-series="2100">2100</button>
+        <button class="chip" data-series="2300">2300</button>
+        <button class="chip" data-series="2400">2400</button>
+        <button class="chip" data-series="Eventer">Eventer</button>
+        <button class="chip" data-series="Roust-A-Bout">Roust-A-Bout</button>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div style="font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-500);margin-bottom:8px;">Service Category</div>
+      <div class="chip-row">
+        <button class="chip" data-tag="wear">Wear Item</button>
+        <button class="chip" data-tag="safety">Safety-Critical</button>
+        <button class="chip" data-tag="cable">Cable-Related</button>
+      </div>
+    </div>
+
+    <div id="parts-grid" class="parts-grid"></div>
+  </div>
+</section>
+
+<!-- ORDERING NOTE -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="callout callout--danger">
+      <strong>Use OEM Parts on Safety-Critical Components</strong>
+      Cable, winch assembly, brake disc, ratchet pawl, sheave, fork carriage, and outrigger latches are safety-critical. Per Sumner Manufacturing's published guidance, only factory replacement parts should be used — non-OEM substitutes may have different metallurgy, heat treatment, or dimensional tolerances and can compromise designed-in safety margins.
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" role="dialog" aria-modal="true">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <div>
+        <div class="pn" style="font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--safety-orange);font-weight:600;" id="m-pn"></div>
+        <h3 id="m-name" style="margin-top:6px;"></h3>
+        <div id="m-group" style="font-family:var(--mono);font-size:.78rem;color:var(--steel-500);text-transform:uppercase;letter-spacing:.1em;margin-top:4px;"></div>
+      </div>
+      <button class="close-btn" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p id="m-desc" style="font-size:1rem;color:var(--ink-soft);"></p>
+      <div class="divider"></div>
+      <table style="width:100%;font-size:.92rem;">
+        <tr><td style="padding:6px 0;color:var(--steel-500);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;width:130px;">Fitment</td><td id="m-fits" style="padding:6px 0;"></td></tr>
+        <tr><td style="padding:6px 0;color:var(--steel-500);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;">Service Interval</td><td id="m-int" style="padding:6px 0;"></td></tr>
+        <tr><td style="padding:6px 0;color:var(--steel-500);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;vertical-align:top;">Series</td><td id="m-series" style="padding:6px 0;display:flex;flex-wrap:wrap;gap:4px;"></td></tr>
+        <tr><td style="padding:6px 0;color:var(--steel-500);font-family:var(--mono);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;vertical-align:top;">Tags</td><td id="m-tags" style="padding:6px 0;display:flex;flex-wrap:wrap;gap:4px;"></td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project · Independent educational reference</span>
+      <span><a href="repairs.html">Next: Repair Procedures →</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/parts-data.js"></script>
+<script src="js/parts.js"></script>
+</body>
+</html>

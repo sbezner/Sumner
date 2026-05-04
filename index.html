@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sumner Lift Field Manual — Educational Reference for Repair Personnel</title>
+<meta name="description" content="An educational technical reference for personnel servicing Sumner material lifts. Models, parts, repair procedures, maintenance, and troubleshooting." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1117'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%23ffc419' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div><span class="blink"></span>FIELD-MANUAL.SUMNER · ED. 2026.05 · STATUS: PUBLISHED</div>
+    <div>EDUCATIONAL REFERENCE · NOT AFFILIATED WITH SUMNER MFG.</div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">SL</div>
+      <div>
+        <div class="brand-name">Sumner Lift Field Manual</div>
+        <div class="brand-sub">Service · Parts · Repair</div>
+      </div>
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav').classList.toggle('open')">MENU</button>
+    <nav class="nav">
+      <a href="index.html" class="active">Overview</a>
+      <a href="models.html">Models</a>
+      <a href="parts.html">Parts</a>
+      <a href="repairs.html">Repairs</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="troubleshooting.html">Troubleshoot</a>
+      <a href="safety.html">Safety</a>
+      <a href="glossary.html">Glossary</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Field Manual · Edition 2026</div>
+      <h1>Everything a technician needs to keep a Sumner lift in service.</h1>
+      <p class="lead">A free, vendor-neutral reference covering every Sumner material lift from the 2000 series to the Roust-A-Bout — with exploded part diagrams, repair procedures, wear-item identification, and an interactive troubleshooter built for the bench and the jobsite.</p>
+      <div class="hero-cta">
+        <a class="btn btn--accent" href="parts.html">Open Parts Catalog &rarr;</a>
+        <a class="btn btn--ghost" style="background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.18);" href="troubleshooting.html">Diagnose a problem</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>7</strong><span>Lift Series Covered</span></div>
+        <div><strong>60+</strong><span>Catalogued Parts</span></div>
+        <div><strong>20+</strong><span>Step-By-Step Repairs</span></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <span class="hero-art-tag">EXPLODED · FIG. 01</span>
+      <!-- Stylised lift schematic -->
+      <svg viewBox="0 0 360 400" width="100%" height="100%" aria-label="Schematic of a Sumner-style material lift">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0 L0 0 L0 20" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="mast" x1="0" x2="1">
+            <stop offset="0" stop-color="#3a4a5d"/>
+            <stop offset=".5" stop-color="#7c8fa6"/>
+            <stop offset="1" stop-color="#3a4a5d"/>
+          </linearGradient>
+        </defs>
+        <rect width="360" height="400" fill="url(#grid)"/>
+
+        <!-- forks -->
+        <rect x="100" y="118" width="160" height="6" fill="#ffc419"/>
+        <rect x="100" y="118" width="6" height="34" fill="#ffc419"/>
+        <rect x="254" y="118" width="6" height="34" fill="#ffc419"/>
+
+        <!-- carriage -->
+        <rect x="150" y="126" width="60" height="38" rx="3" fill="#ff6b1a"/>
+        <rect x="155" y="131" width="50" height="6" fill="#0b1117"/>
+        <circle cx="180" cy="148" r="6" fill="#0b1117"/>
+
+        <!-- mast (telescoping) -->
+        <rect x="170" y="40"  width="20" height="320" fill="url(#mast)"/>
+        <rect x="175" y="40"  width="10" height="320" fill="rgba(0,0,0,.35)"/>
+        <rect x="167" y="40"  width="26" height="3"   fill="#0b1117"/>
+
+        <!-- pulley at top -->
+        <circle cx="180" cy="48" r="9" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
+        <circle cx="180" cy="48" r="3" fill="#7c8fa6"/>
+
+        <!-- cable -->
+        <path d="M180 48 Q 180 96 180 126" stroke="#dde3ec" stroke-width="1.5" fill="none" stroke-dasharray="3 3"/>
+
+        <!-- base -->
+        <rect x="100" y="350" width="160" height="14" rx="3" fill="#243140"/>
+        <!-- outriggers -->
+        <line x1="180" y1="358" x2="40"  y2="380" stroke="#ffc419" stroke-width="6" stroke-linecap="round"/>
+        <line x1="180" y1="358" x2="320" y2="380" stroke="#ffc419" stroke-width="6" stroke-linecap="round"/>
+        <!-- casters -->
+        <circle cx="40"  cy="384" r="10" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
+        <circle cx="320" cy="384" r="10" fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
+        <circle cx="120" cy="376" r="9"  fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
+        <circle cx="240" cy="376" r="9"  fill="#0b1117" stroke="#7c8fa6" stroke-width="2"/>
+
+        <!-- winch -->
+        <rect x="208" y="300" width="34" height="22" rx="2" fill="#34465a" stroke="#7c8fa6"/>
+        <circle cx="248" cy="311" r="6" fill="#ffc419"/>
+        <line x1="248" y1="311" x2="258" y2="305" stroke="#0b1117" stroke-width="2"/>
+
+        <!-- callouts -->
+        <g font-family="JetBrains Mono, monospace" font-size="9" fill="#ffc419">
+          <text x="14" y="50">A · UPPER MAST</text>
+          <text x="14" y="62" fill="#dde3ec">w/ Cable Sheave</text>
+
+          <text x="14" y="170">B · CARRIAGE</text>
+          <text x="14" y="182" fill="#dde3ec">Reversible Forks</text>
+
+          <text x="220" y="288">C · WINCH</text>
+          <text x="220" y="300" fill="#dde3ec">Brake / Ratchet</text>
+
+          <text x="220" y="404">D · OUTRIGGER</text>
+        </g>
+
+        <!-- leader lines -->
+        <g stroke="#ffc419" stroke-width=".7" fill="none" opacity=".7">
+          <line x1="80"  y1="48"  x2="170" y2="50"/>
+          <line x1="80"  y1="170" x2="150" y2="148"/>
+          <line x1="218" y1="293" x2="225" y2="305"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="section">
+  <div class="wrap">
+    <div class="grid grid--3">
+      <div>
+        <div class="eyebrow">For Technicians</div>
+        <h2 class="mt-0">Built around the way you actually work.</h2>
+        <p>Every page is structured the way a service tech moves through a job: identify the model, locate the part, perform the procedure, verify the work. No marketing fluff, no broken PDFs.</p>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Model Tree</div>
+        <h3>Know the lift you're holding</h3>
+        <p>Identify any lift from a serial-plate or visual cue, then jump straight to the right manual section, parts list, and rated capacity.</p>
+        <a href="models.html" class="btn btn--ghost btn--sm">Browse models &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Wear-First Mindset</div>
+        <h3>Find failures before they find you</h3>
+        <p>Cable, sheave, ratchet pawl, brake disc — the parts catalog is tagged so the most common wear and safety items rise to the top.</p>
+        <a href="parts.html" class="btn btn--ghost btn--sm">Open catalog &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL FAMILY OVERVIEW -->
+<section class="section section--steel">
+  <div class="wrap">
+    <div class="eyebrow">The Family</div>
+    <h2>One platform, six purpose-built siblings.</h2>
+    <p class="lead" style="max-width:70ch;">Sumner has been building hand-cranked material lifts in Houston since 1965. The platform is consistent — telescoping aluminum mast, hand-cranked winch, reversible forks — but each series is sized and detailed for a different trade.</p>
+
+    <div class="grid grid--3 mt-4">
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Series 2000</div>
+        <h3>Material Lift</h3>
+        <p>Models 2010 / 2015 / 2020 / 2025. Workhorse of the line — 650–1,000 lb capacity, 10 to 25 ft of lift, the lift you'll see most often.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">650 – 1,000 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">10 – 25 ft</span></li>
+          <li><span class="k">Trade</span><span class="v">General / HVAC</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Series 2100</div>
+        <h3>Contractor Lift</h3>
+        <p>Models 2112 / 2118 / 2124. 650 lb, 12–24 ft. Internal cable routing, tool-free assembly, and outriggers on the 2118 / 2124.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">650 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">12 / 18 / 24 ft</span></li>
+          <li><span class="k">Trade</span><span class="v">Contractor / HVAC</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Series 2300</div>
+        <h3>Drywall / HVAC Lift</h3>
+        <p>The featherweight — 99 lb body, 150 lb capacity, 65° tilting head. Designed for a single drywall installer working overhead alone.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">150 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">11 ft 2¾" – 14 ft 9¾"</span></li>
+          <li><span class="k">Trade</span><span class="v">Drywall / HVAC solo</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Series 2400</div>
+        <h3>Compact Contractor Lift</h3>
+        <p>Models 2412 / 2416. 450 lb capacity, 12 / 16 ft lift. Van-friendly footprint with 360° cable protection and tool-free setup.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">450 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">12 / 16 ft</span></li>
+          <li><span class="k">Trade</span><span class="v">Compact / Indoor</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Eventer Series</div>
+        <h3>Stage / AV Lift</h3>
+        <p>Eventer 20 & 25. Black-anodized aluminum mast disappears on stage. 500–800 lb, 16–25 ft. Designed for trusses, line array, and lighting.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">500 – 800 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">16 – 25 ft</span></li>
+          <li><span class="k">Trade</span><span class="v">Entertainment / AV</span></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="meta"><span class="dot"></span>Roust-A-Bout</div>
+        <h3>Heavy Hitter</h3>
+        <p>R-150 / R-250. 1,500 lb capacity, dual-winch architecture (load winch + mast winch), 4-speed winch, 8" casters. Fits through a standard door.</p>
+        <ul class="spec-list">
+          <li><span class="k">Capacity</span><span class="v">1,500 lb</span></li>
+          <li><span class="k">Lift Height</span><span class="v">15 / 25 ft</span></li>
+          <li><span class="k">Trade</span><span class="v">Pipe / Industrial</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:32px;">
+      <a class="btn btn--primary" href="models.html">See full model breakdown &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Anatomy</div>
+    <h2>Five subsystems, one lift.</h2>
+    <p class="lead" style="max-width:65ch;">Almost every Sumner lift in the field decomposes into the same five subsystems. Master these and you can service any model the moment it rolls into your shop.</p>
+
+    <div class="grid grid--2 mt-4">
+      <div>
+        <div class="schematic" data-fig="02" style="aspect-ratio: 4/5;">
+          <svg viewBox="0 0 320 400" width="100%" height="100%">
+            <!-- mast -->
+            <rect x="148" y="40"  width="24" height="300" fill="#243140" stroke="#0b1117"/>
+            <rect x="155" y="40"  width="10" height="300" fill="#34465a"/>
+            <!-- forks -->
+            <rect x="80"  y="120" width="160" height="6" fill="#ff6b1a"/>
+            <rect x="80"  y="120" width="6" height="32" fill="#ff6b1a"/>
+            <rect x="234" y="120" width="6" height="32" fill="#ff6b1a"/>
+            <!-- carriage -->
+            <rect x="130" y="128" width="60" height="32" rx="3" fill="#1a232e"/>
+            <!-- pulley -->
+            <circle cx="160" cy="48" r="8" fill="none" stroke="#0b1117" stroke-width="2"/>
+            <!-- cable -->
+            <line x1="160" y1="48" x2="160" y2="128" stroke="#0b1117" stroke-dasharray="2 2"/>
+            <!-- winch -->
+            <rect x="186" y="290" width="30" height="20" fill="#243140"/>
+            <!-- base -->
+            <rect x="80" y="340" width="160" height="12" fill="#243140"/>
+            <line x1="160" y1="346" x2="40"  y2="370" stroke="#ff6b1a" stroke-width="5" stroke-linecap="round"/>
+            <line x1="160" y1="346" x2="280" y2="370" stroke="#ff6b1a" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="40"  cy="374" r="8" fill="#0b1117"/>
+            <circle cx="280" cy="374" r="8" fill="#0b1117"/>
+
+            <!-- callout numbers -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">
+              <circle cx="200" cy="48"  r="11" fill="#0b1117"/><text x="200" y="52" text-anchor="middle" fill="#ffc419">1</text>
+              <circle cx="232" cy="120" r="11" fill="#0b1117"/><text x="232" y="124" text-anchor="middle" fill="#ffc419">2</text>
+              <circle cx="225" cy="300" r="11" fill="#0b1117"/><text x="225" y="304" text-anchor="middle" fill="#ffc419">3</text>
+              <circle cx="148" cy="220" r="11" fill="#0b1117"/><text x="148" y="224" text-anchor="middle" fill="#ffc419">4</text>
+              <circle cx="40"  cy="346" r="11" fill="#0b1117"/><text x="40"  y="350" text-anchor="middle" fill="#ffc419">5</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <ol class="steps">
+          <li>
+            <h4>Cable Sheave / Pulley</h4>
+            <p>Top-of-mast pulley(s) that route the lift cable. Cracked sheaves, worn flanges, or seized bearings will fray cable in hours.</p>
+          </li>
+          <li>
+            <h4>Carriage &amp; Reversible Forks</h4>
+            <p>Travels on the inner mast. Forks invert to lift loads from the floor or from above the carriage; check for bent tines and worn rollers.</p>
+          </li>
+          <li>
+            <h4>Hand-Crank Winch</h4>
+            <p>Self-locking worm-gear or ratchet brake winch (Sumner MX, GH-5T, or vendor-supplied). Single point of failure for raise / hold / lower.</p>
+          </li>
+          <li>
+            <h4>Telescoping Mast</h4>
+            <p>Two- to four-stage extruded aluminum mast with internal cable routing. Inspect for sidewall dents and verify both stages slide freely.</p>
+          </li>
+          <li>
+            <h4>Base &amp; Outriggers</h4>
+            <p>Wheeled base (typically 5" locking casters), fold-out stabilizer legs, and ground-engagement feet. The lift is only stable when these are deployed correctly.</p>
+          </li>
+        </ol>
+        <a class="btn btn--primary" href="parts.html">Open exploded parts catalog &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="eyebrow">Service Workflow</div>
+    <h2>Diagnose &rarr; replace &rarr; verify, with no broken links.</h2>
+    <div class="grid grid--4 mt-4">
+      <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:#fff;">
+        <div class="meta" style="color: var(--hazard-yellow)"><span class="dot" style="background: var(--hazard-yellow)"></span>STEP 01</div>
+        <h3 style="color:#fff;">Diagnose</h3>
+        <p style="color:var(--steel-300)">Walk the symptom through the <a href="troubleshooting.html" style="color:var(--hazard-yellow)">troubleshooter</a> until you have a probable cause.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:#fff;">
+        <div class="meta" style="color: var(--hazard-yellow)"><span class="dot" style="background: var(--hazard-yellow)"></span>STEP 02</div>
+        <h3 style="color:#fff;">Identify part</h3>
+        <p style="color:var(--steel-300)">Find the part on the <a href="parts.html" style="color:var(--hazard-yellow)">interactive diagram</a> and confirm fitment for your model.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:#fff;">
+        <div class="meta" style="color: var(--hazard-yellow)"><span class="dot" style="background: var(--hazard-yellow)"></span>STEP 03</div>
+        <h3 style="color:#fff;">Repair</h3>
+        <p style="color:var(--steel-300)">Follow the matching <a href="repairs.html" style="color:var(--hazard-yellow)">step-by-step procedure</a>, noting torque and lubrication callouts.</p>
+      </div>
+      <div class="card" style="background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.1); color:#fff;">
+        <div class="meta" style="color: var(--hazard-yellow)"><span class="dot" style="background: var(--hazard-yellow)"></span>STEP 04</div>
+        <h3 style="color:#fff;">Verify &amp; log</h3>
+        <p style="color:var(--steel-300)">Run the post-service <a href="maintenance.html" style="color:var(--hazard-yellow)">test-load &amp; inspection</a>, sign the maintenance record, return to service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section--tight section">
+  <div class="wrap">
+    <div class="callout callout--warning">
+      <strong>Educational use · Verify against the OEM manual</strong>
+      This site is an independent learning resource for technicians. Specifications, part numbers, and procedures are summarised from publicly available Sumner Manufacturing literature and supplier catalogs. Always verify against the operator's manual specific to the lift's serial number, and use only Sumner-supplied replacement parts on safety-critical components (cable, winch, sheave, fork carriage).
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="index.html" style="color:#fff;">
+          <div class="brand-mark">SL</div>
+          <div>
+            <div class="brand-name" style="color:#fff;">Sumner Lift Field Manual</div>
+            <div class="brand-sub">Service · Parts · Repair</div>
+          </div>
+        </a>
+        <p class="disclaimer mt-2">Independent educational resource. Sumner® and Roust-A-Bout™ are trademarks of Sumner Manufacturing Co., Inc., used here for identification only. No endorsement is implied.</p>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <ul>
+          <li><a href="models.html">Lift Models</a></li>
+          <li><a href="parts.html">Parts Catalog</a></li>
+          <li><a href="repairs.html">Repair Procedures</a></li>
+          <li><a href="maintenance.html">Maintenance Schedule</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="troubleshooting.html">Interactive Troubleshooter</a></li>
+          <li><a href="safety.html">Safety Procedures</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Source Material</h4>
+        <ul>
+          <li><a href="https://sumner.com/products/lifts/" rel="nofollow noopener" target="_blank">Sumner Mfg. lift catalog</a></li>
+          <li><a href="https://sumner.com/wp-content/uploads/sites/14/2025/07/Operators-Manual-Series-2400-Material-Lift.pdf" rel="nofollow noopener" target="_blank">Series 2400 Op Manual</a></li>
+          <li><a href="https://www.conklinmetal.com/wp-content/uploads/2023/11/Sumner-2000-Operators-Manual.pdf" rel="nofollow noopener" target="_blank">Series 2000 Op Manual</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 · Field Manual Project</span>
+      <span>EDITION 2026.05 · BUILT FOR THE BENCH</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

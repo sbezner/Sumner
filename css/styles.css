@@ -1414,3 +1414,157 @@ html[data-theme="dark"] .damage-card .swatch {
 .quiz-card .feedback.show { display: block; }
 .quiz-card .feedback.right { background: rgba(43,154,74,.12); color: var(--signal-green); }
 .quiz-card .feedback.wrong { background: rgba(210,49,49,.12); color: var(--signal-red); }
+
+/* ============================================================
+   COMMERCE — Energized Engines parts CTAs
+   This manual is published by Energized Engines as a free
+   technical reference; parts links route to their store.
+   ============================================================ */
+
+/* Promo strip above the context bar */
+.promo-strip {
+  background: linear-gradient(90deg, var(--safety-orange) 0%, #ff8a3d 100%);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+}
+.promo-strip .wrap {
+  display: flex; align-items: center; justify-content: center; gap: 14px;
+  flex-wrap: wrap;
+}
+.promo-strip strong {
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(0,0,0,.18);
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+.promo-strip a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+.promo-strip a:hover { background: rgba(0,0,0,.18); padding: 2px 6px; border-radius: 3px; text-decoration: none; }
+@media (max-width: 600px) {
+  .promo-strip { font-size: .76rem; padding: 7px 0; }
+}
+
+/* "Order from Energized Engines" button in modals + inline */
+.btn--buy {
+  background: var(--safety-orange);
+  color: #fff;
+  border: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: .95rem;
+  font-family: var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .12s ease, background .15s ease, box-shadow .15s ease;
+  white-space: nowrap;
+}
+.btn--buy:hover {
+  background: var(--safety-orange-dim);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  color: #fff;
+}
+.btn--buy svg { width: 16px; height: 16px; flex-shrink: 0; }
+.btn--buy.full { width: 100%; justify-content: center; }
+
+/* Small "order" inline link on each part card */
+.part-card .buy-link {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: var(--mono);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--safety-orange);
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule);
+}
+.part-card .buy-link:hover {
+  color: var(--safety-orange-dim);
+  text-decoration: none;
+}
+.part-card .buy-link::after { content: " →"; }
+
+/* Vendor brand chip, small */
+.vendor-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--ink); color: var(--hazard-yellow);
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* Vendor banner inside the part modal */
+.vendor-modal-row {
+  margin-top: 18px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(255,107,26,.08), rgba(255,107,26,.04));
+  border: 1px solid rgba(255,107,26,.25);
+  border-radius: var(--radius-md);
+  display: flex; gap: 16px; align-items: center; justify-content: space-between;
+  flex-wrap: wrap;
+}
+.vendor-modal-row .copy strong {
+  display: block;
+  font-family: var(--mono);
+  font-size: .76rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--safety-orange);
+  margin-bottom: 2px;
+}
+.vendor-modal-row .copy small {
+  color: var(--ink-soft);
+  font-size: .82rem;
+  display: block;
+}
+html[data-theme="dark"] .vendor-modal-row {
+  background: rgba(255,107,26,.10);
+  border-color: rgba(255,107,26,.35);
+}
+
+/* "Published by" footer block */
+.publisher-block {
+  background: var(--steel-900);
+  color: #fff;
+  padding: 24px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.publisher-block .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.publisher-block .pb-copy strong {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--hazard-yellow);
+  display: block;
+  margin-bottom: 4px;
+}
+.publisher-block .pb-copy {
+  color: var(--steel-300);
+  font-size: .92rem;
+  max-width: 60ch;
+}

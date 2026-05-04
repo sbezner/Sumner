@@ -48,23 +48,27 @@
       return;
     }
 
-    grid.innerHTML = filtered.map((p, i) => `
+    grid.innerHTML = filtered.map((p, i) => {
+      const url = (window.vendorUrl ? window.vendorUrl(p) : '#');
+      const pnLabel = p.pn.startsWith('ref:') ? '' : 'PN ' + escape(p.pn);
+      return `
       <article class="part-card" data-idx="${PARTS.indexOf(p)}" tabindex="0">
-        <div class="pn">PN ${escape(p.pn)}</div>
+        <div class="pn">${pnLabel}</div>
         <h4>${highlight(p.name, q)}</h4>
         <p class="desc">${highlight(p.desc.length > 130 ? p.desc.slice(0, 130) + '…' : p.desc, q)}</p>
         <div class="tags">
           <span class="tag">${escape(p.group)}</span>
           ${p.tags.map(t => `<span class="${tagClass(t)}">${escape(t)}</span>`).join('')}
         </div>
-      </article>
-    `).join('');
+        <a class="buy-link" href="${escape(url)}" target="_blank" rel="sponsored noopener" onclick="event.stopPropagation()">Order at Energized Engines</a>
+      </article>`;
+    }).join('');
   }
 
   function openModal(idx) {
     const p = PARTS[idx];
     if (!p) return;
-    document.getElementById('m-pn').textContent   = 'PN ' + p.pn;
+    document.getElementById('m-pn').textContent   = p.pn.startsWith('ref:') ? '' : ('PN ' + p.pn);
     document.getElementById('m-name').textContent = p.name;
     document.getElementById('m-group').textContent = p.group;
     document.getElementById('m-desc').textContent = p.desc;
@@ -74,6 +78,28 @@
     document.getElementById('m-tags').innerHTML   = p.tags.length
       ? p.tags.map(t => `<span class="${tagClass(t)}">${t}</span>`).join('')
       : '<span style="color:var(--steel-500);font-size:.85rem;">no special tags</span>';
+
+    // Vendor / "Order from Energized Engines" CTA
+    const buyHost = document.getElementById('m-buy');
+    if (buyHost && window.vendorUrl) {
+      const url = window.vendorUrl(p);
+      const exact = !!(window.VENDOR && window.VENDOR.knownUrls[p.pn]);
+      const isSku = /^\d{6}$/.test(p.pn);
+      let copy;
+      if (exact)      copy = 'We stock this exact part. Click to view it on the store.';
+      else if (isSku) copy = 'Search ' + window.VENDOR.name + ' for this Sumner SKU — we carry the line.';
+      else            copy = 'Browse this part group on our store. If you can&rsquo;t find it: we&rsquo;ll get it, make it, or engineer it.';
+      buyHost.innerHTML = `
+        <div class="copy">
+          <strong>Need to order?</strong>
+          <small>${copy}</small>
+        </div>
+        <a class="btn btn--buy" href="${url}" target="_blank" rel="sponsored noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h8.5a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+          Order at Energized Engines
+        </a>`;
+    }
+
     document.getElementById('modal').classList.add('open');
   }
 

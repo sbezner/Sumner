@@ -664,6 +664,67 @@ const HOTSPOTS = [
   { id: 9, x: 175, y: 145, group: "Hardware",          name: "Cable Anchor Clip",     desc: "Drop-forged clip + thimble terminating the cable at the carriage." }
 ];
 
+/* ============================================================
+   VENDOR — Energized Engines parts links
+   This manual is published by Energized Engines as a free
+   educational reference. Buy buttons across the catalog point
+   here so a tech can go from diagnosis to part-in-cart in one
+   click.
+   ============================================================ */
+const VENDOR = {
+  name:    "Energized Engines",
+  home:    "https://www.energizedengines.com/",
+  about:   "https://www.energizedengines.com/pages/about-sumner-lifts-and-parts",
+  manuals: "https://www.energizedengines.com/pages/parts-manuals",
+  allParts:"https://www.energizedengines.com/collections/all-parts",
+
+  /* Per-series collection landing pages — used as the per-series
+     fallback when an exact product URL isn't in KNOWN_URLS. */
+  collections: {
+    "2000":         "https://www.energizedengines.com/collections/all-parts",
+    "2100":         "https://www.energizedengines.com/collections/series-2100-parts",
+    "2300":         "https://www.energizedengines.com/collections/all-parts",
+    "2400":         "https://www.energizedengines.com/collections/series-2400-parts",
+    "Eventer":      "https://www.energizedengines.com/collections/all-parts",
+    "Roust-A-Bout": "https://www.energizedengines.com/collections/all-parts"
+  },
+
+  /* Direct product URLs for parts where I can confirm the slug.
+     Add more here as you validate them on the live store. */
+  knownUrls: {
+    "785912": "https://www.energizedengines.com/products/sumner-785912-winch-worm-gh-5t",
+    "780301": "https://www.energizedengines.com/products/sumner-r-150-roust-a-bouta-15-top-ht-sku-780301",
+    "ref:WIN-REBUILD": "https://www.energizedengines.com/products/winch-rebuild-kit-2000-2100-series-eventer-20-25-old-style"
+  }
+};
+
+/* Build a vendor URL for any part. Strategy:
+   1. Direct product URL if known
+   2. Site search by the SKU number for confirmed Sumner SKUs
+   3. Series-specific collection if the part has exactly one series tag
+   4. Site search by part name as last resort
+*/
+function vendorUrl(part) {
+  if (!part) return VENDOR.allParts;
+  if (VENDOR.knownUrls[part.pn]) return VENDOR.knownUrls[part.pn];
+
+  // Confirmed Sumner SKU pattern: 6 digits
+  if (/^\d{6}$/.test(part.pn)) {
+    return "https://www.energizedengines.com/search?q=" + encodeURIComponent(part.pn) + "&type=product";
+  }
+
+  // Single-series part → collection landing page anchored on the part's name
+  if (part.series && part.series.length === 1 && VENDOR.collections[part.series[0]]) {
+    return VENDOR.collections[part.series[0]];
+  }
+
+  // Generic fallback: search by name (strip parenthetical qualifiers)
+  const cleanName = (part.name || "Sumner part").replace(/\s*\([^)]*\)\s*/g, "").trim();
+  return "https://www.energizedengines.com/search?q=" + encodeURIComponent("Sumner " + cleanName) + "&type=product";
+}
+
 /* Make available globally for site-wide search */
 window.PARTS = PARTS;
 window.HOTSPOTS = HOTSPOTS;
+window.VENDOR = VENDOR;
+window.vendorUrl = vendorUrl;

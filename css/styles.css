@@ -3486,3 +3486,73 @@ html[data-theme="dark"] .app-nav-group a.active { background: var(--paper); colo
   z-index: 49;
 }
 .app-mobile-backdrop.open { display: block; }
+
+/* ============================================================
+   Dashboard header + hero technical figure
+   ============================================================ */
+.dashboard-header {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+@media (max-width: 880px) {
+  .dashboard-header { grid-template-columns: 1fr; gap: 20px; }
+  .dashboard-hero-fig { max-width: 280px; margin: 0 auto; }
+}
+.dashboard-header-copy { min-width: 0; }
+.dashboard-hero-fig {
+  margin: 0;
+  padding: 0;
+}
+.dashboard-hero-fig svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(10,14,19,.06), 0 1px 3px rgba(10,14,19,.05);
+}
+.dashboard-hero-fig figcaption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  color: var(--v3-text-faint);
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1.6;
+}
+.dashboard-hero-fig figcaption span {
+  color: var(--accent-teal);
+  font-weight: 700;
+}
+
+/* ============================================================
+   Model schematics on models.html — same blueprint aesthetic
+   ============================================================ */
+.model-fig {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+.model-fig svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 4px 14px rgba(10,14,19,.05), 0 1px 3px rgba(10,14,19,.04);
+}
+.model-fig figcaption {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: .66rem;
+  color: var(--v3-text-faint);
+  letter-spacing: .06em;
+  text-align: center;
+}
+
+/* Damage-swatch cards on inspection.html get the same paper aesthetic */
+.damage-card .swatch {
+  background: #fbfaf7;
+  border-bottom: 1px solid var(--v3-rule);
+}

@@ -130,50 +130,143 @@
         </ul>
         <p>By the wire-rope industry rule of thumb (lay length &asymp; 7&times; rope diameter for 7×19), one lay on a 1/8&Prime; cable is roughly <strong>0.875 in</strong>; on a 7/32&Prime; cable, roughly <strong>1.5 in</strong>. Mark a reference length on a ruler before you inspect.</p>
       </div>
-      <div class="schematic" data-fig="C-01" style="aspect-ratio: 1/.7;">
-        <svg viewBox="0 0 400 280" width="100%" height="100%">
-          <!-- Cable cross-section schematic -->
+      <figure class="model-fig" style="aspect-ratio: 1/.7;">
+        <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-label="Wire-rope construction: 7 × 19 cross-section and side view showing one lay">
           <defs>
-            <radialGradient id="strand-grad">
+            <pattern id="wg" width="14" height="14" patternUnits="userSpaceOnUse">
+              <path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.35"/>
+            </pattern>
+            <radialGradient id="wstr" cx="0.3" cy="0.3">
               <stop offset="0" stop-color="#dde3ec"/>
-              <stop offset="1" stop-color="#5b6e85"/>
+              <stop offset="0.65" stop-color="#7c8695"/>
+              <stop offset="1" stop-color="#3a4553"/>
             </radialGradient>
+            <radialGradient id="wwire" cx="0.35" cy="0.35">
+              <stop offset="0" stop-color="#e2e5eb"/>
+              <stop offset="0.7" stop-color="#8a93a3"/>
+              <stop offset="1" stop-color="#3a4553"/>
+            </radialGradient>
+            <linearGradient id="wsteel" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#3a4553"/>
+              <stop offset="0.5" stop-color="#8f99a8"/>
+              <stop offset="1" stop-color="#3a4553"/>
+            </linearGradient>
+            <marker id="arL" markerWidth="10" markerHeight="10" refX="0" refY="4" orient="auto">
+              <path d="M10,0 L0,4 L10,8 z" fill="#0e7461"/>
+            </marker>
+            <marker id="arR" markerWidth="10" markerHeight="10" refX="10" refY="4" orient="auto">
+              <path d="M0,0 L10,4 L0,8 z" fill="#0e7461"/>
+            </marker>
           </defs>
-          <text x="20" y="30" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#0b1117">CROSS-SECTION · 7×19</text>
+          <rect width="400" height="280" fill="#fbfaf7"/>
+          <rect width="400" height="280" fill="url(#wg)"/>
+          <rect x="4" y="4" width="392" height="272" fill="none" stroke="#0a0e13" stroke-width="0.7"/>
+          <rect x="7" y="7" width="386" height="266" fill="none" stroke="#0a0e13" stroke-width="0.3"/>
 
-          <!-- Center strand -->
-          <g transform="translate(120,150)">
-            <circle r="35" fill="url(#strand-grad)" stroke="#0b1117"/>
-            <!-- 7 strands x 19 wires -->
-            <g>
-              <circle cx="0"   cy="0" r="11" fill="#5b6e85"/>
-              <circle cx="0"   cy="-22" r="11" fill="#5b6e85"/>
-              <circle cx="19"  cy="-11" r="11" fill="#5b6e85"/>
-              <circle cx="19"  cy="11"  r="11" fill="#5b6e85"/>
-              <circle cx="0"   cy="22"  r="11" fill="#5b6e85"/>
-              <circle cx="-19" cy="11"  r="11" fill="#5b6e85"/>
-              <circle cx="-19" cy="-11" r="11" fill="#5b6e85"/>
+          <!-- LEFT: cross-section (a proper 7×19 = 1 core strand + 6 outer strands, each with 19 wires shown as 1+6+12) -->
+          <g transform="translate(115, 130)">
+            <!-- Outer envelope (cable outline) -->
+            <circle r="52" fill="none" stroke="#0a0e13" stroke-width="0.8" stroke-dasharray="2,1.5"/>
+
+            <!-- Center STRAND (with 1+6+12 = 19 wires) -->
+            <g transform="translate(0, 0)">
+              <circle r="17" fill="url(#wstr)" stroke="#0a0e13" stroke-width="0.4"/>
+              <!-- inner 1 -->
+              <circle r="3.4" fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25"/>
+              <!-- inner ring of 6 -->
+              <g fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25">
+                <circle cx="0" cy="-6.8" r="3.4"/><circle cx="5.9" cy="-3.4" r="3.4"/>
+                <circle cx="5.9" cy="3.4" r="3.4"/><circle cx="0" cy="6.8" r="3.4"/>
+                <circle cx="-5.9" cy="3.4" r="3.4"/><circle cx="-5.9" cy="-3.4" r="3.4"/>
+              </g>
+              <!-- outer ring of 12 -->
+              <g fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25">
+                <circle cx="0" cy="-13.6" r="3.4"/>
+                <circle cx="6.8" cy="-11.8" r="3.4"/>
+                <circle cx="11.8" cy="-6.8" r="3.4"/>
+                <circle cx="13.6" cy="0" r="3.4"/>
+                <circle cx="11.8" cy="6.8" r="3.4"/>
+                <circle cx="6.8" cy="11.8" r="3.4"/>
+                <circle cx="0" cy="13.6" r="3.4"/>
+                <circle cx="-6.8" cy="11.8" r="3.4"/>
+                <circle cx="-11.8" cy="6.8" r="3.4"/>
+                <circle cx="-13.6" cy="0" r="3.4"/>
+                <circle cx="-11.8" cy="-6.8" r="3.4"/>
+                <circle cx="-6.8" cy="-11.8" r="3.4"/>
+              </g>
             </g>
-            <text x="0" y="60" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#0b1117">7 STRANDS</text>
+
+            <!-- 6 OUTER STRANDS -->
+            <g id="outerstrand">
+              <circle r="17" fill="url(#wstr)" stroke="#0a0e13" stroke-width="0.4"/>
+              <circle r="3.4" fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25"/>
+              <g fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25">
+                <circle cx="0" cy="-6.8" r="3.4"/><circle cx="5.9" cy="-3.4" r="3.4"/>
+                <circle cx="5.9" cy="3.4" r="3.4"/><circle cx="0" cy="6.8" r="3.4"/>
+                <circle cx="-5.9" cy="3.4" r="3.4"/><circle cx="-5.9" cy="-3.4" r="3.4"/>
+              </g>
+              <g fill="url(#wwire)" stroke="#0a0e13" stroke-width="0.25">
+                <circle cx="0" cy="-13.6" r="3.4"/><circle cx="6.8" cy="-11.8" r="3.4"/>
+                <circle cx="11.8" cy="-6.8" r="3.4"/><circle cx="13.6" cy="0" r="3.4"/>
+                <circle cx="11.8" cy="6.8" r="3.4"/><circle cx="6.8" cy="11.8" r="3.4"/>
+                <circle cx="0" cy="13.6" r="3.4"/><circle cx="-6.8" cy="11.8" r="3.4"/>
+                <circle cx="-11.8" cy="6.8" r="3.4"/><circle cx="-13.6" cy="0" r="3.4"/>
+                <circle cx="-11.8" cy="-6.8" r="3.4"/><circle cx="-6.8" cy="-11.8" r="3.4"/>
+              </g>
+            </g>
+            <use href="#outerstrand" transform="translate(0, -34)"/>
+            <use href="#outerstrand" transform="translate(29.4, -17)"/>
+            <use href="#outerstrand" transform="translate(29.4, 17)"/>
+            <use href="#outerstrand" transform="translate(0, 34)"/>
+            <use href="#outerstrand" transform="translate(-29.4, 17)"/>
+            <use href="#outerstrand" transform="translate(-29.4, -17)"/>
+
+            <!-- Label -->
+            <text y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="#0a0e13" letter-spacing="0.6">CROSS-SECTION · 7 × 19</text>
+            <text y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="5.5" fill="#5b6473" letter-spacing="0.4">7 STRANDS × 19 WIRES EACH</text>
           </g>
 
-          <!-- Side view with lay marker -->
-          <g transform="translate(220,150)">
-            <text x="0" y="-50" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#0b1117">SIDE · ONE LAY</text>
-            <!-- Helical strands -->
-            <path d="M0 -20 Q 30 -20 30 0 T 60 0 Q 60 20 90 20 T 120 20 Q 120 0 150 0" fill="none" stroke="#5b6e85" stroke-width="6"/>
-            <path d="M0 0 Q 30 0 30 -20 T 60 -20 Q 60 0 90 0 T 120 0 Q 120 -20 150 -20" fill="none" stroke="#34465a" stroke-width="6"/>
-            <path d="M0 20 Q 30 20 30 0 T 60 0 Q 60 -20 90 -20 T 120 -20 Q 120 0 150 0" fill="none" stroke="#7c8fa6" stroke-width="6"/>
-            <!-- lay measurement -->
-            <line x1="0"   y1="40" x2="60"  y2="40" stroke="#ff6b1a" stroke-width="2" marker-start="url(#aL)" marker-end="url(#aR)"/>
-            <text x="30" y="58" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#ff6b1a">~1 LAY</text>
-            <defs>
-              <marker id="aL" markerWidth="8" markerHeight="8" refX="0" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8 z" fill="#ff6b1a"/></marker>
-              <marker id="aR" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ff6b1a"/></marker>
-            </defs>
+          <!-- RIGHT: side view with lay length -->
+          <g transform="translate(240, 130)">
+            <!-- 6 helical strands wrapping around unseen core -->
+            <g stroke="url(#wsteel)" stroke-width="6" fill="none" stroke-linecap="round">
+              <path d="M 0 -14 Q 20 -14 20 0 T 40 14 T 60 -14 T 80 14 T 100 -14 T 120 14 T 140 -14"/>
+            </g>
+            <g stroke="#5b6473" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9">
+              <path d="M 0 0 Q 20 0 20 14 T 40 -14 T 60 14 T 80 -14 T 100 14 T 120 -14 T 140 14"/>
+            </g>
+            <g stroke="#3a4553" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8">
+              <path d="M 0 14 Q 20 14 20 -14 T 40 0 T 60 -14 T 80 0 T 100 -14 T 120 0 T 140 -14"/>
+            </g>
+            <!-- Envelope lines -->
+            <line x1="0" y1="-18" x2="140" y2="-18" stroke="#0a0e13" stroke-width="0.4" stroke-dasharray="1.5,1"/>
+            <line x1="0" y1="18" x2="140" y2="18" stroke="#0a0e13" stroke-width="0.4" stroke-dasharray="1.5,1"/>
+
+            <!-- Lay length dim -->
+            <line x1="0" y1="34" x2="40" y2="34" stroke="#0e7461" stroke-width="0.7" marker-start="url(#arL)" marker-end="url(#arR)"/>
+            <line x1="0" y1="20" x2="0" y2="36" stroke="#0e7461" stroke-width="0.4" stroke-dasharray="1,1"/>
+            <line x1="40" y1="20" x2="40" y2="36" stroke="#0e7461" stroke-width="0.4" stroke-dasharray="1,1"/>
+            <text x="20" y="48" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" font-weight="700" fill="#0e7461">1 LAY</text>
+
+            <!-- Wire vs strand annotation -->
+            <line x1="20" y1="-14" x2="90" y2="-50" stroke="#0e7461" stroke-width="0.5"/>
+            <circle cx="94" cy="-52" r="7" fill="#fbfaf7" stroke="#0e7461" stroke-width="1"/>
+            <text x="94" y="-49.5" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="#0e7461">A</text>
+            <text x="105" y="-52" font-family="ui-monospace,monospace" font-size="6" fill="#0e7461" font-weight="600">STRAND</text>
+            <text x="105" y="-45" font-family="ui-monospace,monospace" font-size="5" fill="#5b6473">(1 of 7)</text>
+
+            <text y="72" text-anchor="middle" font-family="ui-monospace,monospace" font-size="7" font-weight="700" fill="#0a0e13" letter-spacing="0.6">SIDE ELEVATION · ONE LAY</text>
+            <text y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="5.5" fill="#5b6473" letter-spacing="0.4">LAY ≈ 7 × ROPE DIAMETER</text>
+          </g>
+
+          <!-- Title block -->
+          <g>
+            <line x1="240" y1="252" x2="392" y2="252" stroke="#0a0e13" stroke-width="0.4"/>
+            <text x="244" y="260" font-family="ui-monospace,monospace" font-size="6.5" font-weight="700" fill="#0a0e13" letter-spacing="0.4">AIRCRAFT CABLE · 7 × 19 CONSTRUCTION</text>
+            <text x="244" y="267" font-family="ui-monospace,monospace" font-size="5.5" fill="#5b6473" letter-spacing="0.4">FIG. C-01 · CROSS-SECTION &amp; SIDE VIEW</text>
           </g>
         </svg>
-      </div>
+      </figure>
     </div>
   </div>
 </section>
@@ -187,176 +280,134 @@
 
     <div class="damage-grid mt-4">
 
-      <!-- 1: BROKEN WIRES -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-            <!-- helical strands -->
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
-            <!-- broken wires -->
-            <line x1="80"  y1="56" x2="84"  y2="42" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="98"  y1="58" x2="103" y2="44" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="116" y1="58" x2="120" y2="44" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="160" y1="86" x2="164" y2="100" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="178" y1="86" x2="182" y2="100" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="196" y1="84" x2="200" y2="98" stroke="#d23131" stroke-width="2.5" stroke-linecap="round"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">BROKEN WIRES (×6)</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b1g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b1s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b1s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b1g)"/><path d="M 20 70 Q 55 55 90 70 T 160 70 Q 195 55 230 70 T 260 70" fill="none" stroke="url(#b1s)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 20 78 Q 55 93 90 78 T 160 78 Q 195 93 230 78 T 260 78" fill="none" stroke="url(#b1s2)" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#1c2230" stroke-width="0.5" fill="none" opacity="0.65">
+    <path d="M 20 68 Q 55 53 90 68 T 160 68 Q 195 53 230 68 T 260 68"/>
+    <path d="M 20 72 Q 55 57 90 72 T 160 72 Q 195 57 230 72 T 260 72"/>
+    <path d="M 20 76 Q 55 91 90 76 T 160 76 Q 195 91 230 76 T 260 76"/>
+    <path d="M 20 80 Q 55 95 90 80 T 160 80 Q 195 95 230 80 T 260 80"/>
+  </g><g stroke="#d23131" stroke-width="1.4" stroke-linecap="round"><line x1="72" y1="63" x2="76" y2="48"/><line x1="94" y1="61" x2="98" y2="46"/><line x1="116" y1="63" x2="120" y2="48"/><line x1="158" y1="87" x2="162" y2="102"/><line x1="182" y1="87" x2="186" y2="102"/><line x1="208" y1="85" x2="212" y2="100"/></g><g fill="#d23131"><circle cx="72" cy="63" r="1.4"/><circle cx="94" cy="61" r="1.4"/><circle cx="116" cy="63" r="1.4"/><circle cx="158" cy="87" r="1.4"/><circle cx="182" cy="87" r="1.4"/><circle cx="208" cy="85" r="1.4"/></g><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">BROKEN WIRES (×6)</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">RANDOMLY DISTRIBUTED · ONE LAY</text></svg></div>
         <div class="body">
           <h4>Broken wires</h4>
-          <p>Individual wires fractured at random points along the cable. Caused by fatigue, side-loading over a sheave, or overload events.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold (running rope, ASME B30.30):</strong> 6 randomly distributed broken wires in one lay <em>or</em> 3 broken wires in one strand in one lay.</p>
+          <p>Individual wires fractured at random points along the cable. Caused by fatigue, side-loading over a sheave, or overload events.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold (running rope, ASME B30.30):</strong> 6 randomly distributed broken wires in one lay <em>or</em> 3 broken wires in one strand in one lay.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
 
-      <!-- 2: VALLEY BREAKS -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
-            <!-- arrows pointing into valleys -->
-            <line x1="100" y1="35" x2="100" y2="68" stroke="#d23131" stroke-width="2" marker-end="url(#dArr)"/>
-            <line x1="180" y1="35" x2="180" y2="68" stroke="#d23131" stroke-width="2" marker-end="url(#dArr)"/>
-            <defs>
-              <marker id="dArr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d23131"/></marker>
-            </defs>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">VALLEY BREAKS</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b2g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b2s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b2s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b2g)"/><path d="M 20 70 Q 55 55 90 70 T 160 70 Q 195 55 230 70 T 260 70" fill="none" stroke="url(#b2s)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 20 78 Q 55 93 90 78 T 160 78 Q 195 93 230 78 T 260 78" fill="none" stroke="url(#b2s2)" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#1c2230" stroke-width="0.5" fill="none" opacity="0.65">
+    <path d="M 20 68 Q 55 53 90 68 T 160 68 Q 195 53 230 68 T 260 68"/>
+    <path d="M 20 72 Q 55 57 90 72 T 160 72 Q 195 57 230 72 T 260 72"/>
+    <path d="M 20 76 Q 55 91 90 76 T 160 76 Q 195 91 230 76 T 260 76"/>
+    <path d="M 20 80 Q 55 95 90 80 T 160 80 Q 195 95 230 80 T 260 80"/>
+  </g><defs><marker id="b2a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#d23131"/></marker></defs><g stroke="#d23131" stroke-width="1" fill="none"><line x1="90" y1="42" x2="90" y2="66" marker-end="url(#b2a)"/><line x1="160" y1="42" x2="160" y2="66" marker-end="url(#b2a)"/><line x1="230" y1="42" x2="230" y2="66" marker-end="url(#b2a)"/></g><g stroke="#d23131" stroke-width="0.9" fill="none" stroke-linejoin="round"><polyline points="86,70 88,72 90,70 92,72 94,70"/><polyline points="156,70 158,72 160,70 162,72 164,70"/><polyline points="226,70 228,72 230,70 232,72 234,70"/></g><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">VALLEY BREAKS</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">FRACTURE AT STRAND JUNCTION · IMMEDIATE REMOVAL</text></svg></div>
         <div class="body">
           <h4>Valley breaks</h4>
-          <p>Wires fractured at the bottom of the valley between two adjacent strands &mdash; the inner crown. Hard to see from outside the cable; usually evidence of internal core failure.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> 2 or more valley breaks in one lay = immediate removal. There is no monitor zone.</p>
+          <p>Wires fractured at the bottom of the valley between two adjacent strands &mdash; the inner crown. Hard to see from outside the cable; usually evidence of internal core failure.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> 2 or more valley breaks in one lay = immediate removal. There is no monitor zone.</p>
           <span class="verdict verdict--remove">● Remove immediately</span>
         </div>
       </article>
 
-      <!-- 3: DIAMETER REDUCTION -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <!-- Original diameter cable -->
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
-            <!-- Necked-down section -->
-            <rect x="120" y="69" width="40" height="12" fill="#d23131" opacity=".25"/>
-            <!-- Caliper indicator -->
-            <line x1="120" y1="40" x2="120" y2="105" stroke="#d23131" stroke-width="1.5" stroke-dasharray="3 3"/>
-            <line x1="160" y1="40" x2="160" y2="105" stroke="#d23131" stroke-width="1.5" stroke-dasharray="3 3"/>
-            <text x="140" y="118" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#d23131">−5%+</text>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">DIAMETER REDUCTION</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b3g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b3s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b3s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b3g)"/><path d="M 20 70 Q 55 55 90 70 T 130 74 L 150 74 T 190 70 Q 225 55 260 70" fill="none" stroke="url(#b3s)" stroke-width="16" stroke-linecap="round"/><path d="M 20 78 Q 55 93 90 78 T 130 74 L 150 74 T 190 78 Q 225 93 260 78" fill="none" stroke="url(#b3s2)" stroke-width="14" stroke-linecap="round"/><g stroke="#d23131" stroke-width="0.9" fill="none"><line x1="130" y1="38" x2="130" y2="105"/><line x1="150" y1="38" x2="150" y2="105"/><line x1="126" y1="38" x2="134" y2="38"/><line x1="146" y1="38" x2="154" y2="38"/><line x1="126" y1="105" x2="134" y2="105"/><line x1="146" y1="105" x2="154" y2="105"/></g><defs><marker id="b3a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#d23131"/></marker></defs><line x1="112" y1="20" x2="130" y2="20" stroke="#d23131" stroke-width="0.8" marker-end="url(#b3a)"/><line x1="170" y1="20" x2="150" y2="20" stroke="#d23131" stroke-width="0.8" marker-end="url(#b3a)"/><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">DIAMETER −5%+</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">USE CALIPERS · REMOVE AT &gt; 5% REDUCTION</text></svg></div>
         <div class="body">
           <h4>Diameter reduction</h4>
-          <p>Cable measures smaller than nominal at a localized spot. Caused by core failure, internal corrosion, or crushing. Use calipers, not your fingers &mdash; you can&apos;t feel a 5% change.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> &gt;5% reduction from nominal diameter at any point = remove. For 1/8&Prime; cable, that's a measurement of 0.119&Prime; or less. For 7/32&Prime; cable (Sumner MX-equipped lifts), 0.208&Prime; or less.</p>
+          <p>Cable measures smaller than nominal at a localized spot. Caused by core failure, internal corrosion, or crushing. Use calipers, not your fingers &mdash; you can&apos;t feel a 5% change.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Industry threshold:</strong> &gt;5% reduction from nominal diameter at any point = remove. For 1/8&nbsp;in cable, that&apos;s a measurement of 0.119&nbsp;in or less.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
 
-      <!-- 4: KINKS -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 75 L 110 75 L 130 50 L 150 100 L 170 75 L 260 75" fill="none" stroke="#5b6e85" stroke-width="14" stroke-linejoin="miter"/>
-            <circle cx="140" cy="75" r="22" fill="none" stroke="#d23131" stroke-width="2" stroke-dasharray="3 3"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">KINK / DEFORMATION</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b4g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b4s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b4s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b4g)"/><path d="M 20 74 L 110 74 L 132 42 L 152 106 L 172 74 L 260 74" fill="none" stroke="url(#b4s)" stroke-width="16" stroke-linejoin="miter"/><path d="M 20 74 L 110 74 L 132 42 L 152 106 L 172 74 L 260 74" fill="none" stroke="#1c2230" stroke-width="0.6" stroke-linejoin="miter" opacity="0.7"/><circle cx="142" cy="74" r="26" fill="none" stroke="#d23131" stroke-width="1" stroke-dasharray="2,1.5"/><defs><marker id="b4a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#d23131"/></marker></defs><line x1="200" y1="115" x2="165" y2="98" stroke="#d23131" stroke-width="0.7" marker-end="url(#b4a)"/><text x="204" y="118" font-family="ui-monospace,monospace" font-size="6" font-weight="700" fill="#d23131">YIELD PT</text><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">KINK / PERM. DEFORMATION</text></svg></div>
         <div class="body">
           <h4>Kinks &amp; permanent deformation</h4>
-          <p>The cable holds a permanent bend or wave that doesn&apos;t straighten under tension. Caused by improper handling during cable installation &mdash; pulling out a loop without unwinding it.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any kink = remove. The strands at the kink have already yielded; the cable cannot be straightened back to original load capacity.</p>
+          <p>The cable holds a permanent bend or wave that doesn&apos;t straighten under tension. Caused by improper handling during cable installation &mdash; pulling out a loop without unwinding it.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any kink = remove. The strands at the kink have already yielded; the cable cannot be straightened back to original load capacity.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
 
-      <!-- 5: BIRDCAGE -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 75 L 100 75" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M180 75 L 260 75" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <!-- birdcage: separated strands -->
-            <ellipse cx="140" cy="75" rx="40" ry="18" fill="none" stroke="#5b6e85" stroke-width="3"/>
-            <ellipse cx="140" cy="75" rx="40" ry="12" fill="none" stroke="#34465a" stroke-width="3"/>
-            <ellipse cx="140" cy="75" rx="40" ry="6"  fill="none" stroke="#7c8fa6" stroke-width="3"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">BIRDCAGE</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b5g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b5s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b5s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b5g)"/><path d="M 20 74 L 95 74" fill="none" stroke="url(#b5s)" stroke-width="16" stroke-linecap="round"/><path d="M 20 74 L 95 74" fill="none" stroke="url(#b5s2)" stroke-width="14" stroke-linecap="round"/><path d="M 185 74 L 260 74" fill="none" stroke="url(#b5s)" stroke-width="16" stroke-linecap="round"/><path d="M 185 74 L 260 74" fill="none" stroke="url(#b5s2)" stroke-width="14" stroke-linecap="round"/><g fill="none" stroke="#3a4553" stroke-width="2.5" stroke-linecap="round"><ellipse cx="140" cy="74" rx="45" ry="24"/><ellipse cx="140" cy="74" rx="45" ry="16"/><ellipse cx="140" cy="74" rx="45" ry="10"/><ellipse cx="140" cy="74" rx="45" ry="4"/></g><line x1="95" y1="74" x2="185" y2="74" stroke="#c8cdd6" stroke-width="1" stroke-dasharray="2,1"/><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">BIRDCAGE · STRAND SEPARATION</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">CORE EXPOSED · REMOVE FROM SERVICE</text></svg></div>
         <div class="body">
           <h4>Birdcaging / strand separation</h4>
-          <p>Outer strands have separated from the core, ballooning out from the cable axis. Caused by sudden tension release after stretching, or torsional shock loads.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any birdcage = remove. The strands have permanently lost their helical relationship and the cable can no longer share load equally between strands.</p>
+          <p>Outer strands have separated from the core, ballooning out from the cable axis. Caused by sudden tension release after stretching, or torsional shock loads.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any birdcage = remove. The strands have permanently lost their helical relationship and the cable can no longer share load equally between strands.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
 
-      <!-- 6: HEAT DAMAGE -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
-            <!-- heat zone -->
-            <rect x="105" y="63" width="70" height="24" fill="#d23131" opacity=".5"/>
-            <path d="M120 50 q 5 -10 0 -20 m 15 20 q 5 -10 0 -20 m 15 20 q 5 -10 0 -20" fill="none" stroke="#ff6b1a" stroke-width="2" stroke-linecap="round"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#d23131">HEAT / ARC DAMAGE</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b6g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b6s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b6s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b6g)"/><path d="M 20 70 Q 55 55 90 70 T 160 70 Q 195 55 230 70 T 260 70" fill="none" stroke="url(#b6s)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 20 78 Q 55 93 90 78 T 160 78 Q 195 93 230 78 T 260 78" fill="none" stroke="url(#b6s2)" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#1c2230" stroke-width="0.5" fill="none" opacity="0.65">
+    <path d="M 20 68 Q 55 53 90 68 T 160 68 Q 195 53 230 68 T 260 68"/>
+    <path d="M 20 72 Q 55 57 90 72 T 160 72 Q 195 57 230 72 T 260 72"/>
+    <path d="M 20 76 Q 55 91 90 76 T 160 76 Q 195 91 230 76 T 260 76"/>
+    <path d="M 20 80 Q 55 95 90 80 T 160 80 Q 195 95 230 80 T 260 80"/>
+  </g><defs><linearGradient id="b6heat" x1="0" x2="1"><stop offset="0" stop-color="#d23131" stop-opacity="0"/><stop offset="0.5" stop-color="#d23131" stop-opacity="0.6"/><stop offset="1" stop-color="#d23131" stop-opacity="0"/></linearGradient></defs><rect x="100" y="60" width="80" height="26" fill="url(#b6heat)"/><g fill="#0a0e13"><circle cx="118" cy="66" r="1.6"/><circle cx="128" cy="76" r="1.4"/><circle cx="140" cy="68" r="1.8"/><circle cx="152" cy="78" r="1.4"/><circle cx="164" cy="70" r="1.6"/></g><g stroke="#ff6b1a" stroke-width="1.3" stroke-linecap="round" fill="none"><path d="M 122 46 q 3 -6 0 -12"/><path d="M 140 42 q 3 -6 0 -12"/><path d="M 158 46 q 3 -6 0 -12"/></g><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#d23131" letter-spacing="0.6">HEAT / ARC DAMAGE</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">DISCOLOR + PITTING · ANY EVIDENCE → REMOVE</text></svg></div>
         <div class="body">
           <h4>Heat or arc damage</h4>
-          <p>Discoloration (blue, straw, or black), localized melting, or pitting from welding-arc strike. Heat alters the wire&apos;s temper &mdash; even a brief touch from a stick electrode can ruin a cable.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any evidence of heat or electrical-arc damage = remove. There is no inspection that can verify the remaining strength of a heat-affected cable.</p>
+          <p>Discoloration (blue, straw, or black), localized melting, or pitting from welding-arc strike. Heat alters the wire&apos;s temper &mdash; even a brief touch from a stick electrode can ruin a cable.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> any evidence of heat or electrical-arc damage = remove. There is no inspection that can verify the remaining strength of a heat-affected cable.</p>
           <span class="verdict verdict--remove">● Remove from service</span>
         </div>
       </article>
 
-      <!-- 7: CORROSION -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#7c5630" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#5d3f23" stroke-width="14"/>
-            <!-- pitting marks -->
-            <circle cx="60"  cy="68" r="2" fill="#3a2615"/>
-            <circle cx="80"  cy="74" r="2" fill="#3a2615"/>
-            <circle cx="100" cy="68" r="2.5" fill="#3a2615"/>
-            <circle cx="160" cy="78" r="2" fill="#3a2615"/>
-            <circle cx="200" cy="72" r="2.5" fill="#3a2615"/>
-            <circle cx="220" cy="80" r="2" fill="#3a2615"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#7c5630">SEVERE CORROSION</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b7g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b7s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b7s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b7g)"/><defs><linearGradient id="b7rust1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#4a2f18"/><stop offset="0.5" stop-color="#9a6438"/><stop offset="1" stop-color="#4a2f18"/></linearGradient><linearGradient id="b7rust2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3d2413"/><stop offset="0.5" stop-color="#7f5228"/><stop offset="1" stop-color="#3d2413"/></linearGradient></defs><path d="M 20 70 Q 55 55 90 70 T 160 70 Q 195 55 230 70 T 260 70" fill="none" stroke="url(#b7rust1)" stroke-width="16" stroke-linecap="round"/><path d="M 20 78 Q 55 93 90 78 T 160 78 Q 195 93 230 78 T 260 78" fill="none" stroke="url(#b7rust2)" stroke-width="14" stroke-linecap="round"/><g fill="#1c1006"><circle cx="50" cy="66" r="1.8"/><circle cx="72" cy="76" r="1.4"/><circle cx="92" cy="66" r="2.1"/><circle cx="128" cy="80" r="1.4"/><circle cx="150" cy="70" r="1.8"/><circle cx="180" cy="82" r="1.7"/><circle cx="210" cy="72" r="2.1"/><circle cx="232" cy="80" r="1.5"/></g><g fill="#9a6438"><circle cx="88" cy="98" r="1"/><circle cx="132" cy="102" r="0.7"/><circle cx="176" cy="100" r="1"/><circle cx="220" cy="104" r="0.8"/></g><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#7c5630" letter-spacing="0.6">SEVERE CORROSION</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">PITTING OF UNDERLYING STEEL · REMOVE</text></svg></div>
         <div class="body">
           <h4>Corrosion / pitting</h4>
-          <p>Surface oxidation from moisture exposure. Light surface rust on a galvanized cable is normal as the zinc coating is consumed; severe corrosion with visible pitting of the steel underneath is not.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> light surface oxidation only = service (and improve storage). Pitting of the underlying steel, or any visible rust on broken-wire ends = remove.</p>
+          <p>Surface oxidation from moisture exposure. Light surface rust on a galvanized cable is normal as the zinc coating is consumed; severe corrosion with visible pitting of the steel underneath is not.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> light surface oxidation only = service (and improve storage). Pitting of the underlying steel, or any visible rust on broken-wire ends = remove.</p>
           <span class="verdict verdict--monitor">● Monitor / Remove if pitting</span>
         </div>
       </article>
 
-      <!-- 8: WEAR -->
       <article class="damage-card">
-        <div class="swatch">
-          <svg viewBox="0 0 280 140" width="100%" height="100%">
-            <path d="M20 70 Q 60 50 100 70 T 180 70 Q 220 50 260 70" fill="none" stroke="#5b6e85" stroke-width="14"/>
-            <path d="M20 80 Q 60 100 100 80 T 180 80 Q 220 100 260 80" fill="none" stroke="#34465a" stroke-width="14"/>
-            <!-- flat-spot wear -->
-            <rect x="100" y="62" width="80" height="3" fill="#dde3ec"/>
-            <rect x="100" y="85" width="80" height="3" fill="#dde3ec"/>
-            <text x="140" y="20" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#ff6b1a">FLATTENED CROWN WIRES</text>
-          </svg>
-        </div>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+    <pattern id="b8g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
+    <linearGradient id="b8s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
+    <linearGradient id="b8s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
+  </defs><rect width="280" height="140" fill="#fbfaf7"/><rect x="4" y="4" width="272" height="132" fill="none" stroke="#0a0e13" stroke-width="0.5"/><rect width="280" height="140" fill="url(#b8g)"/><path d="M 20 70 Q 55 55 90 70 T 160 70 Q 195 55 230 70 T 260 70" fill="none" stroke="url(#b8s)" stroke-width="16" stroke-linecap="round"/>
+  <path d="M 20 78 Q 55 93 90 78 T 160 78 Q 195 93 230 78 T 260 78" fill="none" stroke="url(#b8s2)" stroke-width="14" stroke-linecap="round"/>
+  <g stroke="#1c2230" stroke-width="0.5" fill="none" opacity="0.65">
+    <path d="M 20 68 Q 55 53 90 68 T 160 68 Q 195 53 230 68 T 260 68"/>
+    <path d="M 20 72 Q 55 57 90 72 T 160 72 Q 195 57 230 72 T 260 72"/>
+    <path d="M 20 76 Q 55 91 90 76 T 160 76 Q 195 91 230 76 T 260 76"/>
+    <path d="M 20 80 Q 55 95 90 80 T 160 80 Q 195 95 230 80 T 260 80"/>
+  </g><rect x="90" y="61" width="90" height="3.2" fill="#dde3ec" stroke="#0a0e13" stroke-width="0.4"/><rect x="90" y="83" width="90" height="3.2" fill="#dde3ec" stroke="#0a0e13" stroke-width="0.4"/><g stroke="#5b6473" stroke-width="0.35"><line x1="95" y1="61" x2="92" y2="64"/><line x1="105" y1="61" x2="102" y2="64"/><line x1="115" y1="61" x2="112" y2="64"/><line x1="125" y1="61" x2="122" y2="64"/><line x1="135" y1="61" x2="132" y2="64"/><line x1="145" y1="61" x2="142" y2="64"/><line x1="155" y1="61" x2="152" y2="64"/><line x1="165" y1="61" x2="162" y2="64"/><line x1="175" y1="61" x2="172" y2="64"/></g><defs><marker id="b8a" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#ff6b1a"/></marker></defs><line x1="180" y1="42" x2="150" y2="60" stroke="#ff6b1a" stroke-width="0.7" marker-end="url(#b8a)"/><text x="185" y="42" font-family="ui-monospace,monospace" font-size="6.5" font-weight="700" fill="#ff6b1a">−&#8531;+</text><text x="140" y="22" text-anchor="middle" font-family="ui-monospace,monospace" font-size="9" font-weight="700" fill="#ff6b1a" letter-spacing="0.6">CROWN WIRE WEAR</text><text x="140" y="130" text-anchor="middle" font-family="ui-monospace,monospace" font-size="6.5" fill="#5b6473" letter-spacing="0.3">FLAT SPOTS FROM WORN SHEAVE · REPLACE SHEAVE TOO</text></svg></div>
         <div class="body">
           <h4>Crown wire wear</h4>
-          <p>Outer wires of the cable show flat spots from repeated travel through a worn or sharp-edged sheave. Often the warning sign that the sheave needs replacement before the cable does.</p>
-          <p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> &lt;1/3 of the original wire diameter remaining at the wear point = remove. Replace the sheave at the same time or the new cable will wear in the same spot.</p>
+          <p>Outer wires of the cable show flat spots from repeated travel through a worn or sharp-edged sheave. Often the warning sign that the sheave needs replacement before the cable does.</p><p style="font-size:.86rem;color:var(--steel-500);"><strong>Verdict:</strong> &lt;1/3 of the original wire diameter remaining at the wear point = remove. Replace the sheave at the same time or the new cable will wear in the same spot.</p>
           <span class="verdict verdict--monitor">● Monitor / Replace sheave</span>
         </div>
       </article>

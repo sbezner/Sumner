@@ -3335,11 +3335,19 @@ html[data-theme="dark"] .sizing-recommendation { background: rgba(14,116,97,.08)
 }
 /* Guard: at the smallest widths, drop the .app-brand-mark "SL" tile
    font-size so the topbar doesn't push the search box off-screen. */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .app-main { padding: 20px 16px 60px; }
-  .app-topbar-inner { padding: 0 12px; }
+  .app-topbar-inner { padding: 0 10px; gap: 6px !important; }
   .app-brand { gap: 6px; }
   .app-brand-mark { width: 30px; height: 30px; font-size: .78rem; }
+  /* Shop parts button drops out of the topbar below 480 — it is
+     duplicated in the sidebar. Keeping it here would push the
+     hamburger off the right edge on a stock 390px phone screen. */
+  .app-shop-btn { display: none; }
+  /* Tighten icon buttons a bit more so hamburger + theme both fit. */
+  .app-icon-btn { width: 32px; height: 32px; }
+  .app-search input { font-size: .85rem; padding: 6px 10px 6px 30px; }
+  .app-search::before { left: 10px; width: 12px; height: 12px; }
 }
 
 /* Hero search inside dashboard */
@@ -3653,6 +3661,11 @@ html[data-theme="dark"] .app-card.app-card--shop { background: var(--v3-paper-2,
 .app-footer a { color: var(--v3-text-soft); }
 .app-footer a:hover { color: var(--v3-text); }
 
+/* Desktop default: hide the mobile hamburger. Declared BEFORE the mobile
+   media query so the media-query rule (same specificity, later source
+   order) can flip it back to visible under 880px. */
+.app-mobile-toggle { display: none; }
+
 /* Mobile: sidebar collapses */
 @media (max-width: 880px) {
   .app-shell { grid-template-columns: 1fr; }
@@ -3665,14 +3678,44 @@ html[data-theme="dark"] .app-card.app-card--shop { background: var(--v3-paper-2,
   }
   .app-sidebar.open { transform: translateX(0); }
   .app-main { padding: 24px 20px 60px; }
-  .app-topbar-inner { grid-template-columns: auto 1fr auto; padding: 0 12px; }
+  /* Switch to flex on mobile so the search input can genuinely shrink
+     without an accidental min-content floor. The grid version was letting
+     the search + kbd hint force the row wider than the viewport, pushing
+     the hamburger off-screen. Flex with flex: 1 min-width: 0 is bulletproof. */
+  .app-topbar-inner {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .app-brand { flex: 0 0 auto; }
+  .app-search { flex: 1 1 auto; min-width: 0 !important; max-width: none !important; }
+  .app-search input { min-width: 0 !important; width: 100% !important; }
+  .app-topbar-actions { flex: 0 0 auto; }
   .app-brand-name small { display: none; }
   .app-shop-btn span { display: none; }
   .app-shop-btn::after { display: none; }
   .app-shop-btn { padding: 7px 10px; }
   .app-mobile-toggle { display: inline-grid; }
+  /* The topbar-actions column has to be able to fit hamburger + theme
+     + shop button. Reserve room and let each button stay hittable. */
+  .app-topbar-actions { flex-shrink: 0; }
+  /* Below 880px the topbar is tight — hide the ⌘K hint inside the
+     search box so the input can shrink without pushing the actions
+     column off-screen. Declared here (not up in the search-kbd block)
+     because CSS cascade order matters: this needs to beat the base
+     `.app-search-kbd { display: flex }` rule that's declared later
+     in the file. */
+  .app-search-kbd { display: none !important; }
+  /* And explicitly re-assert the hamburger visibility here, after the
+     base .app-mobile-toggle { display: none } rule. Media-query rules
+     don't grant higher specificity — source order does — so the base
+     rule declared later would otherwise win and the menu button
+     stays hidden even on mobile. */
+  .app-mobile-toggle { display: inline-grid !important; }
 }
-.app-mobile-toggle { display: none; }
 .app-mobile-backdrop {
   display: none;
   position: fixed; inset: 0; background: rgba(10,14,19,.4);

@@ -158,13 +158,17 @@ window.toggleNav = function () {
     add({ title: meta.title, where: meta.where, href: path });
   }
 
-  // Render the widget if present
+  // Render the widget if present. Hide the surrounding block entirely
+  // when the list is empty so first-time visitors don't see dead pixels.
   const widget = document.getElementById('recent-list');
+  const block = document.getElementById('recent-block');
   if (widget) {
     const list = load();
     if (!list.length) {
-      widget.innerHTML = '<div class="empty">Pages you visit will appear here.</div>';
+      if (block) block.style.display = 'none';
+      widget.innerHTML = '';
     } else {
+      if (block) block.style.display = '';
       widget.innerHTML = '<ul>' + list.map(r =>
         `<li><a href="${r.href}"><strong style="font-weight:600;">${r.title}</strong><small>${r.where}</small></a></li>`
       ).join('') + '</ul>';

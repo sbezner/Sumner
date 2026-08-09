@@ -320,6 +320,147 @@
   </div>
 </section>
 
+<!-- CABLE SAFE-LOAD TABLE (industry values verified against MIL-DTL-83420 catalogs) -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow">Reference</div>
+    <h2>Cable capacity &mdash; the safety factor that&apos;s actually there.</h2>
+    <p class="lead" style="max-width:70ch;">This is the number that closes the loop between &quot;I measured 0.208&Prime;&quot; and &quot;how much safety margin is left.&quot; Values are nominal for <strong>7&times;19 galvanized aircraft cable (GAC)</strong> per MIL-DTL-83420 &mdash; the construction used across the current Sumner MX-winch line. Legacy GH-5T winches use the 1/8&Prime; cable of the same construction.</p>
+
+    <div style="overflow-x:auto; margin-top: 20px;">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Cable</th>
+            <th>Nominal break</th>
+            <th>WLL @ 5:1</th>
+            <th>WLL @ 10:1</th>
+            <th>Sumner units using this cable</th>
+            <th>Rated lift capacity</th>
+            <th>Design margin over rated load</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1/8&Prime;</strong> (3.2 mm)<br><span style="color:var(--v3-text-faint);font-size:.82rem;">7&times;19 GAC · PN 774206</span></td>
+            <td>2,000 lb</td>
+            <td>400 lb</td>
+            <td>200 lb</td>
+            <td>Legacy GH-5T winch<br>Series 2300 (150 lb rated)</td>
+            <td>Up to 150 lb</td>
+            <td>~13&times; break, ~2.7&times; WLL at 5:1</td>
+          </tr>
+          <tr>
+            <td><strong>7/32&Prime;</strong> (5.5 mm)<br><span style="color:var(--v3-text-faint);font-size:.82rem;">7&times;19 GAC · current MX winch</span></td>
+            <td>5,600 lb</td>
+            <td>1,120 lb</td>
+            <td>560 lb</td>
+            <td>Series 2000 / 2100 / 2400 / Eventer<br>Roust-A-Bout single-line</td>
+            <td>150 &ndash; 1,000 lb</td>
+            <td>~5.6&times; break at 1,000 lb rated<br>~8.6&times; break at 650 lb rated</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-2" style="color:var(--v3-text-soft); font-size:.9rem;"><strong>Read this right:</strong> the &quot;design margin&quot; column is the total factor of safety at the rated load in ideal conditions. It burns through fast in real service &mdash; shock loading, corrosion, kinking, drum-side abrasion, and cyclic fatigue each subtract from the margin. Per <strong>ASME B30.30</strong>, remove-from-service thresholds (broken wires, diameter loss, corrosion) exist precisely because the margin degrades in ways you can&apos;t see. Trust the inspection criteria on this page &mdash; not the design margin &mdash; when deciding whether to keep a cable in service.</p>
+
+    <p class="mt-2" style="color:var(--v3-text-soft); font-size:.9rem;"><strong>Values are nominal breaking strength</strong> from Federal Spec RR-W-410 / MIL-DTL-83420 preformed galvanized 7&times;19 construction. Sumner OEM cable (PN 774206 for the 1/8&Prime; legacy variant) is factory-swaged with the correct end fittings &mdash; do not use bulk cable and shop-swaged ends on any Sumner lift; the fitting geometry and swage die pressure are part of the rated system.</p>
+  </div>
+</section>
+
+<!-- SHEAVE GROOVE WEAR STANDARD (WRTB / Wire Rope Users Manual) -->
+<section class="section section--paper">
+  <div class="wrap">
+    <div class="eyebrow">Reference</div>
+    <h2>Sheave groove wear &mdash; what &quot;grooved&quot; actually means.</h2>
+    <p class="lead" style="max-width:70ch;">&quot;Replace the sheave if it&apos;s grooved&quot; is a rule that gets ignored because &quot;grooved&quot; isn&apos;t defined. The wire-rope industry uses a specific measurement: a two-side <strong>groove gauge</strong> that captures wear in one motion. Below is the standard, plus what it looks like in the field.</p>
+
+    <div class="grid grid--2 mt-4" style="align-items: start; gap: 32px;">
+      <figure class="model-fig" style="max-width: 420px;">
+        <svg viewBox="0 0 320 260" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sheave groove wear profile — new vs at-limit vs worn beyond limit, with WRTB groove gauge overlay">
+          <defs>
+            <pattern id="swg" width="16" height="16" patternUnits="userSpaceOnUse">
+              <path d="M16 0 L0 0 L0 16" fill="none" stroke="#e2e5eb" stroke-width="0.35"/>
+            </pattern>
+            <linearGradient id="swst" x1="0" x2="1">
+              <stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/>
+              <stop offset="1" stop-color="#3a4553"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="260" fill="#fbfaf7"/>
+          <rect width="320" height="260" fill="url(#swg)"/>
+          <rect x="4" y="4" width="312" height="252" fill="none" stroke="#0a0e13" stroke-width="0.7"/>
+          <rect x="7" y="7" width="306" height="246" fill="none" stroke="#0a0e13" stroke-width="0.3"/>
+
+          <!-- NEW groove -->
+          <g transform="translate(60, 110)">
+            <text x="0" y="-70" font-family="ui-monospace,monospace" font-size="7" font-weight="700" text-anchor="middle" fill="#0e7461">NEW</text>
+            <text x="0" y="-62" font-family="ui-monospace,monospace" font-size="5" text-anchor="middle" fill="#5b6473">+5% groove</text>
+            <path d="M -34 0 L -34 40 L 34 40 L 34 0 Q 34 -6 28 -6 L -28 -6 Q -34 -6 -34 0 Z" fill="url(#swst)" stroke="#0a0e13" stroke-width="0.5"/>
+            <path d="M -13 -6 A 15 15 0 0 0 13 -6" fill="#fbfaf7" stroke="#0a0e13" stroke-width="0.6"/>
+            <circle cx="0" cy="0" r="7" fill="#c8cdd6" stroke="#0a0e13" stroke-width="0.4"/>
+            <circle cx="0" cy="0" r="4" fill="none" stroke="#5b6473" stroke-width="0.3"/>
+            <text x="0" y="60" font-family="ui-monospace,monospace" font-size="5.5" text-anchor="middle" fill="#0e7461">CABLE ON ARC</text>
+            <text x="0" y="66" font-family="ui-monospace,monospace" font-size="4.5" text-anchor="middle" fill="#5b6473">145° contact · full support</text>
+          </g>
+
+          <!-- AT LIMIT -->
+          <g transform="translate(160, 110)">
+            <text x="0" y="-70" font-family="ui-monospace,monospace" font-size="7" font-weight="700" text-anchor="middle" fill="#e08a2f">AT LIMIT</text>
+            <text x="0" y="-62" font-family="ui-monospace,monospace" font-size="5" text-anchor="middle" fill="#5b6473">+2.5% groove</text>
+            <path d="M -34 0 L -34 40 L 34 40 L 34 0 Q 34 -6 28 -6 L -28 -6 Q -34 -6 -34 0 Z" fill="url(#swst)" stroke="#0a0e13" stroke-width="0.5"/>
+            <path d="M -14 -6 A 14 14 0 0 0 14 -6" fill="#fbfaf7" stroke="#0a0e13" stroke-width="0.6"/>
+            <circle cx="0" cy="0" r="7" fill="#c8cdd6" stroke="#0a0e13" stroke-width="0.4"/>
+            <circle cx="0" cy="0" r="4" fill="none" stroke="#5b6473" stroke-width="0.3"/>
+            <path d="M -14 -6 L -14 -14 L 14 -14 L 14 -6" fill="none" stroke="#e08a2f" stroke-width="0.6" stroke-dasharray="1.5,1"/>
+            <text x="20" y="-10" font-family="ui-monospace,monospace" font-size="4.5" fill="#e08a2f">retire gauge</text>
+            <text x="0" y="60" font-family="ui-monospace,monospace" font-size="5.5" text-anchor="middle" fill="#e08a2f">GAUGE FLUSH → REPLACE</text>
+            <text x="0" y="66" font-family="ui-monospace,monospace" font-size="4.5" text-anchor="middle" fill="#5b6473">no daylight visible</text>
+          </g>
+
+          <!-- WORN OUT -->
+          <g transform="translate(260, 110)">
+            <text x="0" y="-70" font-family="ui-monospace,monospace" font-size="7" font-weight="700" text-anchor="middle" fill="#c73f3f">WORN OUT</text>
+            <text x="0" y="-62" font-family="ui-monospace,monospace" font-size="5" text-anchor="middle" fill="#5b6473">groove flattened</text>
+            <path d="M -34 0 L -34 40 L 34 40 L 34 0 Q 34 -6 28 -6 L -28 -6 Q -34 -6 -34 0 Z" fill="url(#swst)" stroke="#0a0e13" stroke-width="0.5"/>
+            <path d="M -8 -6 L -8 -2 L 0 2 L 8 -2 L 8 -6" fill="#fbfaf7" stroke="#0a0e13" stroke-width="0.6"/>
+            <circle cx="0" cy="2" r="7" fill="#c8cdd6" stroke="#0a0e13" stroke-width="0.4"/>
+            <circle cx="-5" cy="-1.5" r="1.5" fill="#c73f3f" opacity="0.5"/>
+            <circle cx="5" cy="-1.5" r="1.5" fill="#c73f3f" opacity="0.5"/>
+            <text x="0" y="60" font-family="ui-monospace,monospace" font-size="5.5" text-anchor="middle" fill="#c73f3f">POINT CONTACT</text>
+            <text x="0" y="66" font-family="ui-monospace,monospace" font-size="4.5" text-anchor="middle" fill="#5b6473">flat-tops the cable · early break</text>
+          </g>
+
+          <line x1="180" y1="234" x2="313" y2="234" stroke="#0a0e13" stroke-width="0.35"/>
+          <text x="184" y="243" font-family="ui-monospace,monospace" font-size="6" font-weight="700" fill="#0a0e13" letter-spacing="0.3">SHEAVE GROOVE WEAR · SECTION VIEW</text>
+          <text x="184" y="250" font-family="ui-monospace,monospace" font-size="5" fill="#5b6473" letter-spacing="0.3">FIG. C-02 · PER WRTB GROOVE-GAUGE CONVENTION</text>
+        </svg>
+        <figcaption>SHEAVE GROOVE WEAR &middot; three stages</figcaption>
+      </figure>
+
+      <div>
+        <h3 style="margin-top: 0;">Measurement standard (WRTB &amp; Wire Rope Users Manual)</h3>
+        <ul class="spec-list">
+          <li><span class="k">New / re-machined groove</span><span class="v">Rope diameter <strong>+5%</strong> (a new-gauge sits flush)</span></li>
+          <li><span class="k">Retirement (&quot;no-go&quot;) gauge</span><span class="v">Rope diameter <strong>+2.5%</strong></span></li>
+          <li><span class="k">Groove contact arc</span><span class="v">135° &ndash; 150° (throat angle)</span></li>
+          <li><span class="k">Field procedure</span><span class="v">Press the +2.5% side of the gauge into the groove. If it sits <em>flush with no daylight at the sides</em>, the groove is at or beyond wear limit &mdash; regroove or replace.</span></li>
+        </ul>
+
+        <div class="callout callout--warning mt-2">
+          <strong>What &quot;worn out&quot; does to the cable</strong>
+          A groove that&apos;s opened up past the retirement limit stops supporting the cable across the intended 135°–150° arc. The cable rests on two corner contact points instead, and the concentrated stress flat-tops the outer strands over ~500 cycles. You&apos;ll see it in inspection as broken outer wires clustered on two circumferential lines &mdash; the &quot;wear stripe&quot; pattern.
+        </div>
+
+        <p style="font-size:.88rem; margin-top: 16px;">
+          <strong>How to get a gauge:</strong> Crosby and Slingmax sell the standard set. For a Sumner shop, keep two gauges: <strong>1/8&Prime;</strong> (for Series 2300 and legacy GH-5T) and <strong>7/32&Prime;</strong> (for all current MX-winch lifts).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- DAMAGE GALLERY -->
 <section class="section section--steel">
   <div class="wrap">

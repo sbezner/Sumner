@@ -3487,16 +3487,17 @@ html[data-theme="dark"] .sizing-recommendation { background: rgba(14,116,97,.08)
   color: var(--v3-text-faint);
   letter-spacing: .04em;
 }
-.app-card.app-card--shop {
-  background: linear-gradient(180deg, var(--v3-ink), #1a232e);
-  border-color: var(--v3-ink);
-  color: #fff;
-}
-.app-card.app-card--shop h3 { color: #fff; }
-.app-card.app-card--shop p { color: rgba(255,255,255,.65); }
-.app-card.app-card--shop .icon { background: rgba(255,255,255,.10); color: var(--accent-teal); }
-.app-card.app-card--shop:hover { transform: translateY(-1px); }
-.app-card.app-card--shop .meta-bottom { color: var(--accent-teal); }
+/* Order-parts card: match the other quickref cards visually so the commerce
+   pillar sits alongside content pillars rather than dominating the row.
+   The teal chip on the meta line is enough of a signal that this leads
+   off-site. */
+.app-card.app-card--shop { background: var(--paper, #fff); border-color: var(--v3-rule); color: var(--v3-ink); }
+.app-card.app-card--shop h3 { color: var(--v3-ink); }
+.app-card.app-card--shop p { color: var(--v3-text-soft); }
+.app-card.app-card--shop .icon { background: var(--accent-teal-tint, rgba(14,116,97,.12)); color: var(--accent-teal-deep, var(--accent-teal)); }
+.app-card.app-card--shop:hover { transform: translateY(-1px); border-color: var(--accent-teal); }
+.app-card.app-card--shop .meta-bottom { color: var(--accent-teal-deep, var(--accent-teal)); font-weight: 700; }
+html[data-theme="dark"] .app-card.app-card--shop { background: var(--v3-paper-2, #1e242c); }
 
 /* Spec matrix (the lift family) */
 .app-spec-matrix {
@@ -3659,16 +3660,16 @@ html[data-theme="dark"] .sizing-recommendation { background: rgba(14,116,97,.08)
    ============================================================ */
 .dashboard-header {
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 32px;
-  align-items: start;
-  margin-bottom: 24px;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 32px;
 }
 @media (max-width: 880px) {
-  .dashboard-header { grid-template-columns: 1fr; gap: 20px; }
+  .dashboard-header { grid-template-columns: 1fr; gap: 20px; align-items: start; }
   .dashboard-hero-fig { max-width: 280px; margin: 0 auto; }
 }
-.dashboard-header-copy { min-width: 0; }
+.dashboard-header-copy { min-width: 0; max-width: 62ch; }
 .dashboard-hero-fig {
   margin: 0;
   padding: 0;

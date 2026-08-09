@@ -355,12 +355,10 @@
       </select>
     </div>
 
-    <!-- RECENTLY VIEWED -->
-    <div class="app-recent">
+    <!-- RECENTLY VIEWED (hidden on first visit; JS reveals when items exist) -->
+    <div class="app-recent" id="recent-block" style="display: none;">
       <span class="app-recent-label">Recently viewed</span>
-      <div id="recent-list">
-        <div class="empty">Pages you visit will appear here.</div>
-      </div>
+      <div id="recent-list"></div>
     </div>
 
     <!-- QUICK REFERENCE -->
@@ -383,8 +381,8 @@
       <a class="app-card" href="repairs.html">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 7h7l-2.5 2.5L21 12l-3 3-2.5-2.5L13 15l-2-2 7-7z"/><path d="M9 14l-5 5 2 2 5-5"/></svg></div>
         <h3>Walk a repair</h3>
-        <p>Eight step-by-step procedures from cable replacement to winch swap. Tools, parts, torque.</p>
-        <div class="meta-bottom">8 PROCEDURES</div>
+        <p>Eleven step-by-step procedures from cable replacement to mast-section swap. Tools, parts, torque.</p>
+        <div class="meta-bottom">11 PROCEDURES</div>
       </a>
       <a class="app-card app-card--shop" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">
         <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3h2l2.5 12.5a2 2 0 0 0 2 1.5h8.5a2 2 0 0 0 2-1.6L22 7H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div>

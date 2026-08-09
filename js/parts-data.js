@@ -648,6 +648,106 @@ const PARTS = [
     desc: "Required for cable diameter measurement. Per ASME B30.30: more than 5% diameter reduction at any point requires removal from service. For 1/8 in nominal, that's a measurement of ≤0.119 in. For 7/32 in nominal, that's ≤0.208 in.",
     fits: "Service-bench tool",
     interval: "Verify zero on a known reference at every cable inspection."
+  },
+  {
+    pn: "ref:TOOL-GROOVE-GAUGE",
+    name: "Wire-Rope Groove Gauge Set (1/8 in + 7/32 in)",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "Two-sided WRTB-style groove gauge — 'new' side (rope diameter +5%) and 'retirement' side (+2.5%). Press the retirement side into the sheave groove: if it sits flush with no daylight, the sheave is at or past its wear limit. Order the 1/8 in gauge for Series 2300 and legacy GH-5T lifts, and the 7/32 in gauge for every current MX-winch lift. Crosby and Slingmax both sell the standard set.",
+    fits: "All Sumner lift sheaves and drum flanges",
+    interval: "Check sheave grooves quarterly, or any time the cable is replaced."
+  },
+  {
+    pn: "ref:HW-THIMBLE-732",
+    name: "Cable Thimble (7/32 in)",
+    group: "Hardware",
+    series: ["2000", "2100", "2400", "Eventer", "Roust-A-Bout"],
+    tags: ["cable", "wear"],
+    desc: "Heart-shaped steel thimble that lines the cable eye at the carriage anchor, protecting the wire rope from crushing against the anchor pin. Sold separately from cable-anchor clips — order both when replacing a cable eye. Sized for 7/32 in cable (MX winch line).",
+    fits: "Carriage cable-eye termination on 7/32 in Sumner cable",
+    interval: "Replace whenever the cable eye is re-terminated."
+  },
+  {
+    pn: "ref:HW-THIMBLE-125",
+    name: "Cable Thimble (1/8 in)",
+    group: "Hardware",
+    series: ["2300"],
+    tags: ["cable", "wear"],
+    desc: "1/8 in cable thimble for Series 2300 and legacy GH-5T-equipped units. Same design as the 7/32 in version, sized for the smaller cable.",
+    fits: "Series 2300 and any lift still on the GH-5T winch (PN 785912)",
+    interval: "Replace whenever the cable eye is re-terminated."
+  },
+  {
+    pn: "ref:HW-SWAGE-STOP-732",
+    name: "Cable Swage Stops (7/32 in, 10-pack)",
+    group: "Hardware",
+    series: ["2000", "2100", "2400", "Eventer", "Roust-A-Bout"],
+    tags: ["cable"],
+    desc: "Copper swage sleeves used to form the drum-end stop on Sumner lift cables. Slide onto the cable, compress with a hand swager, and the sleeve becomes the cable's factory stop against the drum inner wall. Not a substitute for a factory-swaged cable; use only when re-terminating a shop-supplied bulk cable to a Sumner spec (Procedure 01, step 6).",
+    fits: "7/32 in Sumner cable, hand-swager compatible",
+    interval: "Consumable — plan on 2 per cable replacement."
+  },
+  {
+    pn: "ref:HW-R-CLIP-PACK",
+    name: "Fork &amp; Detent-Pin R-Clip Pack (assortment, 25-count)",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "Mixed assortment of R-clips (hairpin cotters) for fork pivot pins, outrigger detent pins, tilt-head detent pins, and every other quick-release pin on a Sumner lift. Order a pack for the shop — these are consumables that get lost or bent every service call.",
+    fits: "All Sumner lift quick-release pins",
+    interval: "Replace on installation — never reuse a bent R-clip."
+  },
+  {
+    pn: "ref:HW-SNAP-RING-KIT",
+    name: "Winch-Rebuild Snap-Ring &amp; E-Clip Kit",
+    group: "Hardware",
+    series: ["2000", "2100", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "Assortment of internal &amp; external snap rings, E-clips, and thrust washers commonly needed when opening the MX-winch gearbox for pawl-spring or brake-disc service. Cheap insurance against having to source individual clips mid-repair.",
+    fits: "MX-winch (PN 783590) and GH-5T (PN 785912) rebuild",
+    interval: "Consumable — stock at least one kit per shop."
+  },
+  {
+    pn: "ref:HW-WINCH-BOLTS",
+    name: "MX Winch Mount Fastener Kit (5/16-18 + 3/8-16 Grade 8)",
+    group: "Hardware",
+    series: ["2000", "2100", "2400", "Eventer"],
+    tags: ["safety"],
+    desc: "Complete mount-fastener set for the MX winch swap — includes both 5/16-18 Grade 8 (older mount hole pattern) and 3/8-16 Grade 8 (current production) with matching nyloc nuts and hardened flat washers. Torque to 17 ft-lb (5/16) or 30 ft-lb (3/8) dry. Sumner service procedures reject reused mount bolts on a safety-critical replacement.",
+    fits: "MX winch (PN 783590) — verify hole pattern on your mast base before ordering",
+    interval: "Replace on every winch swap — never reuse."
+  },
+  {
+    pn: "ref:HW-LITHIUM-GREASE",
+    name: "White Lithium Grease (3 oz tube)",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "General-purpose lubricant for slide-pad contact surfaces, tilt-head detent bore (Series 2300), fork pivot pins, and any other metal-on-metal friction point. Preferred over anti-seize on any lift used indoors — anti-seize attracts drywall dust and jobsite grit, which turns to grinding paste.",
+    fits: "All Sumner lift lubrication points",
+    interval: "Consumable — 3 oz tube covers ~10 service calls."
+  },
+  {
+    pn: "ref:HW-GEARBOX-GREASE",
+    name: "Winch Gearbox Grease (NLGI 2, EP)",
+    group: "Hardware",
+    series: ["2000", "2100", "2400", "Eventer", "Roust-A-Bout"],
+    tags: [],
+    desc: "Extreme-pressure NLGI grade 2 grease specifically for the MX/GH-5T worm-gear gearbox. Do NOT mix with standard chassis grease — the EP additives are what keep the worm-and-wheel from galling under load. Fill the gearbox with 2-3 oz on every rebuild.",
+    fits: "MX winch (PN 783590), GH-5T winch (PN 785912) gearboxes",
+    interval: "Repack at every pawl-spring service or every 3 years, whichever comes first."
+  },
+  {
+    pn: "ref:HW-DECAL-CAPACITY",
+    name: "Model Capacity Decal (per model)",
+    group: "Hardware",
+    series: ["2000", "2100", "2300", "2400", "Eventer", "Roust-A-Bout"],
+    tags: ["safety"],
+    desc: "Replacement OSHA-required capacity decal for the mast face. Faded, torn, or missing capacity decals are a citable violation; Sumner sells per-model decal kits that match the exact rating (400 lb 2412 vs 450 lb 2416, etc.). Order by model when placing the decal — a mismatched decal is worse than none.",
+    fits: "Specify model when ordering — decal wording is model-specific",
+    interval: "Replace annually or any time legibility is compromised."
   }
 ];
 

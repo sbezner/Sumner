@@ -81,12 +81,27 @@
     factor = Math.max(0, Math.min(1, factor));
     const safeLoad = Math.round(rated * factor);
 
+    const pct = Math.round(factor * 100);
     $('cf-rated').textContent = rated + ' lb';
     $('cf-safe').textContent = safeLoad + ' lb';
-    $('cf-pct').textContent = Math.round(factor * 100) + '%';
+    $('cf-pct').textContent = pct + '%';
 
     const fillEl = $('cf-fill');
-    fillEl.style.width = Math.round(factor * 100) + '%';
+    fillEl.style.width = pct + '%';
+
+    // Keep the SVG gauge in sync with the same percentage so the ring, the
+    // digit inside the ring, and the "Rated N lb · X%" line always agree.
+    const gauge = $('cf-gauge');
+    const gaugePct = $('cf-gauge-pct');
+    if (gauge && gaugePct) {
+      const circumference = 2 * Math.PI * 48;    // r=48 → C ≈ 301.6
+      // stroke-dashoffset shrinks as the fill grows, so 0 = full, C = empty
+      gauge.setAttribute('stroke-dasharray', circumference.toFixed(1));
+      gauge.setAttribute('stroke-dashoffset', (circumference * (1 - factor)).toFixed(1));
+      gaugePct.textContent = pct + '%';
+      // Color the ring by severity so the eye reads it before the text
+      gauge.setAttribute('stroke', factor >= 0.85 ? '#2da592' : factor >= 0.55 ? '#ffc419' : '#c73f3f');
+    }
 
     // Verdict
     const v = $('cf-verdict');

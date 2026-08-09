@@ -171,14 +171,14 @@
       g.setAttribute('data-id', h.id);
 
       const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      c.setAttribute('cx', h.x); c.setAttribute('cy', h.y); c.setAttribute('r', 13);
+      c.setAttribute('cx', h.x); c.setAttribute('cy', h.y); c.setAttribute('r', 8);
       c.setAttribute('fill', '#0b1117');
       c.setAttribute('stroke', '#ffc419');
-      c.setAttribute('stroke-width', 2);
+      c.setAttribute('stroke-width', 1.4);
       c.setAttribute('class', 'hotspot-circle');
 
       const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      t.setAttribute('x', h.x); t.setAttribute('y', h.y + 4);
+      t.setAttribute('x', h.x); t.setAttribute('y', h.y + 3);
       t.setAttribute('text-anchor', 'middle');
       t.setAttribute('class', 'hotspot-label');
       t.setAttribute('fill', '#ffc419');

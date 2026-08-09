@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Size a Lift — Sumner Lift Field Manual</title>
+<meta name="description" content="Five-question decision tree that sales reps and rental clerks use to land the customer on the right Sumner material lift for the job — 90 seconds." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0e13'/%3E%3Ctext x='50%25' y='58%25' font-family='monospace' font-size='14' font-weight='700' fill='%230e7461' text-anchor='middle'%3ESL%3C/text%3E%3C/svg%3E" />
+</head>
+<body class="app-page">
+
+<header class="app-topbar">
+  <div class="app-topbar-inner">
+    <a href="index.html" class="app-brand">
+      <div class="app-brand-mark">SL</div>
+      <div class="app-brand-name">Sumner Lift Manual<small>Service · Parts · Repair</small></div>
+    </a>
+    <div class="app-search">
+      <input type="search" id="site-search" placeholder="Search parts, procedures, models, symptoms…" aria-label="Search the manual" autocomplete="off" />
+      <span class="app-search-kbd"><kbd id="kbd-mod">⌘</kbd><kbd>K</kbd></span>
+      <div class="search-results" id="search-results"></div>
+    </div>
+    <div class="app-topbar-actions">
+      <button class="app-mobile-toggle app-icon-btn" aria-label="Open menu" onclick="document.querySelector('.app-sidebar').classList.add('open'); document.querySelector('.app-mobile-backdrop').classList.add('open');">≡</button>
+      <button class="app-icon-btn theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme"></button>
+      <a class="app-shop-btn" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener"><span>Shop parts</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="app-mobile-backdrop" onclick="document.querySelector('.app-sidebar').classList.remove('open'); this.classList.remove('open');"></div>
+
+<div class="app-shell">
+
+  <aside class="app-sidebar">
+    <div class="app-nav-group">
+      <h6>Get started</h6>
+      <ul>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="troubleshooting.html">Diagnose a problem</a></li>
+        <li><a href="sizing.html" class="active">Size a lift for a job</a></li>
+        <li><a href="parts.html">Open parts catalog</a></li>
+      </ul>
+    </div>
+    <div class="app-nav-group">
+      <h6>Lift models</h6>
+      <ul>
+        <li><a href="models.html">All models <span class="badge">15</span></a></li>
+        <li><a href="models.html#series-2000">Series 2000</a></li>
+        <li><a href="models.html#series-2100">Series 2100</a></li>
+        <li><a href="models.html#series-2300">Series 2300</a></li>
+        <li><a href="models.html#series-2400">Series 2400</a></li>
+        <li><a href="models.html#eventer">Eventer</a></li>
+        <li><a href="models.html#roust-a-bout">Roust-A-Bout</a></li>
+      </ul>
+    </div>
+    <div class="app-nav-group">
+      <h6>Service</h6>
+      <ul>
+        <li><a href="parts.html">Parts catalog</a></li>
+        <li><a href="repairs.html">Repair procedures <span class="badge">11</span></a></li>
+        <li><a href="maintenance.html">Maintenance schedule</a></li>
+        <li><a href="inspection.html">Cable inspection</a></li>
+      </ul>
+    </div>
+    <div class="app-nav-group">
+      <h6>Reference</h6>
+      <ul>
+        <li><a href="tools.html">Tools &amp; torque</a></li>
+        <li><a href="calculators.html">Capacity calculator</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li><a href="glossary.html">Glossary</a></li>
+        <li><a href="pipe-equipment.html">Pipe handling</a></li>
+        <li><a href="history.html">Heritage</a></li>
+      </ul>
+    </div>
+    <div class="app-nav-group">
+      <h6>Support</h6>
+      <ul>
+        <li><a href="support.html">Warranty &amp; RMA</a></li>
+        <li><a class="app-nav-shop" href="https://www.energizedengines.com/collections/all-parts" target="_blank" rel="sponsored noopener">Shop Sumner parts ↗</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="app-main">
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Size a Lift</span></div>
+    <h1>Size a Sumner Lift for the Job</h1>
+    <p>Five questions get you from &quot;we need to lift something up there&quot; to a specific SKU. Sales reps and rental-desk clerks: walk this with the customer on the phone; it takes 90 seconds and prevents the biggest source of returns (wrong-size lift for the space).</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap" style="max-width: 940px;">
+    <div class="sizing-tree">
+
+      <div class="sizing-step">
+        <div class="sizing-q-num">1</div>
+        <div class="sizing-q-body">
+          <h3>Q1 &middot; What's the maximum working height?</h3>
+          <p class="sizing-hint">Measure from the floor to the highest point the load must reach. Add 6&Prime; if the load has to clear an obstacle before setting down.</p>
+          <div class="sizing-branches">
+            <div class="sizing-branch"><span class="k">Under 11 ft</span><span class="v">Short-lift family &mdash; move to Q2.</span></div>
+            <div class="sizing-branch"><span class="k">11 – 17 ft</span><span class="v">Mid-lift family &mdash; move to Q2.</span></div>
+            <div class="sizing-branch"><span class="k">17 – 25 ft</span><span class="v">Tall-lift family &mdash; move to Q2.</span></div>
+            <div class="sizing-branch"><span class="k">Over 25 ft</span><span class="v">Sumner does not offer a material lift above 25 ft. Use an aerial-work platform or scaffold with a hoist.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sizing-step">
+        <div class="sizing-q-num">2</div>
+        <div class="sizing-q-body">
+          <h3>Q2 &middot; What's the load weight?</h3>
+          <p class="sizing-hint">Use the maximum weight the lift will see over its life on this job, not the average.</p>
+          <div class="sizing-branches">
+            <div class="sizing-branch"><span class="k">Under 150 lb (a sheet of drywall, a light HVAC diffuser)</span><span class="v">Series 2300 is the only solo-operator option. Move to Q3.</span></div>
+            <div class="sizing-branch"><span class="k">150 – 400 lb (small ducts, ceiling grid, light HVAC)</span><span class="v">Series 2400 (400 – 450 lb) or 2300 + a second tech. Move to Q3.</span></div>
+            <div class="sizing-branch"><span class="k">400 – 650 lb (residential HVAC, medium electrical, most contractor work)</span><span class="v">Series 2100 (650 lb across all heights) is the sweet spot. Move to Q3.</span></div>
+            <div class="sizing-branch"><span class="k">650 – 1,000 lb (commercial HVAC condensing units, motors, mixed loads)</span><span class="v">Series 2000 (1,000 lb short, 650 lb tall &mdash; capacity drops with height; verify against Q1). Move to Q3.</span></div>
+            <div class="sizing-branch"><span class="k">Over 1,000 lb (pipe sections, industrial machinery)</span><span class="v">Roust-A-Bout (1,500 lb across R-100 / R-150 / R-250) is the only choice. Move to Q3.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sizing-step">
+        <div class="sizing-q-num">3</div>
+        <div class="sizing-q-body">
+          <h3>Q3 &middot; Where is the lift working?</h3>
+          <p class="sizing-hint">Indoors, outdoors under cover, or outdoors exposed? Each has a different rule.</p>
+          <div class="sizing-branches">
+            <div class="sizing-branch"><span class="k">Indoors, tight corridors / doorways</span><span class="v">Verify base against Q4 (doorway). Reversed forks (Series 2100) and 360° head guard (Series 2400) help in overhead-obstruction environments.</span></div>
+            <div class="sizing-branch"><span class="k">Outdoors, temporary use</span><span class="v">Deploy outriggers and verify wind &mdash; Sumner rates lifts for stationary indoor use, and wind above ~10 mph reduces safe capacity (see the <a href="calculators.html">de-rate calculator</a>).</span></div>
+            <div class="sizing-branch"><span class="k">Outdoors, permanent / coastal / high-humidity</span><span class="v">Order the galvanized variant &mdash; Sumner offers <strong>2010G, 2015G, 2020G, 2025G</strong> (2000-series), <strong>2412G</strong> (2400-series), and <strong>R-180G, R-250G</strong> (Roust-A-Bout). The Eventer is aluminum-anodized (no galvanized variant needed). Standard-finish contractor lifts are NOT rated for permanent outdoor storage.</span></div>
+            <div class="sizing-branch"><span class="k">Stage / AV / theatrical</span><span class="v">Eventer family &mdash; the black-anodized mast visually disappears against dark scrim and drape.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sizing-step">
+        <div class="sizing-q-num">4</div>
+        <div class="sizing-q-body">
+          <h3>Q4 &middot; Does it have to fit through a door?</h3>
+          <p class="sizing-hint">Measure the narrowest doorway on the route, jamb-to-jamb, with the door open 90°. If the door has stops, measure between the stops.</p>
+          <div class="sizing-branches">
+            <div class="sizing-branch"><span class="k">Standard commercial door (36&Prime; or wider)</span><span class="v">Any Sumner lift fits. Check the outrigger stow width too &mdash; some contractor lifts store at 30&Prime; with outriggers folded but are wider extended.</span></div>
+            <div class="sizing-branch"><span class="k">Standard residential door (32&Prime;)</span><span class="v">Series 2100/2400 stow &lt; 30&Prime; and fit. Roust-A-Bout R-100 (32&Prime; base) is right at the limit &mdash; measure twice. R-150 and R-250 (40&Prime; base) will NOT fit a 32&Prime; door.</span></div>
+            <div class="sizing-branch"><span class="k">Interior of a completed home (30&Prime; door with stops)</span><span class="v">Series 2300 (drywall lift) is the only Sumner that goes through a 30&Prime; door assembled. Everything else must partially disassemble.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sizing-step">
+        <div class="sizing-q-num">5</div>
+        <div class="sizing-q-body">
+          <h3>Q5 &middot; One person, or two?</h3>
+          <p class="sizing-hint">If it's a solo installer, the answer converges on the drywall lift.</p>
+          <div class="sizing-branches">
+            <div class="sizing-branch"><span class="k">One person, must be handled solo, 99 lb body weight matters</span><span class="v">Series 2300 (99 lb, breaks down for transport in a sedan trunk). 150 lb capacity is the tradeoff.</span></div>
+            <div class="sizing-branch"><span class="k">One person, physical strength ok</span><span class="v">Any 2100 or 2400 works &mdash; the 2118 (18′4″) is the &quot;golden average&quot;: 650 lb, one operator, fits a service van.</span></div>
+            <div class="sizing-branch"><span class="k">Two people</span><span class="v">Series 2000 and Roust-A-Bout are typically two-operator (one on the crank, one guiding the load).</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sizing-recommendation">
+      <div class="eyebrow">The 30-second answer</div>
+      <h3>&quot;What lift should I buy?&quot;</h3>
+      <p><strong>If you're a general contractor and you own only one Sumner lift</strong>, buy the <a href="models.html#series-2100">Series 2118</a>. 18 ft of reach, 650 lb capacity, outriggers standard, cable inside the mast, reversible forks, fits every service van. It handles ~85% of the calls a contractor will get.</p>
+      <p><strong>If you're a drywall installer</strong>, buy the <a href="models.html#series-2300">Series 2300</a>. Nothing else lets one person set sheets solo.</p>
+      <p><strong>If you're a pipe or industrial shop</strong>, buy the <a href="models.html#roust-a-bout">R-150</a>. The R-100 is only right if you're rigging inside completed homes; the R-250 is only right if you're regularly at 20+ ft.</p>
+      <p><strong>If you're a stage / AV crew</strong>, buy the <a href="models.html#eventer">Eventer 20</a>. Best capacity-to-height ratio in the anodized-mast line.</p>
+    </div>
+  </div>
+</section>
+
+  <div class="app-footer">
+    <span>© 2026 · Published by <a href="https://www.energizedengines.com/" target="_blank" rel="sponsored noopener">Energized Engines</a> · Free educational reference. Sumner®, Roust-A-Bout®, Eventer®, Fold-A-Jack®, Adjust-A-Roll® are trademarks of B&amp;B SUMNER / SFE Brands. Independent educational reference, not affiliated with SFE Brands.</span>
+    <span>Edition 2026.05 · <a href="history.html">Heritage</a> · <a href="glossary.html">Glossary</a> · <a href="support.html">Support</a></span>
+  </div>
+
+  </main>
+
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    var kbd = document.getElementById('kbd-mod');
+    if (kbd && !/Mac|iPhone|iPad/.test(navigator.platform || '')) kbd.textContent = 'Ctrl';
+  })();
+</script>
+</body>
+</html>

@@ -61,7 +61,7 @@ body {
 }
 
 img, svg { max-width: 100%; display: block; }
-a { color: var(--signal-blue); text-decoration: none; }
+a { color: var(--accent-teal, var(--signal-blue)); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
 /* ---------- Typography ---------- */
@@ -312,6 +312,24 @@ code, kbd { font-family: var(--mono); font-size: .9em; background: var(--steel-1
 .spec-list .k { color: var(--steel-500); font-family: var(--mono); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
 .spec-list .v { font-weight: 600; }
 
+/* Numbered checklist — left-aligned index + item text on one line each.
+   Used by the pre-shift walk-around and any other numbered inspection. */
+.check-list { list-style: none; margin: 0; padding: 0; font-size: .92rem; }
+.check-list li {
+  display: grid; grid-template-columns: 32px 1fr; gap: 12px;
+  padding: 8px 0; border-bottom: 1px dashed var(--rule); text-align: left;
+  align-items: baseline;
+}
+.check-list li:last-child { border-bottom: 0; }
+.check-list .k {
+  color: var(--accent-teal); font-family: var(--mono);
+  font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+}
+.check-list .v { font-weight: 500; color: var(--v3-ink, var(--ink)); }
+@media (max-width: 640px) {
+  .spec-list li { flex-direction: column; align-items: flex-start; gap: 3px; }
+}
+
 /* ---------- Schematic / SVG box ---------- */
 .schematic {
   background:
@@ -511,8 +529,8 @@ table.data tbody tr:nth-child(even) { background: var(--steel-050); }
   transform: scale(1.25);
 }
 .hotspot-label {
-  font-family: var(--mono); font-size: 11px; font-weight: 700;
-  fill: var(--ink); pointer-events: none;
+  font-family: var(--mono); font-size: 10px; font-weight: 700;
+  fill: var(--hazard-yellow); pointer-events: none;
 }
 
 /* ---------- Steps / procedures ---------- */
@@ -3130,6 +3148,155 @@ html[data-theme="dark"] .app-nav-group a.active { background: var(--paper); colo
   font-weight: 600;
 }
 .app-nav-group .app-nav-shop:hover { background: var(--accent-teal); color: #fff; }
+
+/* Sidebar-embedded lift-context selector — replaces the old black context-bar. */
+.app-nav-ctx { margin-top: 8px; }
+.app-nav-ctx .app-ctx-inline {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px 8px;
+}
+.app-nav-ctx .app-ctx-current {
+  font-family: var(--mono);
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--accent-teal-deep, var(--accent-teal));
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.app-nav-ctx .app-ctx-current em { color: var(--v3-text-faint); font-style: normal; font-weight: 500; }
+.app-nav-ctx .app-ctx-clear {
+  background: transparent; border: 0; color: var(--v3-text-faint);
+  font-family: var(--mono); font-size: 1rem; line-height: 1;
+  cursor: pointer; padding: 0 4px;
+  display: none; /* JS reveals when a lift is set */
+}
+.app-nav-ctx .app-ctx-clear:hover { color: var(--v3-ink); }
+.app-nav-ctx .app-ctx-select {
+  width: calc(100% - 20px);
+  margin: 0 10px 4px;
+  font-family: var(--mono);
+  font-size: .78rem;
+  padding: 6px 8px;
+  border: 1px solid var(--v3-rule);
+  border-radius: 4px;
+  background: var(--paper);
+  color: var(--v3-ink);
+  max-width: 100%;
+}
+html[data-theme="dark"] .app-nav-ctx .app-ctx-select {
+  background: var(--v3-paper);
+  color: var(--v3-text);
+}
+.app-nav-ctx .app-ctx-select:focus {
+  outline: 2px solid var(--accent-teal);
+  outline-offset: 1px;
+}
+
+/* App-shell page-head — subpages ship in with `<section class="page-head">`
+   originally styled for the legacy dark hero. Inside .app-main it becomes a
+   simple light headline block so it matches the dashboard hero on home. */
+.app-main .page-head {
+  background: transparent;
+  color: var(--v3-ink);
+  padding: 0 0 24px;
+  border-bottom: 1px solid var(--v3-rule);
+  margin: 0 0 24px;
+  overflow: visible;
+}
+.app-main .page-head::before { display: none; }
+.app-main .page-head .wrap { padding-left: 0; padding-right: 0; max-width: none; }
+.app-main .page-head h1 {
+  color: var(--v3-ink);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 4px 0 6px;
+  max-width: none;
+  overflow-wrap: break-word;
+}
+html[data-theme="dark"] .app-main .page-head h1 { color: var(--v3-text); }
+.app-main .page-head p {
+  color: var(--v3-text-soft);
+  font-size: .98rem;
+  max-width: 68ch;
+  margin: 0;
+}
+.app-main .breadcrumb {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--v3-text-faint);
+  margin-bottom: 8px;
+}
+.app-main .breadcrumb a { color: var(--v3-text-soft); border-bottom: 0; }
+.app-main .breadcrumb a:hover { color: var(--accent-teal); }
+
+/* Section blocks inside app-main lose their outer .wrap padding since app-main
+   already provides gutters. Sections stay for vertical rhythm only. */
+.app-main .section { padding: 32px 0; }
+.app-main .section--paper { background: transparent; padding: 32px 0; }
+.app-main .section--steel { background: transparent; padding: 32px 0; }
+.app-main .section--tight { padding: 20px 0; }
+.app-main .section .wrap { padding: 0; max-width: none; }
+.app-main .section > .wrap > h2:first-child,
+.app-main .section > .wrap > .eyebrow:first-child { margin-top: 0; }
+
+/* Give a subtle rule between sections so they don't run together
+   now that they don't have their own background colors. */
+.app-main .section + .section { border-top: 1px solid var(--v3-rule); }
+
+/* ============================================================
+   SIZING DECISION TREE (sizing.html)
+   Sales-facing five-question tree that recommends a lift SKU.
+   ============================================================ */
+.sizing-tree { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+.sizing-step {
+  display: grid; grid-template-columns: 60px 1fr; gap: 20px;
+  padding: 22px 24px;
+  background: var(--v3-paper, #f8f7f2);
+  border-left: 3px solid var(--accent-teal);
+  border-radius: 4px;
+}
+html[data-theme="dark"] .sizing-step { background: var(--paper); }
+.sizing-q-num {
+  font-family: var(--mono);
+  font-size: 2.2rem; font-weight: 800; color: var(--accent-teal);
+  line-height: 1;
+}
+.sizing-q-body h3 { margin: 0 0 6px; font-size: 1.05rem; font-weight: 700; }
+.sizing-hint { color: var(--v3-text-soft, var(--steel-500)); font-size: .88rem; margin: 0 0 14px; }
+.sizing-branches { display: flex; flex-direction: column; gap: 8px; }
+.sizing-branch {
+  display: grid; grid-template-columns: 260px 1fr; gap: 16px;
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--v3-rule, rgba(0,0,0,.08));
+  font-size: .9rem;
+}
+.sizing-branch:last-child { border-bottom: 0; }
+.sizing-branch .k { font-weight: 700; color: var(--v3-ink, var(--ink)); font-family: var(--mono); font-size: .82rem; }
+.sizing-branch .v { color: var(--v3-text-soft, var(--steel-500)); line-height: 1.55; }
+.sizing-recommendation {
+  margin-top: 48px;
+  padding: 28px;
+  border: 2px solid var(--accent-teal);
+  border-radius: 8px;
+  background: var(--v3-paper, #f8f7f2);
+}
+html[data-theme="dark"] .sizing-recommendation { background: rgba(14,116,97,.08); }
+.sizing-recommendation .eyebrow { color: var(--accent-teal); }
+.sizing-recommendation h3 { margin: 4px 0 12px; }
+.sizing-recommendation p { margin: 0 0 12px; }
+.sizing-recommendation p:last-child { margin-bottom: 0; }
+
+@media (max-width: 720px) {
+  .sizing-step { grid-template-columns: 44px 1fr; padding: 16px; }
+  .sizing-q-num { font-size: 1.6rem; }
+  .sizing-branch { grid-template-columns: 1fr; gap: 4px; padding: 10px 6px; }
+}
 
 /* ---- Main content area ---- */
 .app-main {

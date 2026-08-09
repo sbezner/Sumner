@@ -7,7 +7,7 @@
      - Series 2000 / 2100 / 2300 / 2400 operator's manuals
      - Sumner Outlet, Acme Tools, Toolup, Airgas SKU listings
      - Energized Engines parts manuals & rebuild kits
-     - B&B SUMNER (current OEM catalog, post-2025 SFE Group)
+     - B&B SUMNER (current OEM catalog, post-2025 SFE Brands)
 
    Part numbers labeled "OEM" are documented Sumner / B&B SUMNER
    SKUs from those sources. Numbers labeled "ref" (e.g.

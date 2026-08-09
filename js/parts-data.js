@@ -7,9 +7,9 @@
      - Series 2000 / 2100 / 2300 / 2400 operator's manuals
      - Sumner Outlet, Acme Tools, Toolup, Airgas SKU listings
      - Energized Engines parts manuals & rebuild kits
-     - Southwire (current Sumner distribution partner)
+     - B&B SUMNER (current OEM catalog, post-2025 SFE Group)
 
-   Part numbers labeled "OEM" are documented Sumner / Southwire
+   Part numbers labeled "OEM" are documented Sumner / B&B SUMNER
    SKUs from those sources. Numbers labeled "ref" (e.g.
    "ref:CAR-RLR") are organizational identifiers used by this
    manual when a verifiable OEM number could not be confirmed —
@@ -581,7 +581,7 @@ const PARTS = [
     group: "Hardware",
     series: ["Roust-A-Bout"],
     tags: [],
-    desc: "Reference SKU for the complete R-150 Roust-A-Bout. 40 in × 40 in base. Note: only the smaller R-100 (32 in × 40 in base) fits through a standard residential doorway — the R-150 and R-250 require a wider passage.",
+    desc: "Reference SKU for the complete R-150 Roust-A-Bout. 40 in × 40 in base. The narrower-base R-100 (32 in × 40 in) is the interior-access variant — it will clear the wider passages you find in commercial buildings but is right at the limit on a 32 in residential door, so verify swing clearance before committing to a route.",
     fits: "Identifies a complete Roust-A-Bout R-150 lift",
     interval: "—"
   },

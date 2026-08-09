@@ -29,11 +29,18 @@
     let factor = 1.0;
     let notes = [];
 
-    // Fork extension de-rate (per Sumner: 200 lb max with extension kit installed)
+    // Fork extension de-rate (per Sumner: 200 lb max with extension kit installed).
+    // The 783691 fork-extension kit is intended for the contractor lifts —
+    // it does NOT fit the Series 2300 drywall lift (fork channel differs and
+    // the 150 lb rating is already below the extended-fork cap).
     if (forks === 'extended') {
-      // cap output at 200 lb regardless of model
-      factor = Math.min(factor, 200 / rated);
-      notes.push("Fork extension kit installed → capacity capped at 200 lb (per Sumner spec for PN 783691).");
+      if (model === '2300') {
+        notes.push("NOTE: the Series 2300 drywall lift does not accept the 783691 fork-extension kit. Selection ignored — rated 150 lb applies.");
+      } else {
+        // cap output at 200 lb regardless of model
+        factor = Math.min(factor, 200 / rated);
+        notes.push("Fork extension kit installed → capacity capped at 200 lb (per Sumner spec for PN 783691).");
+      }
     }
 
     // Off-center load — engineering rule of thumb: every inch of off-center reduces capacity proportionally

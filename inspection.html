@@ -45,7 +45,7 @@
         <option value="Eventer 16">Eventer 16 — 500 lb / 16&prime;11&Prime;</option>
         <option value="Eventer 20">Eventer 20 — 800 lb / 20&prime;</option>
         <option value="Eventer 25">Eventer 25 — 650 lb / 25&prime;</option>
-        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (fits std. door)</option>
+        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (narrow base)</option>
         <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15&prime;</option>
         <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25&prime;</option>
       </select>
@@ -105,7 +105,7 @@
   <div class="wrap">
     <div class="breadcrumb"><a href="index.html">Field Manual</a> &nbsp;/&nbsp; <span>Cable Inspection Guide</span></div>
     <h1>What a bad cable looks like.</h1>
-    <p>The lift cable is the single component most likely to fail catastrophically and the easiest to misjudge by eye. This chapter shows what each damage mode looks like, when industry standards (ASME B30.30, B30.9, OSHA 29 CFR 1926.1413) say to remove the cable from service, and how to inspect with confidence.</p>
+    <p>The lift cable is the single component most likely to fail catastrophically and the easiest to misjudge by eye. This chapter shows what each damage mode looks like, when industry wire-rope inspection standards (ASME B30.30 for running rope, B30.9 for slings) say to remove the cable from service, and how to inspect with confidence. Material lifts don&apos;t fall under OSHA 1926.1413 (which is the crane-specific rule) &mdash; but the ASME criteria referenced here are the same removal thresholds a crane inspector would apply.</p>
   </div>
 </section>
 
@@ -226,17 +226,29 @@
             <text y="82" text-anchor="middle" font-family="ui-monospace,monospace" font-size="5.5" fill="#5b6473" letter-spacing="0.4">7 STRANDS × 19 WIRES EACH</text>
           </g>
 
-          <!-- RIGHT: side view with lay length -->
+          <!-- RIGHT: side view with lay length
+               Three visible strand paths at 120° phase offset around the
+               unseen core, so the eye reads a helix (not three parallel
+               waves). Each path uses a sine-like wave; the ±14 amplitude
+               puts strand centers at the envelope edges when they cross. -->
           <g transform="translate(240, 130)">
-            <!-- 6 helical strands wrapping around unseen core -->
-            <g stroke="url(#wsteel)" stroke-width="6" fill="none" stroke-linecap="round">
-              <path d="M 0 -14 Q 20 -14 20 0 T 40 14 T 60 -14 T 80 14 T 100 -14 T 120 14 T 140 -14"/>
+            <g stroke="url(#wsteel)" stroke-width="5.5" fill="none" stroke-linecap="round">
+              <!-- Strand A: sine phase 0 -->
+              <path d="M 0 -14 Q 10 -12 20 0 T 40 14 T 60 0 T 80 -14 T 100 0 T 120 14 T 140 0"/>
             </g>
-            <g stroke="#5b6473" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9">
-              <path d="M 0 0 Q 20 0 20 14 T 40 -14 T 60 14 T 80 -14 T 100 14 T 120 -14 T 140 14"/>
+            <g stroke="#5b6473" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.85">
+              <!-- Strand B: 120° phase offset (leads A by ~1/3 wavelength ≈ 6.7 px) -->
+              <path d="M 0 12 Q 10 14 20 -7 T 40 -14 T 60 7 T 80 14 T 100 -7 T 120 -14 T 140 7"/>
             </g>
-            <g stroke="#3a4553" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.8">
-              <path d="M 0 14 Q 20 14 20 -14 T 40 0 T 60 -14 T 80 0 T 100 -14 T 120 0 T 140 -14"/>
+            <g stroke="#3a4553" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.7">
+              <!-- Strand C: 240° phase offset -->
+              <path d="M 0 2 Q 10 -7 20 -14 T 40 0 T 60 14 T 80 7 T 100 -14 T 120 0 T 140 14"/>
+            </g>
+            <!-- Groove shadows where strands cross behind the front strand -->
+            <g stroke="#1c2230" stroke-width="0.5" fill="none" opacity="0.55">
+              <path d="M 15 0 Q 20 -4 25 0" /><path d="M 55 0 Q 60 -4 65 0" />
+              <path d="M 95 0 Q 100 -4 105 0" /><path d="M 35 0 Q 40 4 45 0" />
+              <path d="M 75 0 Q 80 4 85 0" /><path d="M 115 0 Q 120 4 125 0" />
             </g>
             <!-- Envelope lines -->
             <line x1="0" y1="-18" x2="140" y2="-18" stroke="#0a0e13" stroke-width="0.4" stroke-dasharray="1.5,1"/>
@@ -281,7 +293,7 @@
     <div class="damage-grid mt-4">
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: broken wires — six random breaks in one lay"><defs>
     <pattern id="b1g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b1s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b1s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -301,7 +313,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: valley breaks between strands"><defs>
     <pattern id="b2g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b2s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b2s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -321,7 +333,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: diameter reduction with caliper indicator"><defs>
     <pattern id="b3g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b3s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b3s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -334,7 +346,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: kink and permanent deformation"><defs>
     <pattern id="b4g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b4s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b4s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -347,7 +359,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: birdcage strand separation"><defs>
     <pattern id="b5g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b5s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b5s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -360,7 +372,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: heat or arc damage with pitting"><defs>
     <pattern id="b6g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b6s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b6s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -380,7 +392,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: severe corrosion with underlying-steel pitting"><defs>
     <pattern id="b7g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b7s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b7s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -393,7 +405,7 @@
       </article>
 
       <article class="damage-card">
-        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg"><defs>
+        <div class="swatch"><svg viewBox="0 0 280 140" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Wire-rope damage mode: crown wire wear from worn sheave"><defs>
     <pattern id="b8g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0 L0 0 L0 14" fill="none" stroke="#e2e5eb" stroke-width="0.3"/></pattern>
     <linearGradient id="b8s" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a4553"/><stop offset="0.5" stop-color="#8f99a8"/><stop offset="1" stop-color="#3a4553"/></linearGradient>
     <linearGradient id="b8s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#2a3441"/><stop offset="0.5" stop-color="#7c8695"/><stop offset="1" stop-color="#2a3441"/></linearGradient>
@@ -496,13 +508,13 @@
             <td>Kinking / crushing / birdcaging</td>
             <td>Any = remove</td>
             <td>Any = remove</td>
-            <td>OSHA 1926.1413</td>
+            <td>ASME B30.30 / B30.9</td>
           </tr>
           <tr>
             <td>Heat / arc damage</td>
             <td>Any evidence = remove</td>
             <td>Any evidence = remove</td>
-            <td>OSHA 1926.1413</td>
+            <td>ASME B30.30 / B30.9</td>
           </tr>
           <tr>
             <td>End-attachment cracking</td>

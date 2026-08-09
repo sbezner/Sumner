@@ -45,7 +45,7 @@
         <option value="Eventer 16">Eventer 16 — 500 lb / 16&prime;11&Prime;</option>
         <option value="Eventer 20">Eventer 20 — 800 lb / 20&prime;</option>
         <option value="Eventer 25">Eventer 25 — 650 lb / 25&prime;</option>
-        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (fits std. door)</option>
+        <option value="R-100">Roust-A-Bout R-100 — 1,500 lb / 10&prime; (narrow base)</option>
         <option value="R-150">Roust-A-Bout R-150 — 1,500 lb / 15&prime;</option>
         <option value="R-250">Roust-A-Bout R-250 — 1,500 lb / 25&prime;</option>
       </select>
@@ -281,8 +281,8 @@
   <rect x="158" y="35" width="4" height="48" fill="#1c2230" opacity=".35"/>
   <rect x="147" y="78" width="3" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.3"/>
   <rect x="170" y="78" width="3" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.3"/>
-  <!-- Cable INSIDE mast (dashed to show hidden line) -->
-  <line x1="160" y1="30" x2="160" y2="130" stroke="#0e7461" stroke-width="0.6" stroke-dasharray="2,1.5" opacity=".7"/>
+  <!-- Cable INSIDE mast (dashed = ISO 128 hidden-line convention, ink not teal) -->
+  <line x1="160" y1="30" x2="160" y2="215" stroke="#0a0e13" stroke-width="0.7" stroke-dasharray="3,1.5" opacity=".78"/>
   <!-- Sheave -->
   <path d="M 138 22 L 138 35 L 182 35 L 182 22 Q 182 19 179 19 L 141 19 Q 138 19 138 22 Z" fill="none" stroke="#0a0e13" stroke-width="0.7"/>
   <circle cx="160" cy="26" r="5.5" fill="url(#bst)" stroke="#0a0e13" stroke-width="0.6"/>
@@ -291,10 +291,12 @@
   <rect x="148" y="145" width="24" height="24" fill="#3a4553" stroke="#0a0e13" stroke-width="0.7"/>
   <circle cx="151" cy="149" r="1.3" fill="#1c2230"/><circle cx="169" cy="149" r="1.3" fill="#1c2230"/>
   <circle cx="151" cy="165" r="1.3" fill="#1c2230"/><circle cx="169" cy="165" r="1.3" fill="#1c2230"/>
-  <rect x="90" y="120" width="140" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
+  <!-- Bridging bracket connecting the reversed forks to the carriage top -->
+  <rect x="150" y="140" width="20" height="6" fill="#3a4553" stroke="#0a0e13" stroke-width="0.5"/>
+  <rect x="90" y="140" width="140" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
   <!-- Fork tines UP (indicating reversed configuration) -->
-  <rect x="90" y="92" width="5" height="28" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
-  <rect x="225" y="92" width="5" height="28" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
+  <rect x="90" y="112" width="5" height="28" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
+  <rect x="225" y="112" width="5" height="28" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
   <text x="255" y="105" font-family="ui-monospace,monospace" font-size="6" font-weight="600" fill="#0e7461">FORKS</text>
   <text x="255" y="112" font-family="ui-monospace,monospace" font-size="6" font-weight="600" fill="#0e7461">REVERSED</text>
   <!-- Winch -->
@@ -481,12 +483,17 @@
   <rect x="158" y="55" width="4" height="76" fill="#1c2230" opacity=".35"/>
   <rect x="147" y="128" width="3" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.3"/>
   <rect x="170" y="128" width="3" height="5" fill="#ffc419" stroke="#0a0e13" stroke-width="0.3"/>
-  <!-- 360° CABLE HEAD GUARD (formed steel ring — DEFINING FEATURE) -->
-  <g stroke="#0e7461" stroke-width="1.6" fill="none">
-    <path d="M 130 42 Q 130 26 160 26 Q 190 26 190 42"/>
-    <line x1="130" y1="42" x2="130" y2="55"/>
-    <line x1="190" y1="42" x2="190" y2="55"/>
-    <path d="M 130 55 L 130 60 L 190 60 L 190 55" fill="none"/>
+  <!-- 360° CABLE HEAD GUARD (formed steel ring — DEFINING FEATURE)
+       Rendered in steel color so it reads as hardware, not annotation.
+       Elevation view shows the ring as a full loop (top arc + closed
+       bottom bar) with vertical struts on each side. -->
+  <g fill="none" stroke="#0a0e13" stroke-width="1">
+    <path d="M 128 42 Q 128 24 160 24 Q 192 24 192 42" stroke="url(#dst)" stroke-width="2.4"/>
+    <line x1="128" y1="42" x2="128" y2="56" stroke="url(#dst)" stroke-width="2.4"/>
+    <line x1="192" y1="42" x2="192" y2="56" stroke="url(#dst)" stroke-width="2.4"/>
+    <line x1="128" y1="56" x2="192" y2="56" stroke="url(#dst)" stroke-width="2.4"/>
+    <!-- Front-face ring hint: outer edge shadow -->
+    <path d="M 128 42 Q 128 24 160 24 Q 192 24 192 42 L 192 56 L 128 56 Z" fill="none" stroke="#1c2230" stroke-width="0.3" opacity="0.6"/>
   </g>
   <!-- Sheave inside guard -->
   <circle cx="160" cy="46" r="6" fill="url(#dst)" stroke="#0a0e13" stroke-width="0.6"/>
@@ -628,7 +635,8 @@
   <ellipse cx="192" cy="210" rx="7" ry="5" fill="#000" stroke="#0a0e13" stroke-width="0.4"/>
   <line x1="205" y1="210" x2="214" y2="210" stroke="#0a0e13" stroke-width="0.9"/>
   <line x1="214" y1="210" x2="218" y2="204" stroke="#0a0e13" stroke-width="1.3" stroke-linecap="round"/>
-  <circle cx="218" cy="204" r="1.6" fill="#3a4553" stroke="#0a0e13" stroke-width="0.4"/>
+  <!-- Safety yellow knob retained across the family — anodized mast doesn't extend to the crank grip -->
+  <circle cx="218" cy="204" r="1.6" fill="#ffc419" stroke="#0a0e13" stroke-width="0.4"/>
   <!-- Callout -->
   <text x="26" y="180" font-family="ui-monospace,monospace" font-size="5.5" font-weight="700" fill="#0e7461">BLACK ANODIZED</text>
   <text x="26" y="186" font-family="ui-monospace,monospace" font-size="5.5" font-weight="700" fill="#0e7461">MAST · STAGE</text>
@@ -711,8 +719,8 @@
   <!-- Rollers on each side -->
   <circle cx="112" cy="146" r="1.6" fill="#1c2230"/><circle cx="112" cy="154" r="1.6" fill="#1c2230"/>
   <circle cx="208" cy="146" r="1.6" fill="#1c2230"/><circle cx="208" cy="154" r="1.6" fill="#1c2230"/>
-  <!-- Load platform below crossbeam -->
-  <rect x="120" y="160" width="80" height="4" fill="#ffc419" stroke="#0a0e13" stroke-width="0.5"/>
+  <!-- Load platform below crossbeam (steel — not a safety-marked surface) -->
+  <rect x="120" y="160" width="80" height="4" fill="url(#fst)" stroke="#0a0e13" stroke-width="0.5"/>
   <!-- LEFT winch (LOAD) -->
   <rect x="86" y="200" width="4" height="22" fill="#3a4553" stroke="#0a0e13" stroke-width="0.4"/>
   <rect x="60" y="197" width="26" height="26" rx="1.5" fill="url(#fst)" stroke="#0a0e13" stroke-width="0.6"/>
@@ -742,7 +750,7 @@
         <h2>Heavy Hitter &mdash; the dual-winch industrial.</h2>
         <p>The Roust-A-Bout is a different animal: twin parallel masts, a shared crossbeam carriage, and two independent winches &mdash; one for raising the load, one for extending the mast. That separation lets one operator move a 1,500 lb pipe section vertically and horizontally at the same time. 8&Prime; casters give it the only Sumner platform designed to roll loaded.</p>
         <ul class="spec-list">
-          <li><span class="k">R-100</span><span class="v">1,500 lb · 10&prime; · 32&Prime; × 40&Prime; base — <strong>fits a standard doorway</strong></span></li>
+          <li><span class="k">R-100</span><span class="v">1,500 lb · 10&prime; · 32&Prime; × 40&Prime; base — <strong>narrow-base interior-access variant</strong></span></li>
           <li><span class="k">R-150</span><span class="v">1,500 lb · 15&prime; · 40&Prime; × 40&Prime; base (PN 780301)</span></li>
           <li><span class="k">R-250</span><span class="v">1,500 lb · 25&prime; · 40&Prime; × 40&Prime; base (PN 780303)</span></li>
           <li><span class="k">Winches</span><span class="v">2 × independent (load + mast)</span></li>
@@ -751,7 +759,7 @@
         </ul>
         <p class="mt-2"><strong>Common service items:</strong> 4-speed selector linkage, mast-winch synchronization (twin masts can drift if one cable stretches), caster axle bearings, crossbeam carriage rollers.</p>
         <p style="margin-top: 12px;"><a href="https://www.energizedengines.com/search?q=Sumner+Roust-A-Bout&type=product" target="_blank" rel="sponsored noopener" style="display:inline-flex;align-items:center;gap:8px;padding:9px 16px;background:var(--accent-teal);color:#fff;font-size:.86rem;font-weight:600;border-radius:7px;text-decoration:none;">Shop this model on Energized Engines &nearr;</a></p>
-        <p style="font-size:.86rem;color:var(--steel-500);"><strong>Doorway clearance:</strong> only the R-100 (32&Prime; base) fits through a standard residential doorway. The R-150 and R-250 share a 40&Prime; × 40&Prime; base and require a wider passage.</p>
+        <p style="font-size:.86rem;color:var(--steel-500);"><strong>Doorway clearance:</strong> the R-100 (32&Prime; base) is the interior-access variant &mdash; it will clear the wider commercial passages you find in service corridors, but it&apos;s right at the limit of a 32&Prime; residential door and won&apos;t clear a 30&Prime; door + stops. Verify the swing route before committing. The R-150 / R-250 share a 40&Prime; × 40&Prime; base and need a wider passage.</p>
       </div>
     </div>
   </div>
@@ -785,7 +793,7 @@
           <tr><td>Eventer 16</td><td>500 lb</td><td>16&prime;11&Prime;</td><td>Stage / AV</td><td>Black anodized stealth mast</td></tr>
           <tr><td>Eventer 20</td><td>800 lb</td><td>20&prime;</td><td>Stage / AV</td><td>Highest-capacity Eventer</td></tr>
           <tr><td>Eventer 25</td><td>650 lb</td><td>25&prime;</td><td>Stage / AV</td><td>Tallest Eventer</td></tr>
-          <tr><td>R-100 Roust-A-Bout</td><td>1,500 lb</td><td>10&prime;</td><td>Pipe / Industrial</td><td>32&Prime; × 40&Prime; base — fits standard door</td></tr>
+          <tr><td>R-100 Roust-A-Bout</td><td>1,500 lb</td><td>10&prime;</td><td>Pipe / Industrial</td><td>32&Prime; × 40&Prime; base — narrow-base interior variant</td></tr>
           <tr><td>R-150 Roust-A-Bout</td><td>1,500 lb</td><td>15&prime;</td><td>Pipe / Industrial</td><td>Dual winch, 4-speed (40&Prime; × 40&Prime; base)</td></tr>
           <tr><td>R-250 Roust-A-Bout</td><td>1,500 lb</td><td>25&prime;</td><td>Pipe / Industrial</td><td>Dual winch, 4-speed, tallest variant</td></tr>
         </tbody>

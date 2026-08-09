@@ -3249,6 +3249,19 @@ html[data-theme="dark"] .app-main .page-head h1 { color: var(--v3-text); }
    now that they don't have their own background colors. */
 .app-main .section + .section { border-top: 1px solid var(--v3-rule); }
 
+/* DEFENSIVE: force sections to establish their own block-formatting context
+   so a floated/aspect-ratio child figure in one section can never overlap
+   the next section. Also ensures grid children stretch to the row height. */
+.app-main .section { display: block; clear: both; overflow: visible; }
+.app-main .section > .wrap { display: block; }
+.app-main .section .grid { align-items: start; }
+.app-main .section .grid > * { min-width: 0; }
+/* Nested .grid rows collapse to single column at narrow widths — enforce
+   that in the app-main scope too so long text columns don't crowd a figure. */
+@media (max-width: 900px) {
+  .app-main .grid--2, .app-main .grid--3, .app-main .grid--4 { grid-template-columns: 1fr; }
+}
+
 /* ============================================================
    SIZING DECISION TREE (sizing.html)
    Sales-facing five-question tree that recommends a lift SKU.
@@ -3305,16 +3318,28 @@ html[data-theme="dark"] .sizing-recommendation { background: rgba(14,116,97,.08)
   width: 100%;
 }
 .app-main h1.app-h1 {
-  font-size: 1.7rem;
+  font-size: clamp(1.35rem, 4.8vw, 1.9rem);
   font-weight: 700;
   letter-spacing: -0.025em;
-  margin: 0 0 4px;
+  margin: 0 0 8px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 .app-main .app-subtitle {
-  font-size: .98rem;
+  font-size: clamp(.92rem, 3vw, .98rem);
   color: var(--v3-text-soft);
   margin: 0 0 24px;
   max-width: 60ch;
+  overflow-wrap: break-word;
+}
+/* Guard: at the smallest widths, drop the .app-brand-mark "SL" tile
+   font-size so the topbar doesn't push the search box off-screen. */
+@media (max-width: 400px) {
+  .app-main { padding: 20px 16px 60px; }
+  .app-topbar-inner { padding: 0 12px; }
+  .app-brand { gap: 6px; }
+  .app-brand-mark { width: 30px; height: 30px; font-size: .78rem; }
 }
 
 /* Hero search inside dashboard */
